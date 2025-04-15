@@ -1,0 +1,34 @@
+package criaturas;
+
+public abstract class Criatura {
+private String nome;
+private float vida;
+private int individuosPorGrupo;
+private String descricao;
+private String habitat;
+
+public void setNome(String nome) {
+	this.nome = nome;
+}
+public void setHabitat(String habitat) {
+	this.habitat = habitat;
+}
+
+public void setVida(float vida) {
+	vida = vida + getVida();
+	this.vida= vida;
+}
+public float getVida() {
+	return vida;
+}
+public  void setIndividuosPorGrupo(int individuosPorGrupo) {
+	this.individuosPorGrupo= individuosPorGrupo;
+}
+public void setDescriçao(String descricao) {
+	this.descricao= descricao;
+}
+
+public abstract void interagir();
+
+
+}
