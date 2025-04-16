@@ -1,6 +1,6 @@
 package criaturas;
 
-public class CriaturasHostis {
+public class CriaturasHostis extends Criatura {
 private int forca;
 private String efeitoSecundario;
 private double probabilidadeDeEfeito;
@@ -8,7 +8,7 @@ private String estado;
 
 public CriaturasHostis(String nome, float vida, int individuosPorGrupo, String descricao, String habitat,
 		int forca, String efeitoSecundário, double probabilidadeDeEfeito, String estado) {
-	super();
+	super(nome, vida, individuosPorGrupo, descricao, habitat);
 	this.forca= forca;
 	this.efeitoSecundario= efeitoSecundário;
 	this.probabilidadeDeEfeito= probabilidadeDeEfeito;
@@ -35,6 +35,7 @@ public double ataque(Personagem jogador) {
     return ataque;
 	
 }
+// faz parte do multiplicador de dano
 public  double estadoCriatura() {
 	double valorTeste;
 	if (estado.equalsIgnoreCase("letal")) {
@@ -55,4 +56,12 @@ public  double estadoCriatura() {
 	}
 	return valorTeste;
 }
+/* Melhorar classes abaixo */
+public void interagir(Personagem jogador) {
+
+	System.out.println( getNome() + " vai atacar!");
+	ataque(jogador);
+	
+}
+
 }

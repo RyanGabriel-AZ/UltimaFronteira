@@ -1,5 +1,4 @@
 package criaturas;
 
-public class CriaturasDoceis {
-
+public class CriaturasDoceis extends Criatura {
 }

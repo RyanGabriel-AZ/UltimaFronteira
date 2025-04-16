@@ -17,10 +17,19 @@ public Criatura(String nome, float vida, int individuosPorGrupo, String descrica
 public void setNome(String nome) {
 	this.nome = nome;
 }
+public String getNome() {
+	return nome;
+}
 public void setHabitat(String habitat) {
 	this.habitat = habitat;
 }
-
+public String getHabitat() {
+	return habitat;
+	
+}
+public String getDescricao() {
+	return descricao;
+}
 public void setVida(float vida) {
 	vida = vida + getVida();
 	this.vida= vida;
@@ -34,8 +43,11 @@ public  void setIndividuosPorGrupo(int individuosPorGrupo) {
 public void setDescriçao(String descricao) {
 	this.descricao= descricao;
 }
-
-public abstract void interagir();
+public int getIndividuosPorGrupo() {
+	return individuosPorGrupo;
+	
+}
+public abstract  void interagir();
 
 
 }
