@@ -7,6 +7,13 @@ private int individuosPorGrupo;
 private String descricao;
 private String habitat;
 
+public Criatura(String nome, float vida, int individuosPorGrupo, String descricao, String habitat) {
+	this.nome=nome;
+	this.vida= vida;
+	this.individuosPorGrupo= individuosPorGrupo;
+	this.descricao= descricao;
+	this.habitat= habitat;
+}
 public void setNome(String nome) {
 	this.nome = nome;
 }
