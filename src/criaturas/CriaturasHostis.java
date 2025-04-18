@@ -1,5 +1,7 @@
 package criaturas;
 
+import personalidades.Personagem;
+
 public class CriaturasHostis extends Criatura {
 private int forca;
 private String efeitoSecundario;
@@ -25,6 +27,33 @@ public void setForca(int forca) {
 }
 public int getForca() {
 	return forca;
+}
+public String getEfeitoSecundario() {
+	return efeitoSecundario.toLowerCase();
+}
+
+public void aplicarEfeitosSecundarios(Personagem jogador){
+	switch(getEfeitoSecundario()) {
+	case "sangramento":
+		System.out.println("Você está sangrando!");
+		jogador.perdeVida(5);
+	break;
+	case "hemorragia":
+		System.out.println("Você está tendo um hemorragia!");
+		jogador.perdeVida(10);
+		jogador.perdeEnergia(20);
+		jogador.perdeSanidade(20);
+		jogador.perdeAtaque(10);
+		jogador.perdePrecisão(10);
+		break;
+	case "veneno":
+		System.out.println("Você está envenenado!");
+		jogador.perdeVida(10);
+		jogador.perdeSanidade(30);
+		break;
+		
+	}
+	
 }
 public double ataque(Personagem jogador) {
 	double ataque;

@@ -1,4 +1,5 @@
 package ambientacao;
+import personalidades.*;
 
 public abstract class  Ambiente {
 private String nome;
@@ -18,9 +19,8 @@ public Ambiente(String nome, String descricao, double dificuldadeDeExploração,
 
 
 
-public abstract Explorar(Personagem jogador);
-public void GerarEvento(){
-}
+public abstract void Explorar(Personagem jogador);
+public abstract void GerarEvento();
 public  abstract void ModificarClima();
 
 public void setNome(String nome) {
