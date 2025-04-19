@@ -17,5 +17,16 @@ public abstract class Personagem {
 		this.localizacao= localizacao;
 	}
 
+
+	public double getVida() {
+		return vida;
+	}
+
+
+	public void setVida(double vida) {
+		
+		this.vida = vida + getVida();
+	}
+
 	
 }

@@ -20,9 +20,9 @@ public Ambiente(String nome, String descricao, double dificuldadeDeExploração,
 
 
 public abstract void Explorar(Personagem jogador);
-public abstract void GerarEvento();
+ /*public abstract void GerarEvento();
 public  abstract void ModificarClima();
-
+*/
 public void setNome(String nome) {
 	this.nome= nome;
 }
