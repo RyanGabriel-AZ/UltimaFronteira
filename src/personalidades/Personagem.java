@@ -12,4 +12,10 @@ public abstract class Personagem {
 	private double sanidade;
 	private int inventario;
 	
+	
+	public void setLocalização(Ambiente localizacao) {
+		this.localizacao= localizacao;
+	}
+
+	
 }
