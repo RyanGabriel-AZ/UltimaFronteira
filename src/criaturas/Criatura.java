@@ -1,13 +1,13 @@
 package criaturas;
-
+import ambientacao.*;
 public abstract class Criatura {
 	private String nome;
 	private float vida;
 	private int individuosPorGrupo;
 	private String descricao;
-	private String habitat;
+	private Ambiente habitat;
 
-	public Criatura(String nome, float vida, int individuosPorGrupo, String descricao, String habitat) {
+	public Criatura(String nome, float vida, int individuosPorGrupo, String descricao, Ambiente habitat) {
 		this.nome = nome;
 		this.vida = vida;
 		this.individuosPorGrupo = individuosPorGrupo;
@@ -23,11 +23,11 @@ public abstract class Criatura {
 		return nome;
 	}
 
-	public void setHabitat(String habitat) {
+	public void setHabitat(Ambiente habitat) {
 		this.habitat = habitat;
 	}
 
-	public String getHabitat() {
+	public Ambiente getHabitat() {
 		return habitat;
 
 	}

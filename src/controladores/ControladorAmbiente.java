@@ -14,6 +14,17 @@ public class ControladorAmbiente {
 		ambientes.add(bioma);
 	}
 
+	public void removerAmbiente(String nomeAmbiente) {
+		for (Ambiente ambiente : ambientes) {
+			if(ambiente.getNome().equalsIgnoreCase(nomeAmbiente)) {
+				ambientes.remove(ambiente);
+				break;
+			}
+		}
+		
+		
+	}
+
 // sorteia um numero da lista ambiente
 	public int randomAmbiente() {
 		int tamanho, sorteio;
