@@ -1,6 +1,6 @@
 package criaturas;
 
-import personalidades.Personagem;
+import personalidades.*;
 
 public class CriaturasHostis extends Criatura {
 private int forca;
@@ -31,7 +31,7 @@ public int getForca() {
 public String getEfeitoSecundario() {
 	return efeitoSecundario.toLowerCase();
 }
-
+//aplicar a probabilidade posteriormente
 public void aplicarEfeitosSecundarios(Personagem jogador){
 	switch(getEfeitoSecundario()) {
 	case "sangramento":
@@ -90,6 +90,12 @@ public void interagir(Personagem jogador) {
 
 	System.out.println( getNome() + " vai atacar!");
 	ataque(jogador);
+	
+}
+
+@Override
+public void interagir() {
+	// TODO Auto-generated method stub
 	
 }
 

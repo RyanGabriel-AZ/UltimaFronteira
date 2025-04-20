@@ -8,11 +8,7 @@ private String tipo;
 
 
 public  abstract void usar();
-/*
- * Não lembro o que faz
- * public void cargaPeso()
- * 
- */
+
 public Item(String nome, double peso, double durabilidade) {
 	this.nome= nome;
 	this.durabilidade= durabilidade;
