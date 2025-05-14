@@ -1,5 +1,6 @@
 package criaturas;
 
+import ambientacao.Ambiente;
 import personalidades.Personagem;
 
 public class CriaturasHostis extends Criatura {
@@ -8,7 +9,7 @@ public class CriaturasHostis extends Criatura {
 	private double probabilidadeDeEfeito;
 	private String estado;
 
-	public CriaturasHostis(String nome, float vida, int individuosPorGrupo, String descricao, String habitat, int forca,
+	public CriaturasHostis(String nome, float vida, int individuosPorGrupo, String descricao, Ambiente habitat, int forca,
 			String efeitoSecundário, double probabilidadeDeEfeito, String estado) {
 		super(nome, vida, individuosPorGrupo, descricao, habitat);
 		this.forca = forca;
@@ -64,7 +65,7 @@ public class CriaturasHostis extends Criatura {
 
 	public void aplicarEfeitosSecundarios(Personagem jogador) {
 		double chance = getProbabilidadeDeEfeito();
-		if (Math.random() < chance) {
+		if (Math.random() < chance && jogador.getProtecaoEfeitosSecundarios()==0) {
 			EfeitosSecundarios(jogador);
 		}
 

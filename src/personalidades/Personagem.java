@@ -3,6 +3,9 @@ import ambientacao.*;
 import controladores.*;
 public abstract class Personagem {
 
+	/*
+	 * Fazer um contador de turnos para protecao, ela só pode ir ate 0, não pode ser mais que isso
+	 */
 	private String nome;
 	private double vida;
 	private double energia;
@@ -13,7 +16,13 @@ public abstract class Personagem {
 	private Inventario armazenamento;
 	private double forca;
 	private double precisao;
+	private int protecaoEfeitosSecundarios;
 	
+	public void diminuirProtecao() {
+		if(getProtecaoEfeitosSecundarios()>0) {
+			setProtecaoEfeitosSecundarios(-1);
+		}
+	}
 	
 	public void setLocalização(Ambiente localizacao) {
 		this.localizacao= localizacao;
@@ -88,6 +97,16 @@ public abstract class Personagem {
 
 	public void setPrecisao(double preecisao) {
 		this.precisao = preecisao + getPrecisao();
+	}
+
+
+	public int getProtecaoEfeitosSecundarios() {
+		return protecaoEfeitosSecundarios;
+	}
+
+
+	public void setProtecaoEfeitosSecundarios(int protecaoEfeitosSecundarios) {
+		this.protecaoEfeitosSecundarios = protecaoEfeitosSecundarios + getProtecaoEfeitosSecundarios();
 	}
 
 	

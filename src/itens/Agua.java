@@ -3,12 +3,22 @@ package itens;
 import personalidades.*;
 
 public class Agua extends Item {
+	
+
 	private double pureza;
 	private double volume;
 
+	public Agua(String nome, double peso, double durabilidade, double pureza,  double volume ) {
+		super(nome, peso, durabilidade);
+		this.pureza= pureza;
+		this.volume= volume;
+	
+	}
 	public void matarSede(Personagem jogador) {
 		double vida = ((getPureza() - 0.7) * jogador.getVida());
 		jogador.setVida(vida);
+		double sede = (getPureza()*getVolume() + 0.5*getVolume());
+		jogador.setSede(sede);
 	}
 
 	public double getPureza() {
@@ -25,6 +35,13 @@ public class Agua extends Item {
 
 	public void setVolume(double volume) {
 		this.volume = volume;
+	}
+
+	@Override
+	public void usar(Personagem jogador) {
+		matarSede(jogador);
+		System.out.println("Que água molhada. :) ");
+		
 	}
 
 	/*

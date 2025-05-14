@@ -1,12 +1,14 @@
 package itens;
 
+import personalidades.Personagem;
+
 public abstract class Item {
 	private String nome;
 	private double peso;
 	private double durabilidade;
 	private String tipo;
 
-	public abstract void usar();
+	public abstract void usar(Personagem jogador);
 
 	public Item(String nome, double peso, double durabilidade) {
 		this.nome = nome;
@@ -37,5 +39,7 @@ public abstract class Item {
 	public void setDurabilidade(double durabilidade) {
 		this.durabilidade = durabilidade;
 	}
+
+	
 
 }
