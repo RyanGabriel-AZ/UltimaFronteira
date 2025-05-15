@@ -1,7 +1,7 @@
 package personalidades;
 import ambientacao.*;
 import controladores.*;
-public abstract class Personagem {
+public class Personagem {
 
 	/*
 	 * Fazer um contador de turnos para protecao, ela só pode ir ate 0, não pode ser mais que isso
@@ -17,7 +17,14 @@ public abstract class Personagem {
 	private double forca;
 	private double precisao;
 	private int protecaoEfeitosSecundarios;
-	
+//esse construtor é só para os atributos que estou precisando em DesgastePersonagem
+	public Personagem(double vida, double energia, double fome, double sede, double sanidade) {
+		this.energia=energia;
+		this.fome=fome;
+		this.sanidade=sanidade;;
+		this.vida=vida;
+		this.sede=sede;
+	}
 	public void diminuirProtecao() {
 		if(getProtecaoEfeitosSecundarios()>0) {
 			setProtecaoEfeitosSecundarios(-1);

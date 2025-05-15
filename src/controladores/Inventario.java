@@ -2,6 +2,7 @@ package controladores;
 
 import java.util.ArrayList;
 import itens.*;
+import personalidades.Personagem;
 
 public class Inventario {
 
@@ -27,11 +28,11 @@ public class Inventario {
 		}
 	}
 
-	public void usarItem(String nomeItem) {
+	public void usarItem(String nomeItem, Personagem jogador) {
 
 		for (Item item : inventario) {
 			if (item.getNome().equalsIgnoreCase(nomeItem)) {
-				item.usar();
+				item.usar(jogador);
 				break;
 
 			}

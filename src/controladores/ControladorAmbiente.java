@@ -1,9 +1,9 @@
 package controladores;
 
-import personalidades.*;
 import java.util.ArrayList;
 
-import ambientacao.*;
+import ambientacao.Ambiente;
+import personalidades.Personagem;
 
 public class ControladorAmbiente {
 // Vou criar os objetos de ambiente aqui, atraves de metodos, e colocar eles no array  list

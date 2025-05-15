@@ -8,8 +8,8 @@ public class Agua extends Item {
 	private double pureza;
 	private double volume;
 
-	public Agua(String nome, double peso, double durabilidade, double pureza,  double volume ) {
-		super(nome, peso, durabilidade);
+	public Agua(String nome, double peso, double durabilidade, double pureza,  double volume, int quantidade ) {
+		super(nome, peso, durabilidade, quantidade);
 		this.pureza= pureza;
 		this.volume= volume;
 	
@@ -19,6 +19,7 @@ public class Agua extends Item {
 		jogador.setVida(vida);
 		double sede = (getPureza()*getVolume() + 0.5*getVolume());
 		jogador.setSede(sede);
+		setQuantidade(-1);
 	}
 
 	public double getPureza() {

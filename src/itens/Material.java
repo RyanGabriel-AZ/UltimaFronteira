@@ -1,12 +1,64 @@
 package itens;
 
-public class Material {
+import personalidades.Personagem;
 
-private double resistencia;
+public class Material extends Item {
 
+	public Material(String nome, double peso, double durabilidade, int quantidade, double resistencia) {
+		super(nome, peso, durabilidade, quantidade);
+		this.resistencia = resistencia;
+	}
+
+	private double resistencia;
 
 // Acho que o combinar seria o nosso usar.
-public void combinar(Material a, Material b) {
-	
-}
+	public Material combinar(Material a, Material b) {
+		if (a.getResistencia() > 0 && +b.getResistencia() > 0 && a.getQuantidade() > 0 && b.getQuantidade() > 0) {
+			double resistencia = a.getResistencia() + b.getResistencia();
+			double peso = (a.getPeso() + b.getPeso()) * 0.75;
+			double durabilidade = a.getDurabilidade() + b.getDurabilidade();
+			a.setQuantidade(-1);
+			b.setQuantidade(-1);
+			Material c = new Material("material criado", peso, durabilidade, 1, resistencia);
+			return c;
+		}
+		System.out.println("Não é possível combinar os materiais");
+		return null;
+	}
+
+	public double getResistencia() {
+		return resistencia;
+	}
+
+	public void setResistencia(double resistencia) {
+		this.resistencia = resistencia;
+	}
+
+	public boolean verificarPossivelCriacao(Material a, Material b) {
+		if (a.getQuantidade() > 0 && b.getQuantidade() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean verificarPossivelCriacao(Material a, Material b, Material c) {
+		if (a.getQuantidade() > 0 && b.getQuantidade() > 0 && c.getQuantidade() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/*
+	 * terminar depois, isso é a criaçao de armas e ferramentas, talvez até remédio.
+	 * public Material criar(Material a, Material b) {
+	 * if(verificarPossivelCriacao(a, b)) {
+	 * 
+	 * } }
+	 */
+	@Override
+	public void usar(Personagem jogador) {
+
+	}
 }
