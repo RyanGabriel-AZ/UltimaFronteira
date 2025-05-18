@@ -18,12 +18,14 @@ public class Personagem {
 	private double precisao;
 	private int protecaoEfeitosSecundarios;
 //esse construtor é só para os atributos que estou precisando em DesgastePersonagem
-	public Personagem(double vida, double energia, double fome, double sede, double sanidade) {
+	public Personagem(String nome, double vida, double energia, double fome, double sede, double sanidade, int protecaoEfeitosSecundarios) {
 		this.energia=energia;
 		this.fome=fome;
 		this.sanidade=sanidade;;
 		this.vida=vida;
 		this.sede=sede;
+		this.setNome(nome);
+		this.protecaoEfeitosSecundarios=protecaoEfeitosSecundarios;
 	}
 	public void diminuirProtecao() {
 		if(getProtecaoEfeitosSecundarios()>0) {
@@ -114,6 +116,12 @@ public class Personagem {
 
 	public void setProtecaoEfeitosSecundarios(int protecaoEfeitosSecundarios) {
 		this.protecaoEfeitosSecundarios = protecaoEfeitosSecundarios + getProtecaoEfeitosSecundarios();
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	

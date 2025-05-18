@@ -2,14 +2,10 @@ package itens;
 
 public class Ferramenta extends Material {
 	private double eficiencia;
-	private String tipo;
-
 	public Ferramenta(String nome, double peso, double durabilidade, int quantidade, double resistencia,
 			double eficiencia, String tipo) {
-		super(nome, peso, durabilidade, quantidade, resistencia);
+		super(nome, peso, durabilidade, quantidade, resistencia, tipo);
 		this.eficiencia=eficiencia;
-		this.tipo= tipo;
-		// TODO Auto-generated constructor stub
 	}
 
 	public double getEficiencia() {
@@ -20,7 +16,7 @@ public class Ferramenta extends Material {
 		this.eficiencia = eficiencia;
 	}
 	
-	
+
 
 	}
 	

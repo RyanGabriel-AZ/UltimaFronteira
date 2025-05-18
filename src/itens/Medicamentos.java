@@ -14,8 +14,8 @@ public class Medicamentos extends Item {
 	private String efeito;
 	private double potencia;
 
-	public Medicamentos(String nome, double peso, double durabilidade, String efeito, double potencia , int quantidade ) {
-		super(nome, peso, durabilidade, quantidade);
+	public Medicamentos(String nome, double peso, double durabilidade, String efeito, double potencia , int quantidade, String tipo ) {
+		super(nome, peso, durabilidade, quantidade, tipo);
 		this.setEfeito(efeito);
 		this.setPotencia(potencia);
 		// TODO Auto-generated constructor stub

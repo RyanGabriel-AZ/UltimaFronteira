@@ -7,11 +7,12 @@ public abstract class Item {
 	private double peso;
 	private double durabilidade;
 	private int quantidade;
+	private String tipo;
 	
 
 	public abstract void usar(Personagem jogador);
 
-	public Item(String nome, double peso, double durabilidade , int quantidade ) {
+	public Item(String nome, double peso, double durabilidade , int quantidade, String tipo ) {
 		this.nome = nome;
 		this.durabilidade = durabilidade;
 		this.peso = peso;
@@ -31,7 +32,7 @@ public abstract class Item {
 	}
 
 	public void setPeso(double peso) {
-		this.peso = peso;
+		this.peso = peso*getQuantidade();
 	}
 
 	public double getDurabilidade() {
@@ -48,6 +49,14 @@ public abstract class Item {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade + getQuantidade();
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	

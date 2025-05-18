@@ -13,7 +13,7 @@ public class Inventario {
 	 * cargaPeso()
 	 * 
 	 */
-	ArrayList<Item> inventario = new ArrayList<>();
+	public static ArrayList<Item> inventario = new ArrayList<>();
 
 	public void adicionarItem(Item item) {
 		inventario.add(item);
@@ -38,6 +38,16 @@ public class Inventario {
 			}
 
 		}
+	}
+
+	public double pesoInventario() {
+		double peso = 0;
+		double pesoItens;
+		for (Item item : inventario) {
+			pesoItens = item.getPeso();
+			peso = peso + pesoItens;
+		}
+		return peso;
 	}
 
 }

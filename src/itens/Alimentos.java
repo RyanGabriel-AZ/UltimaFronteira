@@ -9,8 +9,8 @@ private double valorNutricional;
 private double prazoValidade;
 // prazo de validade, vais ser entre 0 e 1, de quanto falta para chegar na validade
 // valor nutricional vai ser entre 0 e 100
-public Alimentos(String nome, double peso, double durabilidade, double valorNutricional, double prazoValidade , int quantidade ) {
-	super(nome, peso, durabilidade, quantidade);
+public Alimentos(String nome, double peso, double durabilidade, double valorNutricional, double prazoValidade , int quantidade, String tipo ) {
+	super(nome, peso, durabilidade, quantidade, tipo);
 	this.setPrazoValidade(prazoValidade);
 	this.setValorNutricional(valorNutricional);
 	// TODO Auto-generated constructor stub

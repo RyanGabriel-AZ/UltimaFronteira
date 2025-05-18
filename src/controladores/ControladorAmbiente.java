@@ -8,7 +8,7 @@ import personalidades.Personagem;
 public class ControladorAmbiente {
 // Vou criar os objetos de ambiente aqui, atraves de metodos, e colocar eles no array  list
 
-	ArrayList<Ambiente> ambientes = new ArrayList<>();
+	public ArrayList<Ambiente> ambientes = new ArrayList<>();
 
 	public void adicionarAmbientes(Ambiente bioma) {
 		ambientes.add(bioma);

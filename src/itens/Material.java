@@ -3,23 +3,25 @@ package itens;
 import personalidades.Personagem;
 
 public class Material extends Item {
-
-	public Material(String nome, double peso, double durabilidade, int quantidade, double resistencia) {
-		super(nome, peso, durabilidade, quantidade);
+	
+	public Material(String nome, double peso, double durabilidade, int quantidade, double resistencia, String tipo) {
+		super(nome, peso, durabilidade, quantidade, tipo);
 		this.resistencia = resistencia;
+		
 	}
 
 	private double resistencia;
 
 // Acho que o combinar seria o nosso usar.
 	public Material combinar(Material a, Material b) {
-		if (a.getResistencia() > 0 && +b.getResistencia() > 0 && a.getQuantidade() > 0 && b.getQuantidade() > 0) {
+		if (a.getResistencia() > 0 && +b.getResistencia() > 0 && a.getQuantidade() > 0 && b.getQuantidade() > 0 && a.getTipo().equalsIgnoreCase(b.getTipo())) {
 			double resistencia = a.getResistencia() + b.getResistencia();
 			double peso = (a.getPeso() + b.getPeso()) * 0.75;
 			double durabilidade = a.getDurabilidade() + b.getDurabilidade();
 			a.setQuantidade(-1);
 			b.setQuantidade(-1);
-			Material c = new Material("material criado", peso, durabilidade, 1, resistencia);
+			String tipo= a.getTipo();
+			Material c = new Material("material criado", peso, durabilidade, 1, resistencia, tipo);
 			return c;
 		}
 		System.out.println("Não é possível combinar os materiais");
@@ -61,4 +63,6 @@ public class Material extends Item {
 	public void usar(Personagem jogador) {
 
 	}
+
+	
 }

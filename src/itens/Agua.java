@@ -8,8 +8,8 @@ public class Agua extends Item {
 	private double pureza;
 	private double volume;
 
-	public Agua(String nome, double peso, double durabilidade, double pureza,  double volume, int quantidade ) {
-		super(nome, peso, durabilidade, quantidade);
+	public Agua(String nome, double peso, double durabilidade, double pureza,  double volume, int quantidade, String tipo ) {
+		super(nome, peso, durabilidade, quantidade, tipo);
 		this.pureza= pureza;
 		this.volume= volume;
 	
