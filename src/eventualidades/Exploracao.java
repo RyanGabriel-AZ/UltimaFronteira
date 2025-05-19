@@ -3,11 +3,14 @@ package eventualidades;
 import controladores.Inventario;
 import itens.Ferramenta;
 import itens.Item;
-
 public class Exploracao {
+private Inventario inventario;
 
+public void setInventarioExploraçao(Inventario inventario) {
+	this.inventario = inventario;
+}
 	public void ganharRecurso(Ferramenta usada, String tipo) {
-		for (Item inventarios : Inventario.inventario) {
+		for (Item inventarios : inventario.acessarInventario()) {
 			if (inventarios.getTipo().equalsIgnoreCase(tipo)) {
 				inventarios.setQuantidade((int) (10 * usada.getEficiencia()));
 				usada.setDurabilidade(-10);

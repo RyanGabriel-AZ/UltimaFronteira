@@ -100,6 +100,7 @@ public class CriaturasHostis extends Criatura {
 	}
 
 	/* Melhorar classes abaixo */
+	@Override
 	public void interagir(Personagem jogador) {
 
 		System.out.println(getNome() + " vai atacar!");
@@ -107,9 +108,5 @@ public class CriaturasHostis extends Criatura {
 		aplicarEfeitosSecundarios(jogador);
 	}
 
-	@Override
-	public void interagir() {
-System.out.println("A vida é como um limão, bem azeda!");
-	}
-
 }
+

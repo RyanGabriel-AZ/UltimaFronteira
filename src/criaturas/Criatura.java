@@ -1,5 +1,6 @@
 package criaturas;
-import ambientacao.*;
+import ambientacao.Ambiente;
+import personalidades.Personagem;
 public abstract class Criatura {
 	private String nome;
 	private float vida;
@@ -58,6 +59,6 @@ public abstract class Criatura {
 
 	}
 
-	public abstract void interagir();
+	public abstract void interagir(Personagem jogador);
 
 }

@@ -1,13 +1,21 @@
 package ambientacao;
 
-import personalidades.*;
+import java.util.ArrayList;
+import java.util.Random;
+
+import controladores.Inventario;
+import itens.Item;
+import personalidades.Personagem;
 
 public abstract class Ambiente {
 	private String nome;
 	private String descricao;
-	private double dificuldadeDeExploração;
+	private double dificuldadeDeExploração; // 0 a 100, condiz com os itens da exploracao, chance de obte-los;
 	private double probabilidadeDeEventos;
 	private String condicoesClimaticasPredominantes;
+	private Inventario inventario;
+	Random aleatorio = new Random();
+	private ArrayList<Item> itensDoAmbiente= new ArrayList<>();
 
 	public Ambiente(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
 			String condicoesClimaticasPredominantes) {
@@ -16,6 +24,7 @@ public abstract class Ambiente {
 		this.condicoesClimaticasPredominantes = condicoesClimaticasPredominantes;
 		this.dificuldadeDeExploração = dificuldadeDeExploração;
 		this.probabilidadeDeEventos = probabilidadeDeEventos;
+
 	}
 
 	public abstract void Explorar(Personagem jogador);
@@ -59,8 +68,26 @@ public abstract class Ambiente {
 		return descricao;
 	}
 
-	public void setDescricao(String descricao) {
+	public void setDescricao(String descricao) { 
 		this.descricao = descricao;
 	}
 
+	public void adicionarItensAbiente(Item Item) {
+		itensDoAmbiente.add(Item);
+	}
+
+	// loucura total
+	public void espoliosAmbiente() {
+		double dificuldadeExploracao= getDificuldadeDeExploração();
+		for (Item item : itensDoAmbiente) {
+			if (aleatorio.nextDouble(100) < dificuldadeExploracao) {
+				inventario.adcionarQuantidade(item, 1);
+			}
+
+		}
+	}
+
+	public void setInventarioAmbiente(Inventario inventario) {
+		this.inventario = inventario;
+	}
 }

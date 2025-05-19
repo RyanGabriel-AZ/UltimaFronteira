@@ -13,7 +13,11 @@ public class Inventario {
 	 * cargaPeso()
 	 * 
 	 */
-	public static ArrayList<Item> inventario = new ArrayList<>();
+	private ArrayList<Item> inventario = new ArrayList<>();
+
+	public ArrayList<Item> acessarInventario() {
+		return inventario;
+	}
 
 	public void adicionarItem(Item item) {
 		inventario.add(item);
@@ -37,6 +41,23 @@ public class Inventario {
 
 			}
 
+		}
+	}
+
+	public void adcionarQuantidade(Item itens, int numero) {
+		for (Item item : inventario) {
+			if (item.getNome().equalsIgnoreCase(itens.getNome())) {
+				item.setQuantidade(numero);
+			}
+		}
+	}
+
+	// colocar try catch
+	public void retirarQuantidade(Item itens, int numero) {
+		for (Item item : inventario) {
+			if (item.getNome().equalsIgnoreCase(itens.getNome())) {
+				item.setQuantidade(-numero);
+			}
 		}
 	}
 

@@ -1,16 +1,20 @@
 package controladores;
 
-import criaturas.*;
-
 import java.util.ArrayList;
 
-import ambientacao.*;
+import ambientacao.Ambiente;
+import criaturas.Criatura;
 
 public class ControladorCriaturas {
 
-	ArrayList<Criatura> criaturas = new ArrayList<>();
-	ArrayList<Criatura> criaturasAmbiente = new ArrayList<>();
+	private ArrayList<Criatura> criaturas = new ArrayList<>();
+	private ArrayList<Criatura> criaturasAmbiente = new ArrayList<>();
 
+	
+	public  ArrayList<Criatura>  criaturas(){
+		return criaturasAmbiente;
+	}
+	
 	public void adicionarCriaturas(Criatura criatura) {
 		criaturas.add(criatura);
 	}
@@ -24,7 +28,10 @@ public class ControladorCriaturas {
 		}
 
 	}
-
+/*
+ * quando chegar no ambiente usamos o criaturas ambiente, para acessar apenas as criaturas daquele ambiente.
+ * e sairmos temos que limpar tudo
+ */
 	public void adicionarCriaturasDoAmbiente(Ambiente habitat) {
 		for (Criatura criatura : criaturas) {
 			if (criatura.getHabitat().equals(habitat)) {
