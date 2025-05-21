@@ -3,12 +3,12 @@ import ambientacao.Ambiente;
 import personalidades.Personagem;
 public abstract class Criatura {
 	private String nome;
-	private float vida;
+	private double vida;
 	private int individuosPorGrupo;
 	private String descricao;
 	private Ambiente habitat;
 
-	public Criatura(String nome, float vida, int individuosPorGrupo, String descricao, Ambiente habitat) {
+	public Criatura(String nome, double vida, int individuosPorGrupo, String descricao, Ambiente habitat) {
 		this.nome = nome;
 		this.vida = vida;
 		this.individuosPorGrupo = individuosPorGrupo;
@@ -37,12 +37,12 @@ public abstract class Criatura {
 		return descricao;
 	}
 
-	public void setVida(float vida) {
-		vida = vida + getVida();
-		this.vida = vida;
+	public void setVida(double dano) {
+		dano = dano + getVida();
+		this.vida = dano;
 	}
 
-	public float getVida() {
+	public double getVida() {
 		return vida;
 	}
 

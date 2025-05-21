@@ -1,6 +1,8 @@
 package personalidades;
-import ambientacao.*;
-import controladores.*;
+import ambientacao.Ambiente;
+import controladores.Inventario;
+import criaturas.Criatura;
+import itens.Arma;
 public class Personagem {
 
 	/*
@@ -15,8 +17,8 @@ public class Personagem {
 	private double sanidade;
 	private Inventario armazenamento;
 	private double forca;
-	private double precisao;
 	private int protecaoEfeitosSecundarios;
+	private double resistenciaAoAmbiente; // vai de 0 a 1, quanto menor, mais resistente
 //esse construtor é só para os atributos que estou precisando em DesgastePersonagem
 	public Personagem(String nome, double vida, double energia, double fome, double sede, double sanidade, int protecaoEfeitosSecundarios) {
 		this.energia=energia;
@@ -34,7 +36,7 @@ public class Personagem {
 	}
 	
 	public void setLocalização(Ambiente localizacao) {
-		this.localizacao= localizacao;
+		this.localizacao=localizacao;
 	}
 
 
@@ -99,15 +101,6 @@ public class Personagem {
 	}
 
 
-	public double getPrecisao() {
-		return precisao;
-	}
-
-
-	public void setPrecisao(double preecisao) {
-		this.precisao = preecisao + getPrecisao();
-	}
-
 
 	public int getProtecaoEfeitosSecundarios() {
 		return protecaoEfeitosSecundarios;
@@ -123,6 +116,22 @@ public class Personagem {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	public Ambiente getLocalizacao() {
+		return localizacao;
+	}
+	public double getResistenciaAoAmbiente() {
+		return resistenciaAoAmbiente;
+	}
+	public void setResistenciaAoAmbiente(int resistenciaAoAmbiente) {
+		this.resistenciaAoAmbiente = resistenciaAoAmbiente;
+	}
+	
+public void ataque(Arma arma, Criatura monstros) {
+	double dano= arma.getPoder()*getForca();
+    if(Math.random()<arma.getPrecisao()) {
+    	monstros.setVida(dano);
+    	arma.setDurabilidade(-10);
+    }
+}
 	
 }

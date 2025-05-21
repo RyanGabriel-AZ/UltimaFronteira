@@ -9,7 +9,7 @@ public class CriaturasHostis extends Criatura {
 	private double probabilidadeDeEfeito;
 	private String estado;
 
-	public CriaturasHostis(String nome, float vida, int individuosPorGrupo, String descricao, Ambiente habitat, int forca,
+	public CriaturasHostis(String nome, double vida, int individuosPorGrupo, String descricao, Ambiente habitat, int forca,
 			String efeitoSecundário, double probabilidadeDeEfeito, String estado) {
 		super(nome, vida, individuosPorGrupo, descricao, habitat);
 		this.forca = forca;
@@ -44,15 +44,14 @@ public class CriaturasHostis extends Criatura {
 		switch (getEfeitoSecundario()) {
 		case "sangramento":
 			System.out.println("Você está sangrando!");
-			jogador.setVida(-5);
+			jogador.setVida(-10);
 			break;
 		case "hemorragia":
 			System.out.println("Você está tendo um hemorragia!");
-			jogador.setVida(-10);
+			jogador.setVida(-20);
 			jogador.setEnergia(-20);
 			jogador.setSanidade(-20);
 			jogador.setForca(-10);
-			jogador.setPrecisao(-10);
 			break;
 		case "veneno":
 			System.out.println("Você está envenenado!");

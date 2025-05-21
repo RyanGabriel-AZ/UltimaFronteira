@@ -27,7 +27,8 @@ public abstract class Ambiente {
 
 	}
 
-	public abstract void Explorar(Personagem jogador);
+	public abstract void Explorar(Personagem jogador); //itens e texto do ambiente
+	public abstract void naturezaAmbiente(Personagem jogador); //pega os atributos do ambiente e mexem com o jogador
 
 	/*
 	 * public abstract void GerarEvento(); public abstract void ModificarClima();
