@@ -4,8 +4,8 @@ import personalidades.Personagem;
 
 public class Material extends Item {
 	
-	public Material(String nome, double peso, double durabilidade, int quantidade, double resistencia, String tipo) {
-		super(nome, peso, durabilidade, quantidade, tipo);
+	public Material(String nome, double peso, double durabilidade, int quantidade, double resistencia, String tipo, String classe) {
+		super(nome, peso, durabilidade, quantidade, tipo, classe);
 		this.resistencia = resistencia;
 		
 	}
@@ -21,7 +21,7 @@ public class Material extends Item {
 			a.setQuantidade(-1);
 			b.setQuantidade(-1);
 			String tipo= a.getTipo();
-			Material c = new Material("material criado", peso, durabilidade, 1, resistencia, tipo);
+			Material c = new Material("material criado", peso, durabilidade, 1, resistencia, tipo, "Material");
 			return c;
 		}
 		System.out.println("Não é possível combinar os materiais");
@@ -63,6 +63,9 @@ public class Material extends Item {
 	public void usar(Personagem jogador) {
 
 	}
+	@Override
+	public String getEspecifico() {
+		return String.valueOf(getResistencia()); 	}
 
 	
 }

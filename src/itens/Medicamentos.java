@@ -14,8 +14,8 @@ public class Medicamentos extends Item {
 	private String efeito;
 	private double potencia;
 
-	public Medicamentos(String nome, double peso, double durabilidade, String efeito, double potencia , int quantidade, String tipo ) {
-		super(nome, peso, durabilidade, quantidade, tipo);
+	public Medicamentos(String nome, double peso, double durabilidade, String efeito, double potencia , int quantidade, String tipo, String classe ) {
+		super(nome, peso, durabilidade, quantidade, tipo, classe);
 		this.setEfeito(efeito);
 		this.setPotencia(potencia);
 		// TODO Auto-generated constructor stub
@@ -69,5 +69,8 @@ jogador.setProtecaoEfeitosSecundarios(2);
 	public void setPotencia(double potencia) {
 		this.potencia = potencia;
 	}
-
+@Override
+public String getEspecifico() {
+	return getEfeito();
+}
 }

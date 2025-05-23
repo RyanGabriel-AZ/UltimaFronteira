@@ -3,7 +3,7 @@ import ambientacao.Ambiente;
 import controladores.Inventario;
 import criaturas.Criatura;
 import itens.Arma;
-public class Personagem {
+public abstract class Personagem {
 
 	/*
 	 * Fazer um contador de turnos para protecao, ela só pode ir ate 0, não pode ser mais que isso
@@ -19,6 +19,13 @@ public class Personagem {
 	private double forca;
 	private int protecaoEfeitosSecundarios;
 	private double resistenciaAoAmbiente; // vai de 0 a 1, quanto menor, mais resistente
+	private String classe;
+	private double limiteVida;
+	private double limiteEnergia;
+	private double limiteFome; 
+	private double limiteSede;
+	private double limiteSanidade;
+	private double limiteForca;
 //esse construtor é só para os atributos que estou precisando em DesgastePersonagem
 	public Personagem(String nome, double vida, double energia, double fome, double sede, double sanidade, int protecaoEfeitosSecundarios) {
 		this.energia=energia;
@@ -29,6 +36,34 @@ public class Personagem {
 		this.setNome(nome);
 		this.protecaoEfeitosSecundarios=protecaoEfeitosSecundarios;
 	}
+	public void configurarLimites(double limiteVida, double limiteEnergia,double limiteForca, double limiteFome,double limiteSanidade, double limiteSede) {
+		this.limiteEnergia=limiteEnergia;
+		this.limiteFome=limiteFome;
+		this.limiteSanidade= limiteSanidade;
+		this.limiteSede= limiteSede;
+		this.limiteVida= limiteVida;
+		this.limiteForca=limiteForca;
+	}
+	public double getLimiteVida() {
+		return limiteVida;
+	}
+	public double getLimiteEnergia() {
+		return limiteEnergia;
+	}
+	public double getLimiteFome() {
+		return limiteFome;
+	}
+	public double getLimiteSede() {
+		return limiteSede;
+	}
+	public double getLimiteSanidade() {
+		return limiteSanidade;
+	}
+	public double getLimiteForca() {
+		return limiteForca;
+	}
+	
+	
 	public void diminuirProtecao() {
 		if(getProtecaoEfeitosSecundarios()>0) {
 			setProtecaoEfeitosSecundarios(-1);
@@ -48,6 +83,9 @@ public class Personagem {
 	public void setVida(double vida) {
 		
 		this.vida = vida + getVida();
+		if(getVida()>getLimiteVida()) {
+			this.vida= getLimiteVida();
+		}
 	}
 
 
@@ -58,6 +96,9 @@ public class Personagem {
 
 	public void setEnergia(double energia) {
 		this.energia = energia+ getEnergia();
+		if(getEnergia()>getLimiteEnergia()) {
+			this.energia= getLimiteEnergia();
+		}
 	}
 
 
@@ -68,6 +109,10 @@ public class Personagem {
 
 	public void setFome(double fome) {
 		this.fome = fome + getFome();
+		if(getFome()>getLimiteFome()) {
+			this.fome= getLimiteFome();
+		
+		}
 	}
 
 
@@ -78,6 +123,9 @@ public class Personagem {
 
 	public void setSede(double sede) {
 		this.sede = sede +getSede();
+		if(getSede()>getLimiteSede()) {
+			this.sede= getLimiteSede();
+		}
 	}
 
 
@@ -88,6 +136,9 @@ public class Personagem {
 
 	public void setSanidade(double sanidade) {
 		this.sanidade = sanidade +getSanidade();
+		if(getSanidade()>getLimiteSanidade()) {
+			this.sanidade= getLimiteSanidade();
+		}
 	}
 
 
@@ -98,6 +149,9 @@ public class Personagem {
 
 	public void setForca(double forca) {
 		this.forca = forca + getForca();
+		if(getForca()>getLimiteForca()) {
+			this.forca= getLimiteForca();
+		}
 	}
 
 
@@ -125,13 +179,20 @@ public class Personagem {
 	public void setResistenciaAoAmbiente(int resistenciaAoAmbiente) {
 		this.resistenciaAoAmbiente = resistenciaAoAmbiente;
 	}
-	
-public void ataque(Arma arma, Criatura monstros) {
+
+public abstract void ataque(Arma arma, Criatura monstros);
+/*{
 	double dano= arma.getPoder()*getForca();
     if(Math.random()<arma.getPrecisao()) {
     	monstros.setVida(dano);
     	arma.setDurabilidade(-10);
     }
+}*/
+public String getClasse() {
+	return classe;
+}
+public void setClasse(String classe) {
+	this.classe = classe;
 }
 	
 }

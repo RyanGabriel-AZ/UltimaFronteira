@@ -9,8 +9,8 @@ private double valorNutricional;
 private double prazoValidade;
 // prazo de validade, vais ser entre 0 e 1, de quanto falta para chegar na validade
 // valor nutricional vai ser entre 0 e 100
-public Alimentos(String nome, double peso, double durabilidade, double valorNutricional, double prazoValidade , int quantidade, String tipo ) {
-	super(nome, peso, durabilidade, quantidade, tipo);
+public Alimentos(String nome, double peso, double durabilidade, double valorNutricional, double prazoValidade , int quantidade, String tipo , String classe) {
+	super(nome, peso, durabilidade, quantidade, tipo, classe);
 	this.setPrazoValidade(prazoValidade);
 	this.setValorNutricional(valorNutricional);
 	// TODO Auto-generated constructor stub
@@ -48,5 +48,8 @@ public void usar(Personagem jogador) {
 	System.out.println("Nossa, então é isso que a peble come. O-O ");
 	
 }
-
+@Override
+public String getEspecifico() {
+	return "nutrição:  "+String.valueOf(getValorNutricional())+ "   Validade:" +String.valueOf(prazoValidade);
+}
 }

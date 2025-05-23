@@ -10,10 +10,12 @@ public class DesgastePersonagem {
 	 * etc. tambem deve ser feito a tabela turno por aqui
 	 */
 	ArrayList<Personagem> estado = new ArrayList<>();
+	/*
+	 * Deve se criar 3 perssonagem nesse molde
 	Personagem antes = new Personagem("antes", 0, 0, 0, 0, 0, 0);
 	Personagem atual = new Personagem("Atual", 0, 0, 0, 0, 0, 0);
 	Personagem resultado = new Personagem("resultado", 0, 0, 0, 0, 0, 0);
-
+*/
 	public void adicionarEstados(Personagem antes, Personagem depois, Personagem resultado) {
 		estado.add(antes);
 		estado.add(depois);

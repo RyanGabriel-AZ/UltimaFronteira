@@ -8,15 +8,16 @@ public abstract class Item {
 	private double durabilidade;
 	private int quantidade;
 	private String tipo;
-	
+	private String classe;
 
 	public abstract void usar(Personagem jogador);
 
-	public Item(String nome, double peso, double durabilidade , int quantidade, String tipo ) {
+	public Item(String nome, double peso, double durabilidade , int quantidade, String tipo, String classe ) {
 		this.nome = nome;
 		this.durabilidade = durabilidade;
 		this.peso = peso;
 		this.quantidade= quantidade;
+		this.classe=classe;
 	}
 
 	public String getNome() {
@@ -49,6 +50,9 @@ public abstract class Item {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade + getQuantidade();
+		if(getQuantidade()<0) {
+			this.quantidade=0;
+		}
 	}
 
 	public String getTipo() {
@@ -58,7 +62,17 @@ public abstract class Item {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+//para o inventario
+	public String getClasse() {
+		return classe;
+	}
 
-	
+	public void setClasse(String classe) {
+		this.classe = classe;
+	}
+// para o inventario
+	public String getEspecifico() {
+		return "";
+	}
 
 }

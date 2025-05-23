@@ -8,8 +8,8 @@ public class Agua extends Item {
 	private double pureza;
 	private double volume;
 
-	public Agua(String nome, double peso, double durabilidade, double pureza,  double volume, int quantidade, String tipo ) {
-		super(nome, peso, durabilidade, quantidade, tipo);
+	public Agua(String nome, double peso, double durabilidade, double pureza,  double volume, int quantidade, String tipo , String classe) {
+		super(nome, peso, durabilidade, quantidade, tipo, classe);
 		this.pureza= pureza;
 		this.volume= volume;
 	
@@ -44,7 +44,10 @@ public class Agua extends Item {
 		System.out.println("Que água molhada. :) ");
 		
 	}
-
+@Override
+public String getEspecifico() {
+	return String.valueOf(getPureza());
+}
 	/*
 	 * pureza vai de 0 a 1, quanto maior a pureza ,mais sede e vida recupera abaixo
 	 * de 0.7 retira vida, matar sede ((pureza-0.7)*getVida(jogador)) esse valor vai

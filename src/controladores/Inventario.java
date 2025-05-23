@@ -71,4 +71,35 @@ public class Inventario {
 		return peso;
 	}
 
+	public void listarInventario(String classe) {
+		for (Item item : inventario) {
+
+			if (item.getClasse().equalsIgnoreCase(classe) && item.getQuantidade() > 0) {
+				System.out.println("    " + item.getNome() + "   " + item.getQuantidade() + "   " + item.getTipo()
+						+ "   " + item.getPeso() + "   " + item.getEspecifico());
+			}
+		}
+
+	}
+
+	public void mostrarInventario() {
+		System.out.println(
+				"|     Nome     |     Quantidade    |     tipo     |     peso     |              específicos            | ");
+		listarInventario("Material");
+		listarInventario("Alimentos");
+		listarInventario("Agua");
+		listarInventario("Medicamentos");
+		listarInventario("Arma");
+		listarInventario("Ferramenta");
+
+	}
+
+	public void retirarQuantidade(String nome, int numero) {
+		for (Item item : inventario) {
+			if (item.getNome().equalsIgnoreCase(nome)) {
+				item.setQuantidade(-numero);
+			}
+		}
+	}
+
 }
