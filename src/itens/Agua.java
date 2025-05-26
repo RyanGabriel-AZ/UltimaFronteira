@@ -5,8 +5,8 @@ import personalidades.*;
 public class Agua extends Item {
 	
 
-	private double pureza;
-	private double volume;
+	private double pureza;//0 a 1
+	private double volume;//0 a 100
 
 	public Agua(String nome, double peso, double durabilidade, double pureza,  double volume, int quantidade, String tipo , String classe) {
 		super(nome, peso, durabilidade, quantidade, tipo, classe);
@@ -46,7 +46,7 @@ public class Agua extends Item {
 	}
 @Override
 public String getEspecifico() {
-	return String.valueOf(getPureza());
+	return "Pureza "+String.valueOf(getPureza());
 }
 	/*
 	 * pureza vai de 0 a 1, quanto maior a pureza ,mais sede e vida recupera abaixo

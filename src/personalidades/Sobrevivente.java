@@ -3,13 +3,24 @@ package personalidades;
 import criaturas.Criatura;
 import itens.Arma;
 
-public class Normal extends Personagem {
+public class Sobrevivente extends Personagem{
 
-	public Normal(String nome, double vida, double energia, double fome, double sede, double sanidade,
+	public Sobrevivente(String nome, double vida, double energia, double fome, double sede, double sanidade,
 			int protecaoEfeitosSecundarios) {
 		super(nome, vida, energia, fome, sede, sanidade, protecaoEfeitosSecundarios);
 		// TODO Auto-generated constructor stub
-		
+	}
+
+	@Override
+	public void statsPersonagem() {
+		configurarLimites(150,200,100,200,200,200);
+		setEnergia(getLimiteEnergia());
+			setFome(getLimiteFome());
+			setForca(getLimiteForca());
+			setSanidade(getLimiteSanidade());
+			setVida(getLimiteVida());
+			setSede(getLimiteSede());
+			setResistenciaAoAmbiente(1);
 	}
 
 	@Override
@@ -18,19 +29,6 @@ public class Normal extends Personagem {
 	    if(Math.random()<arma.getPrecisao()) {
 	    	monstros.setVida(dano);
 	    	arma.setDurabilidade(-10);
-		
-	}
-	}
+	}}
 
-	@Override
-	public void statsPersonagem() {
-		configurarLimites(200,100,100,100,100,100);
-		setEnergia(getLimiteEnergia());
-			setFome(getLimiteFome());
-			setForca(getLimiteForca());
-			setSanidade(getLimiteSanidade());
-			setVida(getLimiteVida());
-			setSede(getLimiteSede());
-			setResistenciaAoAmbiente(0.5);
-	}
 }

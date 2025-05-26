@@ -176,10 +176,22 @@ public abstract class Personagem {
 	public double getResistenciaAoAmbiente() {
 		return resistenciaAoAmbiente;
 	}
-	public void setResistenciaAoAmbiente(int resistenciaAoAmbiente) {
-		this.resistenciaAoAmbiente = resistenciaAoAmbiente;
+	public void setResistenciaAoAmbiente(double d) {
+		this.resistenciaAoAmbiente = d;
 	}
-
+public abstract void statsPersonagem();
+/*
+	configurarLimites(limiteVida, limiteEnergia, limiteForca, limiteFome, limiteSanidade, limiteSede);
+	setEnergia(getLimiteEnergia());
+		setFome(getLimiteFome());
+		setForca(getLimiteForca());
+		setSanidade(getLimiteSanidade());
+		setVida(getLimiteVida());
+		setSede(getLimiteSede());
+		setResistenciaAoAmbiente();
+	
+	
+*/
 public abstract void ataque(Arma arma, Criatura monstros);
 /*{
 	double dano= arma.getPoder()*getForca();

@@ -5,8 +5,8 @@ import personalidades.Personagem;
 
 public class CriaturasHostis extends Criatura {
 	private int forca;
-	private String efeitoSecundario;
-	private double probabilidadeDeEfeito;
+	private String efeitoSecundario; // Veneno, Sangramento, Hemorragia
+	private double probabilidadeDeEfeito; // de 0 a 1
 	private String estado;
 
 	public CriaturasHostis(String nome, double vida, int individuosPorGrupo, String descricao, Ambiente habitat, int forca,
@@ -42,21 +42,23 @@ public class CriaturasHostis extends Criatura {
 //aplicar a probabilidade posteriormente
 	public void EfeitosSecundarios(Personagem jogador) {
 		switch (getEfeitoSecundario()) {
-		case "sangramento":
+		case "Sangramento":
 			System.out.println("Você está sangrando!");
 			jogador.setVida(-10);
 			break;
-		case "hemorragia":
+		case "Hemorragia":
 			System.out.println("Você está tendo um hemorragia!");
 			jogador.setVida(-20);
 			jogador.setEnergia(-20);
 			jogador.setSanidade(-20);
 			jogador.setForca(-10);
 			break;
-		case "veneno":
+		case "Veneno":
 			System.out.println("Você está envenenado!");
 			jogador.setVida(-10);
 			jogador.setSanidade(-30);
+			break;
+		case "":
 			break;
 
 		}
@@ -83,14 +85,14 @@ public class CriaturasHostis extends Criatura {
 // faz parte do multiplicador de dano
 	public double estadoCriatura() {
 		double valorTeste;
-		if (estado.equalsIgnoreCase("letal")) {
+		if (estado.equalsIgnoreCase("Letal")) {
 			valorTeste = 1.25;
-		} else if (estado.equalsIgnoreCase("normal")) {
+		} else if (estado.equalsIgnoreCase("Normal")) {
 			valorTeste = 1;
 
-		} else if (estado.equalsIgnoreCase("fraco")) {
+		} else if (estado.equalsIgnoreCase("Fraco")) {
 			valorTeste = 0.75;
-		} else if (estado.equalsIgnoreCase("muito fraco")) {
+		} else if (estado.equalsIgnoreCase("Muito fraco")) {
 			valorTeste = 0.5;
 		} else {
 			valorTeste = 0;

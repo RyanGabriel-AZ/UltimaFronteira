@@ -30,6 +30,6 @@ public class Arma extends Material {
 	
 	@Override
 	public String getEspecifico() {
-		return String.valueOf(getPoder());
+		return "Poder "+ String.valueOf(getPoder());
 	}
 }

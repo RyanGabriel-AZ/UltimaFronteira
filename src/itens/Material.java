@@ -10,7 +10,7 @@ public class Material extends Item {
 		
 	}
 
-	private double resistencia;
+	private double resistencia;//0 a 1000
 
 // Acho que o combinar seria o nosso usar.
 	public Material combinar(Material a, Material b) {
@@ -65,7 +65,7 @@ public class Material extends Item {
 	}
 	@Override
 	public String getEspecifico() {
-		return String.valueOf(getResistencia()); 	}
+		return "Resistência "+ String.valueOf(getResistencia()); 	}
 
 	
 }

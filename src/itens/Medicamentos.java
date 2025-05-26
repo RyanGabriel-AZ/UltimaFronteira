@@ -11,8 +11,8 @@ import personalidades.Personagem;
  */
 
 public class Medicamentos extends Item {
-	private String efeito;
-	private double potencia;
+	private String efeito;// Analgesico, CuraTudo, Milagroso
+	private double potencia;//0 a 1
 
 	public Medicamentos(String nome, double peso, double durabilidade, String efeito, double potencia , int quantidade, String tipo, String classe ) {
 		super(nome, peso, durabilidade, quantidade, tipo, classe);
@@ -33,18 +33,18 @@ public class Medicamentos extends Item {
 	public void aplicandoEfeitos(Personagem jogador) {
 
 		switch (getEfeito()) {
-		case "analgesico": {
+		case "Analgesico": {
 			double vida = 100 * getPotencia();
 			double sanidade = 50 * getPotencia();
 			jogador.setSanidade(sanidade);
 			jogador.setVida(vida);
 		}
 			break;
-		case "curaTudo": {
+		case "CuraTudo": {
 jogador.setProtecaoEfeitosSecundarios(2);
 		}
 		break;
-		case "milagroso": {
+		case "Milagroso": {
 			double vida = 125 * getPotencia();
 			double sanidade = 75 * getPotencia();
 			jogador.setSanidade(sanidade);
@@ -71,6 +71,6 @@ jogador.setProtecaoEfeitosSecundarios(2);
 	}
 @Override
 public String getEspecifico() {
-	return getEfeito();
+	return "Efeito " +getEfeito();
 }
 }

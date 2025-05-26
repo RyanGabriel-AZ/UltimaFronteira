@@ -16,6 +16,7 @@ public abstract class Item {
 		this.nome = nome;
 		this.durabilidade = durabilidade;
 		this.peso = peso;
+		this.tipo= tipo;
 		this.quantidade= quantidade;
 		this.classe=classe;
 	}

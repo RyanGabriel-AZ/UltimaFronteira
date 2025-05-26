@@ -5,10 +5,10 @@ import personalidades.Personagem;
 public class Alimentos extends Item {
 	
 
-private double valorNutricional;
-private double prazoValidade;
-// prazo de validade, vais ser entre 0 e 1, de quanto falta para chegar na validade
-// valor nutricional vai ser entre 0 e 100
+private double valorNutricional;// valor nutricional vai ser entre 0 e 100
+private double prazoValidade;// prazo de validade, vais ser entre 0 e 1, de quanto falta para chegar na validade
+
+
 public Alimentos(String nome, double peso, double durabilidade, double valorNutricional, double prazoValidade , int quantidade, String tipo , String classe) {
 	super(nome, peso, durabilidade, quantidade, tipo, classe);
 	this.setPrazoValidade(prazoValidade);
@@ -50,6 +50,6 @@ public void usar(Personagem jogador) {
 }
 @Override
 public String getEspecifico() {
-	return "nutrição:  "+String.valueOf(getValorNutricional())+ "   Validade:" +String.valueOf(prazoValidade);
+	return "nutrição: "+String.valueOf(getValorNutricional())+ "  Validade: " +String.valueOf(prazoValidade);
 }
 }

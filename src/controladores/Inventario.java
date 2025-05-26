@@ -1,7 +1,8 @@
 package controladores;
 
 import java.util.ArrayList;
-import itens.*;
+
+import itens.Item;
 import personalidades.Personagem;
 
 public class Inventario {
@@ -72,14 +73,17 @@ public class Inventario {
 	}
 
 	public void listarInventario(String classe) {
+		System.out.println("\n=== " + classe.toUpperCase() + " ===");
 		for (Item item : inventario) {
-
 			if (item.getClasse().equalsIgnoreCase(classe) && item.getQuantidade() > 0) {
-				System.out.println("    " + item.getNome() + "   " + item.getQuantidade() + "   " + item.getTipo()
-						+ "   " + item.getPeso() + "   " + item.getEspecifico());
+				System.out.println(String.format("%-20s %-15d %-15s %-10.2f %-20s",
+					item.getNome(),
+					item.getQuantidade(),
+					item.getTipo(),
+					item.getPeso(),
+					item.getEspecifico()));
 			}
 		}
-
 	}
 
 	public void mostrarInventario() {
