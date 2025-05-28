@@ -32,8 +32,18 @@ public class FinaisPersonagem {
 			System.out.println("você morreu de sede, literamente. (Õ.Õ)");
 			
 		}
+		
+		
 	}
-	public void finalDosFinais(Personagem jogador) {
+	public void Vitoria(int numeroMaximoCiclosParaVitoria , int numeroCiclos) {
+		if(numeroMaximoCiclosParaVitoria==numeroCiclos) {
+			System.out.println("Parabéns você venceu! Eu não sei como, mas você venceu!");
+		}
+	}
+	
+	
+	public void finalDosFinais(Personagem jogador, int numeroMaximoCiclosParaVitoria, int numeroCiclos) {
+		Vitoria(numeroMaximoCiclosParaVitoria, numeroCiclos);
 		finalEnergia(jogador);
 		finalFome(jogador);
 		finalSanidade(jogador);

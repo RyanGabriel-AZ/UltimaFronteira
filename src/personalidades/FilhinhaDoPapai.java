@@ -29,7 +29,7 @@ public class FilhinhaDoPapai extends Personagem{
 	public void ataque(Arma arma, Criatura monstros) {
 		double dano= arma.getPoder()*getForca();
 	    if(Math.random()<arma.getPrecisao()) {
-	    	monstros.setVida(dano);
+	    	monstros.setVida(-dano);
 	    	setVida(dano*0.5);//ela vai se curar ao causar dano
 	    	arma.setDurabilidade(-10);
 	}

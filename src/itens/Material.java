@@ -14,7 +14,7 @@ public class Material extends Item {
 
 // Acho que o combinar seria o nosso usar.
 	public Material combinar(Material a, Material b) {
-		if (a.getResistencia() > 0 && +b.getResistencia() > 0 && a.getQuantidade() > 0 && b.getQuantidade() > 0 && a.getTipo().equalsIgnoreCase(b.getTipo())) {
+		if (a.getResistencia() > 0 && b.getResistencia() > 0 && a.getQuantidade() > 0 && b.getQuantidade() > 0 && a.getTipo().equalsIgnoreCase(b.getTipo())) {
 			double resistencia = a.getResistencia() + b.getResistencia();
 			double peso = (a.getPeso() + b.getPeso()) * 0.75;
 			double durabilidade = a.getDurabilidade() + b.getDurabilidade();
@@ -61,7 +61,7 @@ public class Material extends Item {
 	 */
 	@Override
 	public void usar(Personagem jogador) {
-
+System.out.println("Nada aconteceu, talvez possa usar de outra maneira este item");
 	}
 	@Override
 	public String getEspecifico() {

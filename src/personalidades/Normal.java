@@ -14,7 +14,7 @@ public class Normal extends Personagem {
 
 	@Override
 	public void ataque(Arma arma, Criatura monstros) {
-		double dano= arma.getPoder()*getForca();
+		double dano= -arma.getPoder()*getForca();
 	    if(Math.random()<arma.getPrecisao()) {
 	    	monstros.setVida(dano);
 	    	arma.setDurabilidade(-10);
@@ -32,5 +32,12 @@ public class Normal extends Personagem {
 			setVida(getLimiteVida());
 			setSede(getLimiteSede());
 			setResistenciaAoAmbiente(0.5);
+			setFugirChance(0.1);
+	}
+
+	@Override
+	public void descricaoClasse() {
+	System.out.println("Classe Normal: \nUma pessoa normal, com equilíbrio na vida,");
+		
 	}
 }

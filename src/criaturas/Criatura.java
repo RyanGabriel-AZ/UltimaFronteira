@@ -7,6 +7,7 @@ public abstract class Criatura {
 	private int individuosPorGrupo;
 	private String descricao;
 	private Ambiente habitat;
+	private boolean podeLutar;
 
 	public Criatura(String nome, double vida, int individuosPorGrupo, String descricao, Ambiente habitat) {
 		this.nome = nome;
@@ -15,6 +16,7 @@ public abstract class Criatura {
 		this.descricao = descricao;
 		this.habitat = habitat;
 	}
+	
 
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -60,5 +62,13 @@ public abstract class Criatura {
 	}
 
 	public abstract void interagir(Personagem jogador);
+
+	public boolean getPodeLutar() {
+		return podeLutar;
+	}
+
+	public void setPodeLutar(boolean podeLutar) {
+		this.podeLutar = podeLutar;
+	}
 
 }

@@ -21,14 +21,20 @@ public class Sobrevivente extends Personagem{
 			setVida(getLimiteVida());
 			setSede(getLimiteSede());
 			setResistenciaAoAmbiente(1);
+			setFugirChance(0.25);
 	}
 
 	@Override
 	public void ataque(Arma arma, Criatura monstros) {
-		double dano= arma.getPoder()*getForca();
+		double dano= -arma.getPoder()*getForca();
 	    if(Math.random()<arma.getPrecisao()) {
 	    	monstros.setVida(dano);
 	    	arma.setDurabilidade(-10);
 	}}
+
+	@Override
+	public void descricaoClasse() {
+		System.out.println("");
+	}
 
 }

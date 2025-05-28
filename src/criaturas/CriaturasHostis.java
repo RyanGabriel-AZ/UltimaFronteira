@@ -16,6 +16,16 @@ public class CriaturasHostis extends Criatura {
 		this.efeitoSecundario = efeitoSecundário;
 		this.probabilidadeDeEfeito = probabilidadeDeEfeito;
 		this.estado = estado;
+		setPodeLutar(true);
+	}
+	public boolean criaturaContinuarLuta() {
+		if(getVida()>0 && getPodeLutar()==true) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 	}
 
 	public double getProbabilidadeDeEfeito() {
@@ -75,8 +85,8 @@ public class CriaturasHostis extends Criatura {
 	public double ataque(Personagem jogador) {
 		double ataque;
 		double dano;
-		ataque = getForca() * estadoCriatura();
-		dano = jogador.getVida() - ataque;
+		ataque = getForca() * estadoCriatura()*(1+ 0.75*getIndividuosPorGrupo());
+		dano =  - ataque;
 		jogador.setVida(dano);
 		return ataque;
 
@@ -99,14 +109,20 @@ public class CriaturasHostis extends Criatura {
 		}
 		return valorTeste;
 	}
-
+public void statusCriatura() {
+	
+	System.out.println("Vida :"+ (int)getVida());
+	
+}
 	/* Melhorar classes abaixo */
 	@Override
 	public void interagir(Personagem jogador) {
 
 		System.out.println(getNome() + " vai atacar!");
+		statusCriatura();
 		ataque(jogador);
 		aplicarEfeitosSecundarios(jogador);
+		statusCriatura();
 	}
 
 }

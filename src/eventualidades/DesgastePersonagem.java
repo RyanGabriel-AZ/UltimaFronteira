@@ -12,9 +12,9 @@ public class DesgastePersonagem {
 	ArrayList<Personagem> estado = new ArrayList<>();
 	/*
 	 * Deve se criar 3 perssonagem nesse molde
-	Personagem antes = new Personagem("antes", 0, 0, 0, 0, 0, 0);
-	Personagem atual = new Personagem("Atual", 0, 0, 0, 0, 0, 0);
-	Personagem resultado = new Personagem("resultado", 0, 0, 0, 0, 0, 0);
+	Normal antes = new Normal("antes", 0, 0, 0, 0, 0, 0);
+	Normal atual = new Normal("Atual", 0, 0, 0, 0, 0, 0);
+	Normal resultado = new Normal("resultado", 0, 0, 0, 0, 0, 0);
 */
 	public void adicionarEstados(Personagem antes, Personagem depois, Personagem resultado) {
 		estado.add(antes);

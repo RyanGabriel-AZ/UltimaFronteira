@@ -26,6 +26,7 @@ public abstract class Personagem {
 	private double limiteSede;
 	private double limiteSanidade;
 	private double limiteForca;
+	private double fugirChance; // 0 a 1, quanto menor mais dificil é fugir das batalhas
 //esse construtor é só para os atributos que estou precisando em DesgastePersonagem
 	public Personagem(String nome, double vida, double energia, double fome, double sede, double sanidade, int protecaoEfeitosSecundarios) {
 		this.energia=energia;
@@ -179,6 +180,14 @@ public abstract class Personagem {
 	public void setResistenciaAoAmbiente(double d) {
 		this.resistenciaAoAmbiente = d;
 	}
+	public Inventario getArmazenamento() {
+		return armazenamento;		
+	}
+	public void setArmazenamento(Inventario inventario) {
+		this.armazenamento= armazenamento;
+	}
+	
+	
 public abstract void statsPersonagem();
 /*
 	configurarLimites(limiteVida, limiteEnergia, limiteForca, limiteFome, limiteSanidade, limiteSede);
@@ -205,6 +214,13 @@ public String getClasse() {
 }
 public void setClasse(String classe) {
 	this.classe = classe;
+}
+public abstract void descricaoClasse();
+public double getFugirChance() {
+	return fugirChance;
+}
+public void setFugirChance(double fugirChance) {
+	this.fugirChance = fugirChance;
 }
 	
 }

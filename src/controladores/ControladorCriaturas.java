@@ -1,26 +1,27 @@
 package controladores;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import ambientacao.Ambiente;
-import criaturas.Criatura;
+import criaturas.CriaturasHostis;
 
 public class ControladorCriaturas {
-
-	private ArrayList<Criatura> criaturas = new ArrayList<>();
-	private ArrayList<Criatura> criaturasAmbiente = new ArrayList<>();
+Random sorte= new Random();
+	private ArrayList<CriaturasHostis> criaturas = new ArrayList<>();
+	private ArrayList<CriaturasHostis> criaturasAmbiente = new ArrayList<>();
 
 	
-	public  ArrayList<Criatura>  criaturas(){
+	public  ArrayList<CriaturasHostis>  criaturas(){
 		return criaturasAmbiente;
 	}
 	
-	public void adicionarCriaturas(Criatura criatura) {
+	public void adicionarCriaturas(CriaturasHostis criatura) {
 		criaturas.add(criatura);
 	}
 
 	public void removerCriatura(String nomeCriatura) {
-		for (Criatura criatura : criaturas) {
+		for (CriaturasHostis criatura : criaturas) {
 			if (criatura.getNome().equalsIgnoreCase(nomeCriatura)) {
 				criaturas.remove(criatura);
 				break;
@@ -33,7 +34,7 @@ public class ControladorCriaturas {
  * e sairmos temos que limpar tudo
  */
 	public void adicionarCriaturasDoAmbiente(Ambiente habitat) {
-		for (Criatura criatura : criaturas) {
+		for (CriaturasHostis criatura : criaturas) {
 			if (criatura.getHabitat().equals(habitat)) {
 				criaturasAmbiente.add(criatura);
 
@@ -43,5 +44,11 @@ public class ControladorCriaturas {
 // usar quando mudar de ambiente
 	public void limparCriaturasAmbiente() {
 		criaturasAmbiente.clear();
+	}
+	public CriaturasHostis sortearCriatura() {
+	int tamanho= criaturasAmbiente.size();
+	
+	return criaturasAmbiente.get(sorte.nextInt(tamanho));
+	
 	}
 }

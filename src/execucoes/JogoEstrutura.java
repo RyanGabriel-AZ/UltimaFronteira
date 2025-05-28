@@ -3,6 +3,7 @@ package execucoes;
 import ambientacao.*;
 import controladores.*;
 import criaturas.CriaturasHostis;
+import eventualidades.EventoCriaturasDoceis;
 import itens.Agua;
 import itens.Alimentos;
 import itens.Material;
@@ -73,6 +74,16 @@ public class JogoEstrutura {
 	CriaturasHostis mumia= new CriaturasHostis("Múmia", 200, 1, "Faixas não estão  na moda, querida.", ruina, 60, "", 0, "Normal");
 	CriaturasHostis escaravelho= new CriaturasHostis("Escaravelho", 40, 4, "Minha amiga Suzie, tem uma dieta baseada em você, ótima fonte de proteinas!", ruina, 40, "Sangramento", 0.4, "Fraco");
 	CriaturasHostis guardiao= new CriaturasHostis("Guardião", 150, 1, "Você passou algum perfume francês?", ruina, 80, "Hemorragia", 0.6, "Letal");
+	//criauras doceis
+	EventoCriaturasDoceis coelho= new EventoCriaturasDoceis("coelho", floresta);
+	EventoCriaturasDoceis capivara= new EventoCriaturasDoceis("Capivara", lago);
+	EventoCriaturasDoceis girafa= new EventoCriaturasDoceis("Girafa", savana);
+	EventoCriaturasDoceis lagartixa= new EventoCriaturasDoceis("Lagartixa", deserto);
+	EventoCriaturasDoceis tatu= new EventoCriaturasDoceis("Tatu", ruina);
+	
+	
+	
+	
 	//itens do jogo
 	//Agua
 	Agua aguaLimpa= new Agua("Água", 0.1, 1,0.9, 100, 3, "Liquido", "Agua");

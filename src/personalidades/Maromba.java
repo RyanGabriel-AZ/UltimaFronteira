@@ -25,7 +25,7 @@ public class Maromba extends Personagem {
 
 	@Override
 	public void ataque(Arma arma, Criatura monstros) {
-		double dano= arma.getPoder()*getForca();
+		double dano= -arma.getPoder()*getForca();
 	    if(Math.random()<arma.getPrecisao()) {
 	    	if(arma.getTipo().equalsIgnoreCase("curto")) {
 	    		monstros.setVida(dano*3);

@@ -37,7 +37,7 @@ public int statusAleatorio() {
 
 	@Override
 	public void ataque(Arma arma, Criatura monstros) {
-		double dano= arma.getPoder()*getForca();
+		double dano= -arma.getPoder()*getForca();
 	    if(Math.random()<arma.getPrecisao()) {
 	    	monstros.setVida(dano);
 	    	arma.setDurabilidade(-10);

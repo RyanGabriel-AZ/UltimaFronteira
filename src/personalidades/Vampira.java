@@ -28,7 +28,7 @@ public class Vampira  extends Personagem {
 	public void ataque(Arma arma, Criatura monstros) {
 		double dano= arma.getPoder()*getForca();
 	    if(Math.random()<arma.getPrecisao()) {
-	    	monstros.setVida(dano);
+	    	monstros.setVida(dano*-1);
 	    	setVida(dano*0.75);
 	    	arma.setDurabilidade(-10);
 	    }

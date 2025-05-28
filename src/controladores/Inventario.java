@@ -1,12 +1,15 @@
 package controladores;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
+import itens.CriacaoDeItens;
 import itens.Item;
+import itens.Material;
 import personalidades.Personagem;
 
 public class Inventario {
-
+	Scanner leitor = new Scanner(System.in);
 	/*
 	 * verifica a carga total que o personagem pode carregar só pode adicionar se
 	 * não estourar a carga limite remover itens remove peso. Quero fazer um sistema
@@ -14,6 +17,7 @@ public class Inventario {
 	 * cargaPeso()
 	 * 
 	 */
+	CriacaoDeItens criador= new CriacaoDeItens();
 	private ArrayList<Item> inventario = new ArrayList<>();
 
 	public ArrayList<Item> acessarInventario() {
@@ -76,12 +80,8 @@ public class Inventario {
 		System.out.println("\n=== " + classe.toUpperCase() + " ===");
 		for (Item item : inventario) {
 			if (item.getClasse().equalsIgnoreCase(classe) && item.getQuantidade() > 0) {
-				System.out.println(String.format("%-20s %-15d %-15s %-10.2f %-20s",
-					item.getNome(),
-					item.getQuantidade(),
-					item.getTipo(),
-					item.getPeso(),
-					item.getEspecifico()));
+				System.out.println(String.format("%-20s %-15d %-15s %-10.2f %-20s", item.getNome(),
+						item.getQuantidade(), item.getTipo(), item.getPeso(), item.getEspecifico()));
 			}
 		}
 	}
@@ -97,6 +97,158 @@ public class Inventario {
 		listarInventario("Ferramenta");
 
 	}
+// função principal do inventario
+public void inventarioFuncional(Personagem jogador) {
+	
+	int sair=0;
+	do{
+		
+		mostrarInventario();
+		System.out.println("Digite 'S', para sair do inventario, \n'U' para usar um item,\n 'M' para a parte de cobinacação de materiais e,\n 'CF' para criar Ferramentas, 'CA' para criar armas. ");
+		String letra= leitor.nextLine();
+		switch(letra){
+		
+		
+			case "U": {
+				usarItemGeral(jogador);
+			continue;}
+			case "M": {
+				trabalharComMateriais();
+				continue;
+			}
+			case "CF":{
+				criarFerramentasInventario();
+		continue;
+			}
+			case"CA":{
+				criarArmasInventario();
+			}
+			case"S":
+				sair=1;
+		}
+		
+		}while(sair==0);
+		
+	
+	
+	
+}
+
+	public void usarItemGeral(Personagem jogador) {
+		
+		String nomeItem = leitor.nextLine();
+		usarItem(nomeItem, jogador);
+
+	}
+	public void trabalharComMateriais() {
+		
+		System.out.println("Digite o nome do material 1: ");
+		String nomeMaterialA= leitor.nextLine();
+		leitor.nextLine();
+		System.out.println("Digite o nome do material 2: ");
+		String nomeMaterialB= leitor.nextLine();
+		System.out.println("Digite o nome do material do novo material criado: ");
+		String nome= leitor.nextLine();
+		
+		
+		Material resultante = null;
+		Material a = null;
+		Material b= null;
+		for (Item item : inventario) {
+			if(item instanceof Material && item.getNome().equalsIgnoreCase(nomeMaterialA)&& item.getClasse().equalsIgnoreCase("Material")) {			
+				    Material a1 = (Material) item;
+				   a=a1;
+				}
+
+			}
+		for (Item item : inventario) {
+			if(item instanceof Material && item.getNome().equalsIgnoreCase(nomeMaterialB)&& item.getClasse().equalsIgnoreCase("Material")) {			
+				    Material b1 = (Material) item;
+			b=b1;
+		}
+			if(a != null && b != null) {
+				resultante= a.combinar(a, b);
+				resultante.setNome(nome);
+				adicionarItem(resultante);
+			}
+			
+			else {
+				System.out.println("Erro, algum material está em falta");
+			}
+			
+		}
+	}
+	
+	
+	
+		public void  criarFerramentasInventario() {
+			System.out.println("Digite o nome do material que será usado: ");
+			String nomeMaterialA= leitor.nextLine();
+			leitor.nextLine();
+			
+			
+			Material resultante = null;
+			Material a = null;
+			Material b= null;
+			for (Item item : inventario) {
+				if(item instanceof Material && item.getNome().equalsIgnoreCase(nomeMaterialA)&& item.getClasse().equalsIgnoreCase("Material")) {			
+					    Material a1 = (Material) item;
+					   a=a1;
+					}
+
+				}
+			for (Item item : inventario) {
+				if(item instanceof Material && item.getNome().equalsIgnoreCase("Molde de Ferramentas")&& item.getClasse().equalsIgnoreCase("Material")) {			
+					    Material b1 = (Material) item;
+				b=b1;
+			}
+			}
+			if(a!= null&& b!= null) {
+			resultante= criador.criarFerramenta(a, b);
+			retirarItem(resultante.getNome());
+			adicionarItem(resultante);
+			}
+			else {
+				System.out.println("Erro, algum material está em falta");
+			}
+			
+			
+		}
+		public void criarArmasInventario() {
+			System.out.println("Digite o nome do material que será usado: ");
+			String nomeMaterialA= leitor.nextLine();
+			leitor.nextLine();
+			
+			
+			Material resultante = null;
+			Material a = null;
+			Material b= null;
+			for (Item item : inventario) {
+				if(item instanceof Material && item.getNome().equalsIgnoreCase(nomeMaterialA)&& item.getClasse().equalsIgnoreCase("Material")) {			
+					    Material a1 = (Material) item;
+					   a=a1;
+					}
+
+				}
+			for (Item item : inventario) {
+				if(item instanceof Material && item.getNome().equalsIgnoreCase("Molde de Ferramentas")&& item.getClasse().equalsIgnoreCase("Material")) {			
+					    Material b1 = (Material) item;
+				b=b1;
+			}
+			}
+			if(a!= null&& b!= null) {
+				resultante= criador.criarArma( a, b);
+						retirarItem(resultante.getNome());
+				adicionarItem(resultante);
+			}
+			else {
+					System.out.println("Erro, algum material está em falta");
+				}
+			}
+		
+		
+		
+	
 
 	public void retirarQuantidade(String nome, int numero) {
 		for (Item item : inventario) {
