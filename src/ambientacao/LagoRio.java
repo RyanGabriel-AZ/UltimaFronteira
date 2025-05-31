@@ -1,13 +1,14 @@
 package ambientacao;
 
+import controladores.Inventario;
 import personalidades.Personagem;
 
 public class LagoRio extends Ambiente {
 
 	public LagoRio(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
-			String condicoesClimaticasPredominantes, double aguaAbundante, double possibilidadeDePesca,
+			String condicoesClimaticasPredominantes, Inventario inventario, double aguaAbundante, double possibilidadeDePesca,
 			double terrenoLamacento) {
-		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes);
+		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes, inventario);
 		this.aguaAbundante = aguaAbundante;
 		this.possibilidadeDePesca = possibilidadeDePesca;
 		this.terrenoLamacento = terrenoLamacento;

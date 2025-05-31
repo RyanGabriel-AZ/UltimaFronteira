@@ -18,12 +18,13 @@ public abstract class Ambiente {
 	private ArrayList<Item> itensDoAmbiente= new ArrayList<>();
 
 	public Ambiente(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
-			String condicoesClimaticasPredominantes) {
+			String condicoesClimaticasPredominantes, Inventario inventario) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.condicoesClimaticasPredominantes = condicoesClimaticasPredominantes;
 		this.dificuldadeDeExploração = dificuldadeDeExploração;
 		this.probabilidadeDeEventos = probabilidadeDeEventos;
+		this.inventario= inventario;
 
 	}
 

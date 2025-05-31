@@ -100,12 +100,12 @@ public class DesgastePersonagem {
 	public void mostrarResultado(Personagem resultado) {
 		for (Personagem personagem : getDesgates()) {
 			if (personagem.getNome().equalsIgnoreCase(resultado.getNome())) {
-				System.out.println("Sua vida" + aumentouDiminuiu(personagem.getVida()));
-				System.out.println("Sua energia" + aumentouDiminuiu(personagem.getEnergia()));
-				System.out.println("Sua sanidade" + aumentouDiminuiu(personagem.getSanidade()));
-				System.out.println("Sua fome" + aumentouDiminuiu(personagem.getFome()));
-				System.out.println("Sua sede" + aumentouDiminuiu(personagem.getSede()));
-				System.out.println("Sua proteção contra  efeitos secundarios"
+				System.out.println("Sua vida " + aumentouDiminuiu(personagem.getVida()));
+				System.out.println("Sua energia " + aumentouDiminuiu(personagem.getEnergia()));
+				System.out.println("Sua sanidade " + aumentouDiminuiu(personagem.getSanidade()));
+				System.out.println("Sua fome " + aumentouDiminuiu(personagem.getFome()));
+				System.out.println("Sua sede " + aumentouDiminuiu(personagem.getSede()));
+				System.out.println("Sua proteção contra  efeitos secundarios "
 						+ aumentouDiminuiu(personagem.getProtecaoEfeitosSecundarios()));
 				
 			}

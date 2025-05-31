@@ -116,7 +116,7 @@ System.out.println("Você colocou um alcance inexistente");
 
 	public void combate(Personagem jogador, ControladorCriaturas criatura, Inventario inventario) {
 
-		Normal antes = new Normal("antes", 0, 0, 0, 0, 0, 0, "", null, null);
+		Normal antes = new Normal("antes", 200, 0, 0, 0, 0, 0, "", null, null);
 		Normal atual = new Normal("Atual", 0, 0, 0, 0, 0, 0, "", null, null);
 		Normal resultado = new Normal("resultado", 0, 0, 0, 0, 0, 0, "", null, null);
 
@@ -139,7 +139,7 @@ System.out.println("Você colocou um alcance inexistente");
 			desgaste.limparEstados();
 
 		}
-
+      System.out.println("\n Você venceu a batalha contra " + criaturaAtual.getNome());
 	}
 
 }

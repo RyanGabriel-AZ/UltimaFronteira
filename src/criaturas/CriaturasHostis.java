@@ -127,6 +127,7 @@ public void statusCriatura() {
 	}
 	public void aparecerCriatura() {
 		System.out.println( getNome()+" está na sua frente!");
+		System.out.println("Descrição: " + getDescricao());
 		System.out.println(" A vida dele é: " );
 		statusCriatura();
 	}

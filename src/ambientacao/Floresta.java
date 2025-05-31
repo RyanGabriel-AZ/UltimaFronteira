@@ -1,11 +1,12 @@
 package ambientacao;
 
+import controladores.Inventario;
 import personalidades.Personagem;
 
 public class Floresta extends Ambiente {
  public Floresta(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
-			String condicoesClimaticasPredominantes, double vegetacaoDensa, double faunaAbundante, double climaUmido) {
-		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes);
+			String condicoesClimaticasPredominantes, Inventario inventario, double vegetacaoDensa, double faunaAbundante, double climaUmido) {
+		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes, inventario);
 		this.climaUmido=climaUmido;
 		this.faunaAbundante=faunaAbundante;
 		this.vegetacaoDensa=vegetacaoDensa;

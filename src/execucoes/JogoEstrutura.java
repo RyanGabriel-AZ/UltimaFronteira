@@ -44,11 +44,11 @@ public class JogoEstrutura {
  * Objetos Ambiente
  */
 	
-	Deserto deserto = new Deserto("Deserto", "Um lugar árido e perigoso, a morte está à espreita", 20, 70, "sol", 0.9, 0.9, 0.9, 0.9);
-	Savana savana = new Savana("Savana", "Cheio de animais perigosos, quente, poucos suprimentos", 50, 70, "Sol", 0.7, 0.7, 0.7);
-	LagoRio lago = new LagoRio("Lago", "Um lugar lindo, cheio de água, e lama.", 80, 70, "Sol", 0.9, 0.8, 1);
-	Floresta floresta =new Floresta("Floresta", "Matos sem fim, um ótimo lugar para fazer chá.", 90, 90, "Sol", 0.9, 0.9, 0.8);
-	Ruinas ruina= new Ruinas("Ruinas", "Estruturas antigas, alguém já viveu aqui", 70, 80, "Nenhuma", 0.8, 0.6, true);
+	Deserto deserto = new Deserto("Deserto", "Um lugar árido e perigoso, a morte está à espreita", 20, 70, "sol",inventario, 0.9, 0.9, 0.9, 0.9);
+	Savana savana = new Savana("Savana", "Cheio de animais perigosos, quente, poucos suprimentos", 50, 70, "Sol", inventario,0.7, 0.7, 0.7);
+	LagoRio lago = new LagoRio("Lago", "Um lugar lindo, cheio de água, e lama.", 80, 70, "Sol",inventario, 0.9, 0.8, 1);
+	Floresta floresta =new Floresta("Floresta", "Matos sem fim, um ótimo lugar para fazer chá.", 90, 90, "Sol",inventario,0.9, 0.9, 0.8);
+	Ruinas ruina= new Ruinas("Ruinas", "Estruturas antigas, alguém já viveu aqui", 70, 80, "Nenhuma", inventario,0.8, 0.6, true);
 	
 	/*
 	 * /*
@@ -354,6 +354,7 @@ public void loopJogo(Personagem jogador) {
 	boolean bloquearLoop= true;
 	while(bloquearLoop) {
 		inventario.inventarioFuncional(jogador);
+		controleEventos.criaturasDoceis(jogador);
 		controleEventos.eventosAleatoriosJogo(jogador, controleCriaturas, inventario);
 		
 		

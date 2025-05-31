@@ -1,12 +1,13 @@
 package ambientacao;
 
+import controladores.Inventario;
 import personalidades.Personagem;
 
 public class Ruinas extends Ambiente {
 
 	public Ruinas(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
-			String condicoesClimaticasPredominantes, double estruturasInstaveis, double baixoRiscoClimatico, Boolean presencaDeOutros) {
-		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes);
+			String condicoesClimaticasPredominantes, Inventario inventario, double estruturasInstaveis, double baixoRiscoClimatico, Boolean presencaDeOutros) {
+		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes, inventario);
 		this.baixoRiscoClimatico= baixoRiscoClimatico;
 		this.estruturasInstaveis= estruturasInstaveis;
 		this.presencaDeOutros= presencaDeOutros;

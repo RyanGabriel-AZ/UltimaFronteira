@@ -1,12 +1,13 @@
 package ambientacao;
 
+import controladores.Inventario;
 import personalidades.Personagem;
 
 public class Deserto extends Savana{
 
 	public Deserto(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
-			String condicoesClimaticasPredominantes, double solEscaldante, double faltaDeSuprimentos, double mormaco, double terrenoArenoso) {
-		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes, solEscaldante,
+			String condicoesClimaticasPredominantes,Inventario inventario, double solEscaldante, double faltaDeSuprimentos, double mormaco, double terrenoArenoso) {
+		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes, inventario, solEscaldante,
 				faltaDeSuprimentos, mormaco);
 		this.terrenoArenoso= terrenoArenoso;
 	}

@@ -1,12 +1,13 @@
 package ambientacao;
 
+import controladores.Inventario;
 import personalidades.Personagem;
 
 public class Savana extends Ambiente  {
 
 	public Savana(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
-			String condicoesClimaticasPredominantes, double solEscaldante, double faltaDeSuprimentos, double mormaco) {
-		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes);
+			String condicoesClimaticasPredominantes, Inventario inventario, double solEscaldante, double faltaDeSuprimentos, double mormaco) {
+		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes, inventario);
 		this.setFaltaDeSuprimentos(faltaDeSuprimentos);
 		this.setMormaco(mormaco);
 		this.setSolEscaldante(solEscaldante);
