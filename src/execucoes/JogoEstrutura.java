@@ -167,7 +167,7 @@ Agua aguaDivina= new Agua("Água divina", 0.1, 1, 1, 300, 0, "Raro","Agua");
 Material moldeArma= new Material("Molde de armas", 10, 1, 1, 500, "Raro", "Material");
 Material moldeFerramenta= new Material("Molde de ferramentas", 10, 1, 1, 500, "Raro", "Material");
 // Armas
-Arma arma1= new Arma("Botas de couro", 5, 200, 1, 100, 100, 0.75, "Curto", "Armas");
+Arma arma1= new Arma("Botas de couro", 5, 200, 1, 100, 100, 0.75, "Curto", "Arma");
 Arma arma2= new Arma("Chicote", 5, 200, 1, 200, 75, 0.8, "Medio", "Arma");
 Arma arma3= new Arma("Batons", 2, 200, 1, 200, 50, 1, "Longo", "Arma");
 
@@ -344,6 +344,7 @@ public void testePersonagemInventario() {
 //Implem
 public void inicioJogo() {
 	adcionarElementosJogo();
+	System.out.println(inventario);
 	controleEventos.introducaoJogoTexto();
 	
 	loopJogo(controladorPersonagem.escolherclassejogador());

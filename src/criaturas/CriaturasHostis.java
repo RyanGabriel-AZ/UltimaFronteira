@@ -119,9 +119,15 @@ public void statusCriatura() {
 	public void interagir(Personagem jogador) {
 
 		System.out.println(getNome() + " vai atacar!");
+		System.out.println("Vida criatura");
 		statusCriatura();
 		ataque(jogador);
 		aplicarEfeitosSecundarios(jogador);
+		
+	}
+	public void aparecerCriatura() {
+		System.out.println( getNome()+" está na sua frente!");
+		System.out.println(" A vida dele é: " );
 		statusCriatura();
 	}
 
