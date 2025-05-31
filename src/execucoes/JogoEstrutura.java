@@ -344,7 +344,7 @@ public void testePersonagemInventario() {
 //Implem
 public void inicioJogo() {
 	adcionarElementosJogo();
-	System.out.println(inventario);
+	
 	controleEventos.introducaoJogoTexto();
 	
 	loopJogo(controladorPersonagem.escolherclassejogador());
@@ -353,6 +353,7 @@ public void inicioJogo() {
 public void loopJogo(Personagem jogador) {
 	boolean bloquearLoop= true;
 	while(bloquearLoop) {
+		inventario.inventarioFuncional(jogador);
 		controleEventos.eventosAleatoriosJogo(jogador, controleCriaturas, inventario);
 		
 		

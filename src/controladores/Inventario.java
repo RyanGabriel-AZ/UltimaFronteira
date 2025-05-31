@@ -41,12 +41,14 @@ public class Inventario {
 
 		for (Item item : acessarInventario()) {
 			if (item.getNome().equalsIgnoreCase(nomeItem)) {
+				System.out.println(item.getNome());
 				item.usar(jogador);
 				break;
 
 			}
 
 		}
+		System.out.println("Você não pode usar Armas, Materiais, ou Ferramentas, enquanto está no inventário! ");
 	}
 
 	public void adcionarQuantidade(Item itens, int numero) {
@@ -121,7 +123,7 @@ public void inventarioFuncional(Personagem jogador) {
 		System.out.println("Digite 'S', para sair do inventario, \n'U' para usar um item,\n 'R' para remover itens, \n"
 				+ " 'M' para a parte de cobinacação de materiais e,\n 'CF' para criar Ferramentas, 'CA' para criar armas. ");
 		String letra= leitor.nextLine();
-		switch(letra){
+		switch(letra.toUpperCase()){
 		case "R": {
 			removerItemBolsa();
 			continue;
@@ -146,7 +148,7 @@ public void inventarioFuncional(Personagem jogador) {
 				sair=1;
 				continue;
 		}
-		
+		System.out.println("Ocorreu algum erro! verifique se colocou as informações corretas ");
 		}while(sair==0);
 		
 	
@@ -155,7 +157,7 @@ public void inventarioFuncional(Personagem jogador) {
 }
 
 	public void usarItemGeral(Personagem jogador) {
-		
+		System.out.println("Digite o nome do item que voce deseja usar: ");
 		String nomeItem = leitor.nextLine();
 		usarItem(nomeItem, jogador);
 
