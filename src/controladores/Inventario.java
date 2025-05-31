@@ -279,5 +279,14 @@ public void inventarioFuncional(Personagem jogador) {
 			}
 		}
 	}
+	public boolean verificarSeHaArmasFerramentas(String classeArmaOuFerramenta) {
+		for (Item item : acessarInventario()) {
+			if(item.getClasse().equalsIgnoreCase(classeArmaOuFerramenta)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 
 }

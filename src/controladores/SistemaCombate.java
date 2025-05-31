@@ -12,12 +12,14 @@ import itens.Item;
 import personalidades.Normal;
 import personalidades.Personagem;
 
+
+
 public class SistemaCombate {
 	Random aleatorio = new Random();
 	Scanner leitor = new Scanner(System.in);
 	Arma arma;
 	DesgastePersonagem desgaste = new DesgastePersonagem();
-
+Arma galho= new Arma("galho", 1, 100, 1, 10, 10, 0.1, "Raro", "Arma");
 	private ArrayList<Arma> armaAtual = new ArrayList<>();
 
 	public void adcionarArmaLuta(Arma arma) {
@@ -61,6 +63,7 @@ System.out.println("Você colocou um alcance inexistente");
 
 	public Arma escolherArma(Inventario bolsa) {
 		Arma arma;
+		if(bolsa.verificarSeHaArmasFerramentas("Arma")) {
 		do {
 			System.out.println(
 					"Digite o tipo de arma, sendo: 'Curto', 'Medio', 'Longo', isso vai definir sua arma atual: ");
@@ -69,7 +72,9 @@ System.out.println("Você colocou um alcance inexistente");
 			
 
 		} while (arma == null);
-		return arma;
+		return arma;}
+		System.out.println(" Parece que você está sem armas\n Você deve criar uma arma logo!, vou pegar esse galho para você");
+		return galho;
 	}
 
 	// pode acessar inventario e usar itens, ou fugir, ou lutar;

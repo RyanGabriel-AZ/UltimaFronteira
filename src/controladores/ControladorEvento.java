@@ -23,7 +23,10 @@ IntroducaoJogo introducaoJogo= new IntroducaoJogo();
 SistemaCombate combate= new SistemaCombate();
 // Relaçoes  de falas personagens
 public void introducaoJogoTexto() {
+	introducaoJogo.menuStart();
+	introducaoJogo.interacaoFalaUsuario();	
 	introducaoJogo.historiaInicial();
+	introducaoJogo.interacaoFalaUsuario();
 }
 public void falas() {
 	falasPensamentos.falar();
@@ -86,7 +89,11 @@ public void criaturasDoceis(Personagem jogador) {
 	manipular.aparecerCriaturasDoceis(jogador);
 }
 
-
+public void podeExplorar() {
+	
+	exploracao.explorar();
+	
+}
 
 
 

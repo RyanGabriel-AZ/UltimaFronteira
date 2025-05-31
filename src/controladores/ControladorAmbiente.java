@@ -54,5 +54,7 @@ public class ControladorAmbiente {
 		Ambiente novAmbiente = ambienteAleatorio(sorteio);
 		mudarAmbiente(jogador, novAmbiente);
 	}
-
+public void espolios(Personagem jogador) {
+	jogador.getLocalizacao().espoliosAmbiente();
+}
 }

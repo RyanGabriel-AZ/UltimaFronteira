@@ -1,5 +1,7 @@
 package execucoes;
 
+import java.util.Scanner;
+
 import ambientacao.Deserto;
 import ambientacao.Floresta;
 import ambientacao.LagoRio;
@@ -28,7 +30,7 @@ import personalidades.Sobrevivente;
 import personalidades.Vampira;
 
 public class JogoEstrutura {
-	
+	Scanner leitor= new Scanner(System.in);
 	
 /*
  * Controladores
@@ -343,24 +345,106 @@ public void testePersonagemInventario() {
 }
 //Implem
 public void inicioJogo() {
-	adcionarElementosJogo();
-	
+	adcionarElementosJogo();	
 	controleEventos.introducaoJogoTexto();
-	
 	loopJogo(controladorPersonagem.escolherclassejogador());
 	
 }
+public boolean bloquearLoop( Personagem jogador) {
+	if(jogador.getVida()>0&& jogador.getFome()>0&& jogador.getEnergia()>0&& jogador.getSanidade()>0 && jogador.getSede()>0) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+public boolean podeExplorar(Inventario inventario) {
+	if(inventario.verificarSeHaArmasFerramentas("Ferramenta")) {
+		
+	return	true;
+	}
+	return false;
+}
+
+
+public String perguntarCaminho() {
+	String resposta= null;
+	int i=0;
+	do {
+		System.out.println("\nDigite 'E' para explorar com as suas ferramentas\n Digite C para caçar tesouros do ambiente:  ");
+		resposta= leitor.nextLine();
+		if(resposta.equalsIgnoreCase("E")|| resposta.equalsIgnoreCase("C")) {
+			i=1;
+		}
+	}while(i==0);
+	return resposta;
+	
+}
+
+public void caminhoDoTurno(Personagem jogador) {
+	if(inventario.verificarSeHaArmasFerramentas("Ferramenta")) {
+		System.out.println("\nTemos uma difícil decisão para tomar!\n Exploramos com as nossas ferramentas, ou buscamos tesouros na natureza.");
+		String letra= perguntarCaminho();
+		switch(letra.toUpperCase()) {
+		case "E":{
+			System.out.println("\n Eu vou eu vou, lascar as juntas eu vou...");
+			controleEventos.podeExplorar();
+			break;
+		}
+		case "C":
+			System.out.println("Ai! meu Deus do céu, úrtigas!");
+			controleAmbiente.espolios(jogador);
+		}
+	}
+	else {
+		
+	System.out.println("\nVamos procurar tesouros no ambiente");
+	controleAmbiente.espolios(jogador);
+	}
+}
+public void deveriamosMudarOAmbiente(Personagem jogador) {
+	System.out.println("\n Estou ficando Enjoada desse ambiente! Vamos mudar de ambiente!");
+	String direcao=null;
+		System.out.println("\nPara onde deveriamos ir? Norte, Sul, Leste ou Oeste?\n Digite 'N' ou 'S' ou 'L' , 'O', para mudar de ambiente!");
+		direcao= leitor.nextLine();
+		if(direcao.equalsIgnoreCase("N")||direcao.equalsIgnoreCase("S")||direcao.equalsIgnoreCase("L")||direcao.equalsIgnoreCase("O")) {
+			controleAmbiente.controlarAmbiente(jogador);
+		System.out.println("\n Oba! um novo ambiente, estamos no(a): "+ jogador.getLocalizacao().getNome()+ " \n Deixe-me ver o que papai anotou para mim sobre este ambiente. "+
+				"Bom aqui diz: "+ jogador.getLocalizacao().getDescricao());	
+			
+		}
+		else {
+			System.out.println("\nQue pena, queria tanto mudar de ambiente :( . Vamos continuar então!");
+		}
+	
+	
+	
+	
+	
+	
+}
+
 public void loopJogo(Personagem jogador) {
-	boolean bloquearLoop= true;
-	while(bloquearLoop) {
+	int bloquearLoop= 0;
+	int loopMaximo=15;
+	while(bloquearLoop<loopMaximo) {
+		System.out.println("\nVocê está na rodada: " + toString().indexOf(bloquearLoop));
 		inventario.inventarioFuncional(jogador);
-		controleEventos.criaturasDoceis(jogador);
+	caminhoDoTurno(jogador);
+	if(bloquearLoop(jogador)) {
+		break;
+	}
 		controleEventos.eventosAleatoriosJogo(jogador, controleCriaturas, inventario);
+		if(bloquearLoop(jogador)) {
+			break;
+		}
+		deveriamosMudarOAmbiente(jogador);
+		bloquearLoop++;
 		
 		
 		
 	}
-	
+	controleEventos.todosFinais(jogador, loopMaximo, bloquearLoop);
 	
 }
 	
