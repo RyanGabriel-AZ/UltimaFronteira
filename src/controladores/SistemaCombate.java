@@ -48,9 +48,11 @@ public class SistemaCombate {
 
 	public Arma selecionaArma(Inventario bolsa, String tipoAlcance) {
 		for (Item item : bolsa.acessarInventario()) {
-			if (item instanceof Arma && arma.getTipo().equalsIgnoreCase(tipoAlcance)) {
+			if ( item.getTipo().equalsIgnoreCase(tipoAlcance)) {
+				if(item instanceof Arma ) {
 				Arma arma = (Arma) item;
 				return arma; //
+				}
 			}
 		}
 System.out.println("Você colocou um alcance inexistente");

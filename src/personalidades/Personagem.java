@@ -90,6 +90,9 @@ public abstract class Personagem {
 		if(getVida()>getLimiteVida()) {
 			this.vida= getLimiteVida();
 		}
+		if(getVida()<0) {
+			this.vida=0;
+		}
 	}
 
 
