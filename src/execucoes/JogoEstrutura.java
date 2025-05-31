@@ -1,20 +1,33 @@
 package execucoes;
 
-import ambientacao.*;
-import controladores.*;
+import ambientacao.Deserto;
+import ambientacao.Floresta;
+import ambientacao.LagoRio;
+import ambientacao.Ruinas;
+import ambientacao.Savana;
+import controladores.ControladorAmbiente;
+import controladores.ControladorCriaturas;
+import controladores.ControladorEvento;
+import controladores.ControlePersonagem;
+import controladores.Inventario;
+import controladores.SistemaCombate;
 import criaturas.CriaturasHostis;
 import eventualidades.EventoCriaturasDoceis;
 import itens.Agua;
 import itens.Alimentos;
+import itens.Arma;
 import itens.Material;
 import itens.Medicamentos;
+import personalidades.AtiradoraDeElite;
+import personalidades.Coringa;
+import personalidades.FilhinhaDoPapai;
+import personalidades.Maromba;
 import personalidades.Normal;
+import personalidades.Personagem;
+import personalidades.Sobrevivente;
+import personalidades.Vampira;
 
 public class JogoEstrutura {
-	/*
-	 * Personagem teste
-	 */
-	Normal teste= new Normal("Teste", 1000,1000, 1000, 1000, 1000, 0);
 	
 	
 /*
@@ -26,8 +39,8 @@ public class JogoEstrutura {
 	Inventario inventario= new Inventario();
 	SistemaCombate sistemaCombate= new SistemaCombate();
 	ControlePersonagem controladorPersonagem = new ControlePersonagem();
-	
-/*
+
+	/*
  * Objetos Ambiente
  */
 	
@@ -36,6 +49,37 @@ public class JogoEstrutura {
 	LagoRio lago = new LagoRio("Lago", "Um lugar lindo, cheio de água, e lama.", 80, 70, "Sol", 0.9, 0.8, 1);
 	Floresta floresta =new Floresta("Floresta", "Matos sem fim, um ótimo lugar para fazer chá.", 90, 90, "Sol", 0.9, 0.9, 0.8);
 	Ruinas ruina= new Ruinas("Ruinas", "Estruturas antigas, alguém já viveu aqui", 70, 80, "Nenhuma", 0.8, 0.6, true);
+	
+	/*
+	 * /*
+		 * Personagem classees
+		 *//*
+ * /*
+	 * Personagem classees
+	 */
+	AtiradoraDeElite atiradoraDeElite= new AtiradoraDeElite("Liriel", 0, 0, 0, 0, 0, 0, "ATE", inventario,floresta  );
+	Coringa coringa = new Coringa("Liriel", 0, 0, 0, 0, 0, 0, "Coringa",inventario,floresta);
+	FilhinhaDoPapai fdp= new FilhinhaDoPapai("Liriel", 0, 0, 0, 0, 0, 0, "FDP",inventario,floresta);
+	Maromba maromba= new Maromba("Liriel", 0, 0, 0, 0, 0, 0, "Maromba",inventario,floresta);
+	Sobrevivente sobrevivente= new Sobrevivente("Liriel", 0, 0, 0, 0, 0, 0, "Sobrevivente",inventario,floresta);
+	Normal normal= new Normal("Liriel", 0, 0, 0, 0, 0, 0, "Normal",inventario,floresta);
+	Vampira vampira= new Vampira("Liriel", 0, 0, 0, 0, 0, 0, "Vampira",inventario,floresta);
+	/*
+	 * Criatura Doceis
+	 */
+	EventoCriaturasDoceis lebre= new EventoCriaturasDoceis("Lebre", floresta);
+	EventoCriaturasDoceis jararaca= new EventoCriaturasDoceis("Jararáca", deserto);
+	EventoCriaturasDoceis golfinho= new EventoCriaturasDoceis("Golfinho", lago);
+	EventoCriaturasDoceis pardal= new EventoCriaturasDoceis("Pardal", savana);
+	EventoCriaturasDoceis sogra= new EventoCriaturasDoceis("Sogra", ruina);
+	EventoCriaturasDoceis coelho= new EventoCriaturasDoceis("coelho", floresta);
+	EventoCriaturasDoceis capivara= new EventoCriaturasDoceis("Capivara", lago);
+	EventoCriaturasDoceis girafa= new EventoCriaturasDoceis("Girafa", savana);
+	EventoCriaturasDoceis lagartixa= new EventoCriaturasDoceis("Lagartixa", deserto);
+	EventoCriaturasDoceis tatu= new EventoCriaturasDoceis("Tatu", ruina);
+	
+	
+	
 	/*
 	 * criaturas
 	 */
@@ -74,12 +118,7 @@ public class JogoEstrutura {
 	CriaturasHostis mumia= new CriaturasHostis("Múmia", 200, 1, "Faixas não estão  na moda, querida.", ruina, 60, "", 0, "Normal");
 	CriaturasHostis escaravelho= new CriaturasHostis("Escaravelho", 40, 4, "Minha amiga Suzie, tem uma dieta baseada em você, ótima fonte de proteinas!", ruina, 40, "Sangramento", 0.4, "Fraco");
 	CriaturasHostis guardiao= new CriaturasHostis("Guardião", 150, 1, "Você passou algum perfume francês?", ruina, 80, "Hemorragia", 0.6, "Letal");
-	//criauras doceis
-	EventoCriaturasDoceis coelho= new EventoCriaturasDoceis("coelho", floresta);
-	EventoCriaturasDoceis capivara= new EventoCriaturasDoceis("Capivara", lago);
-	EventoCriaturasDoceis girafa= new EventoCriaturasDoceis("Girafa", savana);
-	EventoCriaturasDoceis lagartixa= new EventoCriaturasDoceis("Lagartixa", deserto);
-	EventoCriaturasDoceis tatu= new EventoCriaturasDoceis("Tatu", ruina);
+	
 	
 	
 	
@@ -127,6 +166,22 @@ Agua aguaDivina= new Agua("Água divina", 0.1, 1, 1, 300, 0, "Raro","Agua");
 //Materiais raros e necessario para fazer armas e espada;
 Material moldeArma= new Material("Molde de armas", 10, 1, 1, 500, "Raro", "Material");
 Material moldeFerramenta= new Material("Molde de ferramentas", 10, 1, 1, 500, "Raro", "Material");
+// Armas
+Arma arma1= new Arma("Botas de couro", 5, 200, 1, 100, 100, 0.75, "Curto", "Armas");
+Arma arma2= new Arma("Chicote", 5, 200, 1, 200, 75, 0.8, "Medio", "Arma");
+Arma arma3= new Arma("Batons", 2, 200, 1, 200, 50, 1, "Longo", "Arma");
+
+
+
+
+
+
+
+
+
+
+
+
 
 public void adcionarElementosJogo() {
 	//
@@ -257,13 +312,53 @@ public void adcionarElementosJogo() {
 	inventario.adicionarItem(pedra);
 	inventario.adicionarItem(picanha);
 	inventario.adicionarItem(vieiras);
+	inventario.adicionarItem(arma1);
+	inventario.adicionarItem(arma2);
+	inventario.adicionarItem(arma3);
 	
+	controladorPersonagem.adcionarClassesPersonagem(atiradoraDeElite);
+	controladorPersonagem.adcionarClassesPersonagem(coringa);
+	controladorPersonagem.adcionarClassesPersonagem(fdp);
+	controladorPersonagem.adcionarClassesPersonagem(maromba);
+	controladorPersonagem.adcionarClassesPersonagem(normal);
+	controladorPersonagem.adcionarClassesPersonagem(sobrevivente);
+	controladorPersonagem.adcionarClassesPersonagem(vampira);
+	//
+	controleEventos.adcionarFalas("Fala qualquer");
+	//
+	controleEventos.adicionarCriaturasDoceis(pardal);
+	controleEventos.adicionarCriaturasDoceis(tatu);
+	controleEventos.adicionarCriaturasDoceis(capivara);
+	controleEventos.adicionarCriaturasDoceis(coelho);
+	controleEventos.adicionarCriaturasDoceis(girafa);
+	controleEventos.adicionarCriaturasDoceis(golfinho);
+	controleEventos.adicionarCriaturasDoceis(jararaca);
+	controleEventos.adicionarCriaturasDoceis(lagartixa);
+	controleEventos.adicionarCriaturasDoceis(lebre);
+	controleEventos.adicionarCriaturasDoceis(sogra);
 }
 //funcao teste
 public void testePersonagemInventario() {
-	inventario.mostrarInventario();
+	
 }
-
-
+//Implem
+public void inicioJogo() {
+	adcionarElementosJogo();
+	controleEventos.introducaoJogoTexto();
+	
+	loopJogo(controladorPersonagem.escolherclassejogador());
+	
+}
+public void loopJogo(Personagem jogador) {
+	boolean bloquearLoop= true;
+	while(bloquearLoop) {
+		controleEventos.eventosAleatoriosJogo(jogador, controleCriaturas, inventario);
+		
+		
+		
+	}
+	
+	
+}
 	
 }

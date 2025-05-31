@@ -2,6 +2,8 @@ package personalidades;
 
 import java.util.Random;
 
+import ambientacao.Ambiente;
+import controladores.Inventario;
 import criaturas.Criatura;
 import itens.Arma;
 
@@ -9,8 +11,8 @@ public class Coringa extends Personagem{
 Random aleatorio= new Random();
 
 	public Coringa(String nome, double vida, double energia, double fome, double sede, double sanidade,
-			int protecaoEfeitosSecundarios) {
-		super(nome, vida, energia, fome, sede, sanidade, protecaoEfeitosSecundarios);
+			int protecaoEfeitosSecundarios, String classe,Inventario armInventario, Ambiente localizacao) {
+		super(nome, vida, energia, fome, sede, sanidade, protecaoEfeitosSecundarios, classe, armInventario, localizacao);
 		// TODO Auto-generated constructor stub
 	}
 public int statusAleatorio() {
@@ -32,6 +34,7 @@ public int statusAleatorio() {
 		setVida(getLimiteVida());
 		setSede(getLimiteSede());
 		setResistenciaAoAmbiente(ZeroAUm());
+		setFugirChance(ZeroAUm());
 		
 	}
 
@@ -42,6 +45,10 @@ public int statusAleatorio() {
 	    	monstros.setVida(dano);
 	    	arma.setDurabilidade(-10);
 	    }
+	}
+	@Override
+	public void descricaoClasse() {
+		System.out.println("Classe coringa: é ótima para quem ama viver à base da sorte");
 	}
 
 	

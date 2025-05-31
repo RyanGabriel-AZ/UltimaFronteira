@@ -48,13 +48,5 @@ public void aparecerCriaturasDoceis(Personagem jogador) {
 			jogador.setVida(roleta.nextInt(50) );
 			jogador.setSanidade(roleta.nextInt(50) );
 		}
-	}
 	
-	System.out.println("Parece que você achou " +getNome()+ "\n"+ "Ele quer te dar amor e alegria");
-	getHabitat().espoliosAmbiente();
-	jogador.setVida(roleta.nextInt(50) );
-	jogador.setSanidade(roleta.nextInt(50) );
-}
-
-
-}
+	}}}

@@ -1,13 +1,15 @@
 package personalidades;
 
+import ambientacao.Ambiente;
+import controladores.Inventario;
 import criaturas.Criatura;
 import itens.Arma;
 
 public class Sobrevivente extends Personagem{
 
 	public Sobrevivente(String nome, double vida, double energia, double fome, double sede, double sanidade,
-			int protecaoEfeitosSecundarios) {
-		super(nome, vida, energia, fome, sede, sanidade, protecaoEfeitosSecundarios);
+			int protecaoEfeitosSecundarios, String classe,Inventario armInventario, Ambiente localizacao) {
+		super(nome, vida, energia, fome, sede, sanidade, protecaoEfeitosSecundarios, classe, armInventario, localizacao);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -34,7 +36,7 @@ public class Sobrevivente extends Personagem{
 
 	@Override
 	public void descricaoClasse() {
-		System.out.println("");
+		System.out.println("Classe sobrevivente: Após se formar em Engenharia da computação, nada te abala, nem a natureza. ");
 	}
 
 }

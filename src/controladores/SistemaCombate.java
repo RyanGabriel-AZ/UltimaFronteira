@@ -18,13 +18,7 @@ Random aleatorio = new Random();
 	Arma arma;
 DesgastePersonagem desgaste= new DesgastePersonagem();
 
-public void cicloStatsPersonagem(Personagem jogador) {
-	Normal antes = new Normal("antes", 0, 0, 0, 0, 0, 0);
-	Normal atual = new Normal("Atual", 0, 0, 0, 0, 0, 0);
-	Normal resultado = new Normal("resultado", 0, 0, 0, 0, 0, 0);
-	desgaste.cicloEstados(jogador, antes, atual, resultado);
-	
-}
+
 
 	private ArrayList<Arma> armaAtual= new ArrayList<>();
 	public void adcionarArmaLuta(Arma arma) {
@@ -122,21 +116,30 @@ public void opcaoNaLuta(Inventario bolsa, Personagem jogador, Criatura criatura)
 	
 	
 }
-	public void combate( Personagem jogador, ControladorCriaturas criatura) {
+	public void combate( Personagem jogador, ControladorCriaturas criatura, Inventario inventario) {
 	
+		Normal antes = new Normal("antes", 0, 0, 0, 0, 0, 0, "",null,null);
+		Normal atual = new Normal("Atual", 0, 0, 0, 0, 0, 0, "",null,null);
+		Normal resultado = new Normal("resultado", 0, 0, 0, 0, 0, 0, "",null,null);
+		
+		
 		criatura.adicionarCriaturasDoAmbiente(jogador.getLocalizacao());
 		CriaturasHostis criaturaAtual= criatura.sortearCriatura();
 		//Turno de lutas
 		
-		novaArma(escolherArma(jogador.getArmazenamento()));
+		novaArma(escolherArma(inventario));
 		while(criaturaAtual.getVida()>0 && criaturaAtual.criaturaContinuarLuta()) {
-			
-			
-		opcaoNaLuta(jogador.getArmazenamento(), jogador, criaturaAtual);
+			desgaste.adicionarEstados(antes, atual, resultado);
+			desgaste.atualizarEstadoAntesDepois(jogador, antes);
+			desgaste.resultadosAntesDepois(antes);
+		opcaoNaLuta(inventario, jogador, criaturaAtual);
 		criaturaAtual.interagir(jogador);
+		desgaste.atualizarEstadoAntesDepois(jogador, atual);
+		desgaste.resultadosAntesDepois(antes);
+		desgaste.resultadosAntesDepois(atual);
+		desgaste.mostrarResultado(resultado);
+		desgaste.limparEstados();
 		
-		cicloStatsPersonagem(jogador);
-						
 			
 		}
 		

@@ -31,6 +31,7 @@ public class ControlePersonagem {
 	public Personagem entradaClasse() {
 	Personagem jogador= null;
 		do {
+			System.out.println("Digite o nome da classe em que eu sonhava ser: ");
 		String	classe= ler.nextLine();
 		
 		jogador = carregarClasseJogo(classe);
@@ -42,13 +43,15 @@ public class ControlePersonagem {
 		
 	}
 	//Uma das classes principais do jogo. Aqui definimos nosso personagem do jogo.
-	public Personagem escolherclasse() {
+	public Personagem escolherclassejogador() {
 		Personagem funcao;
 		System.out.println("Quando eu era criança, o que eu sonhava em ser? ");
 		for (Personagem personagem : personagens) {
+			System.out.println("\n");
 			personagem.descricaoClasse();
+			System.out.println("\n");
 		}
-		System.out.println("Digite o nome da classe em que eu sonhava ser: ");
+		
 		
 		funcao= entradaClasse(); // será a classe do nosso personagem.
 		return funcao;

@@ -1,13 +1,15 @@
 package personalidades;
 
+import ambientacao.Ambiente;
+import controladores.Inventario;
 import criaturas.Criatura;
 import itens.Arma;
 
 public class Maromba extends Personagem {
 
 	public Maromba(String nome, double vida, double energia, double fome, double sede, double sanidade,
-			int protecaoEfeitosSecundarios) {
-		super(nome, vida, energia, fome, sede, sanidade, protecaoEfeitosSecundarios);
+			int protecaoEfeitosSecundarios, String classe,Inventario armInventario, Ambiente localizacao) {
+		super(nome, vida, energia, fome, sede, sanidade, protecaoEfeitosSecundarios, classe, armInventario, localizacao);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -21,6 +23,7 @@ public class Maromba extends Personagem {
 			setVida(getLimiteVida());
 			setSede(getLimiteSede());
 			setResistenciaAoAmbiente(0.6);
+			setFugirChance(0.05);
 	}
 
 	@Override
@@ -34,5 +37,11 @@ public class Maromba extends Personagem {
 	    	monstros.setVida(dano);
 	    	arma.setDurabilidade(-10);
 	}
+	}
+
+	@Override
+	public void descricaoClasse() {
+		System.out.println("Classe Maromba: Após injetar vários anabolizantes no seu corpo\n Ela ganhou uma força incrível, mas sua saúde foi para o ralo");
+		
 	}
 }

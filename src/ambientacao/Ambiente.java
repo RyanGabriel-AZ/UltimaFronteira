@@ -76,11 +76,13 @@ public abstract class Ambiente {
 	public void adicionarItensAbiente(Item Item) {
 		itensDoAmbiente.add(Item);
 	}
-
+public ArrayList<Item> itensDoAmbiente(){
+	return itensDoAmbiente;
+}
 	// loucura total
 	public void espoliosAmbiente() {
 		double dificuldadeExploracao= getDificuldadeDeExploração();
-		for (Item item : itensDoAmbiente) {
+		for (Item item : itensDoAmbiente()) {
 			if (aleatorio.nextDouble(100) < dificuldadeExploracao) {
 				inventario.adcionarQuantidade(item, 1);
 			}

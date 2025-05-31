@@ -28,7 +28,7 @@ public abstract class Personagem {
 	private double limiteForca;
 	private double fugirChance; // 0 a 1, quanto menor mais dificil é fugir das batalhas
 //esse construtor é só para os atributos que estou precisando em DesgastePersonagem
-	public Personagem(String nome, double vida, double energia, double fome, double sede, double sanidade, int protecaoEfeitosSecundarios) {
+	public Personagem(String nome, double vida, double energia, double fome, double sede, double sanidade, int protecaoEfeitosSecundarios, String classe, Inventario armInventario, Ambiente localizacao) {
 		this.energia=energia;
 		this.fome=fome;
 		this.sanidade=sanidade;;
@@ -36,6 +36,9 @@ public abstract class Personagem {
 		this.sede=sede;
 		this.setNome(nome);
 		this.protecaoEfeitosSecundarios=protecaoEfeitosSecundarios;
+		this.classe= classe;
+		this.armazenamento= armazenamento;
+		this.localizacao= localizacao;
 	}
 	public void configurarLimites(double limiteVida, double limiteEnergia,double limiteForca, double limiteFome,double limiteSanidade, double limiteSede) {
 		this.limiteEnergia=limiteEnergia;

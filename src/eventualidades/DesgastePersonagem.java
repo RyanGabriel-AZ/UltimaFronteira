@@ -9,7 +9,7 @@ public class DesgastePersonagem {
 	 * Aqui vamos colocar o sistema de desgaste: perda de vida, energia, sanidade,
 	 * etc. tambem deve ser feito a tabela turno por aqui
 	 */
-	ArrayList<Personagem> estado = new ArrayList<>();
+	private ArrayList<Personagem> estado = new ArrayList<>();
 	/*
 	 * Deve se criar 3 perssonagem nesse molde
 	Normal antes = new Normal("antes", 0, 0, 0, 0, 0, 0);
@@ -22,6 +22,19 @@ public class DesgastePersonagem {
 		estado.add(resultado);
 
 	}
+	public ArrayList<Personagem> getDesgates(){
+		return estado;
+	}
+	public Personagem retornarEstado(Personagem  antesOUDepois) {
+		for (Personagem personagem : estado) {
+			if (personagem.getNome().equalsIgnoreCase(antesOUDepois.getNome())) {
+				return personagem;
+			}
+		}
+		return null;
+		
+		
+	}
 
 	public void limparEstados() {
 		estado.clear();
@@ -29,7 +42,7 @@ public class DesgastePersonagem {
 
 	public void atualizarEstadoAntesDepois(Personagem jogador, Personagem AntesouAtual) {
 		for (Personagem personagem : estado) {
-			if (personagem.getNome().equalsIgnoreCase(jogador.getNome())) {
+			if (personagem.getNome().equalsIgnoreCase(AntesouAtual.getNome())) {
 				personagem.setEnergia(jogador.getEnergia());
 				personagem.setFome(jogador.getFome());
 				personagem.setProtecaoEfeitosSecundarios(jogador.getProtecaoEfeitosSecundarios());
@@ -44,13 +57,13 @@ public class DesgastePersonagem {
 	public void atualizarResultado(Personagem antes, Personagem atual, Personagem resultado) {
 		for (Personagem personagem : estado) {
 			if (personagem.getNome().equalsIgnoreCase(resultado.getNome())) {
-				personagem.setEnergia(atual.getEnergia() - antes.getEnergia());
-				personagem.setFome(atual.getFome() - antes.getFome());
+				personagem.setEnergia(retornarEstado(atual).getEnergia() - retornarEstado(antes).getEnergia());
+				personagem.setFome(retornarEstado(atual).getFome() - retornarEstado(antes).getFome());
 				personagem.setProtecaoEfeitosSecundarios(
-						atual.getProtecaoEfeitosSecundarios() - antes.getProtecaoEfeitosSecundarios());
-				personagem.setSanidade(atual.getSanidade() - antes.getSanidade());
-				personagem.setSede(atual.getSede() - antes.getSede());
-				personagem.setVida(atual.getVida() - antes.getVida());
+						retornarEstado(atual).getProtecaoEfeitosSecundarios() - retornarEstado(antes).getProtecaoEfeitosSecundarios());
+				personagem.setSanidade(retornarEstado(atual).getSanidade() - retornarEstado(antes).getSanidade());
+				personagem.setSede(retornarEstado(atual).getSede() - retornarEstado(antes).getSede());
+				personagem.setVida(retornarEstado(atual).getVida() - retornarEstado(antes).getVida());
 				break;
 			}
 		}

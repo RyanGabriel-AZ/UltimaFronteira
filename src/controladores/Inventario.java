@@ -29,7 +29,7 @@ public class Inventario {
 	}
 
 	public void retirarItem(String nomeItem) {
-		for (Item item : inventario) {
+		for (Item item : acessarInventario()) {
 			if (item.getNome().equalsIgnoreCase(nomeItem)) {
 				inventario.remove(item);
 				break;
@@ -39,7 +39,7 @@ public class Inventario {
 
 	public void usarItem(String nomeItem, Personagem jogador) {
 
-		for (Item item : inventario) {
+		for (Item item : acessarInventario()) {
 			if (item.getNome().equalsIgnoreCase(nomeItem)) {
 				item.usar(jogador);
 				break;
@@ -50,26 +50,40 @@ public class Inventario {
 	}
 
 	public void adcionarQuantidade(Item itens, int numero) {
-		for (Item item : inventario) {
+		for (Item item : acessarInventario()) {
 			if (item.getNome().equalsIgnoreCase(itens.getNome())) {
 				item.setQuantidade(numero);
 			}
 		}
 	}
 
+	public void removerItemBolsa() {
+		System.out.println("Digite o nome do Item que você quer retirar: ");
+		String nome= leitor.nextLine();
+		System.out.println("Digite a quantidade que você quer liberar: ");
+		int quantidade= leitor.nextInt();
+		retirarQuantidade(nome, quantidade);
+		
+		
+	}
 	// colocar try catch
 	public void retirarQuantidade(Item itens, int numero) {
-		for (Item item : inventario) {
+		int a=0;
+		for (Item item : acessarInventario()) {
 			if (item.getNome().equalsIgnoreCase(itens.getNome())) {
 				item.setQuantidade(-numero);
+				a=1;
 			}
+		}
+		if(a==0) {
+			System.out.println("Erro ao retirar item");
 		}
 	}
 
 	public double pesoInventario() {
 		double peso = 0;
 		double pesoItens;
-		for (Item item : inventario) {
+		for (Item item : acessarInventario()) {
 			pesoItens = item.getPeso();
 			peso = peso + pesoItens;
 		}
@@ -78,7 +92,7 @@ public class Inventario {
 
 	public void listarInventario(String classe) {
 		System.out.println("\n=== " + classe.toUpperCase() + " ===");
-		for (Item item : inventario) {
+		for (Item item : acessarInventario()) {
 			if (item.getClasse().equalsIgnoreCase(classe) && item.getQuantidade() > 0) {
 				System.out.println(String.format("%-20s %-15d %-15s %-10.2f %-20s", item.getNome(),
 						item.getQuantidade(), item.getTipo(), item.getPeso(), item.getEspecifico()));
@@ -104,10 +118,14 @@ public void inventarioFuncional(Personagem jogador) {
 	do{
 		
 		mostrarInventario();
-		System.out.println("Digite 'S', para sair do inventario, \n'U' para usar um item,\n 'M' para a parte de cobinacação de materiais e,\n 'CF' para criar Ferramentas, 'CA' para criar armas. ");
+		System.out.println("Digite 'S', para sair do inventario, \n'U' para usar um item,\n 'R' para remover itens, \n"
+				+ " 'M' para a parte de cobinacação de materiais e,\n 'CF' para criar Ferramentas, 'CA' para criar armas. ");
 		String letra= leitor.nextLine();
 		switch(letra){
-		
+		case "R": {
+			removerItemBolsa();
+			continue;
+		}
 		
 			case "U": {
 				usarItemGeral(jogador);
@@ -122,9 +140,11 @@ public void inventarioFuncional(Personagem jogador) {
 			}
 			case"CA":{
 				criarArmasInventario();
+				continue;
 			}
 			case"S":
 				sair=1;
+				continue;
 		}
 		
 		}while(sair==0);
@@ -154,14 +174,14 @@ public void inventarioFuncional(Personagem jogador) {
 		Material resultante = null;
 		Material a = null;
 		Material b= null;
-		for (Item item : inventario) {
+		for (Item item : acessarInventario()) {
 			if(item instanceof Material && item.getNome().equalsIgnoreCase(nomeMaterialA)&& item.getClasse().equalsIgnoreCase("Material")) {			
 				    Material a1 = (Material) item;
 				   a=a1;
 				}
 
 			}
-		for (Item item : inventario) {
+		for (Item item : acessarInventario()) {
 			if(item instanceof Material && item.getNome().equalsIgnoreCase(nomeMaterialB)&& item.getClasse().equalsIgnoreCase("Material")) {			
 				    Material b1 = (Material) item;
 			b=b1;
@@ -190,14 +210,14 @@ public void inventarioFuncional(Personagem jogador) {
 			Material resultante = null;
 			Material a = null;
 			Material b= null;
-			for (Item item : inventario) {
+			for (Item item : acessarInventario()) {
 				if(item instanceof Material && item.getNome().equalsIgnoreCase(nomeMaterialA)&& item.getClasse().equalsIgnoreCase("Material")) {			
 					    Material a1 = (Material) item;
 					   a=a1;
 					}
 
 				}
-			for (Item item : inventario) {
+			for (Item item : acessarInventario()) {
 				if(item instanceof Material && item.getNome().equalsIgnoreCase("Molde de Ferramentas")&& item.getClasse().equalsIgnoreCase("Material")) {			
 					    Material b1 = (Material) item;
 				b=b1;
@@ -223,14 +243,14 @@ public void inventarioFuncional(Personagem jogador) {
 			Material resultante = null;
 			Material a = null;
 			Material b= null;
-			for (Item item : inventario) {
+			for (Item item : acessarInventario()) {
 				if(item instanceof Material && item.getNome().equalsIgnoreCase(nomeMaterialA)&& item.getClasse().equalsIgnoreCase("Material")) {			
 					    Material a1 = (Material) item;
 					   a=a1;
 					}
 
 				}
-			for (Item item : inventario) {
+			for (Item item : acessarInventario()) {
 				if(item instanceof Material && item.getNome().equalsIgnoreCase("Molde de Ferramentas")&& item.getClasse().equalsIgnoreCase("Material")) {			
 					    Material b1 = (Material) item;
 				b=b1;
@@ -251,7 +271,7 @@ public void inventarioFuncional(Personagem jogador) {
 	
 
 	public void retirarQuantidade(String nome, int numero) {
-		for (Item item : inventario) {
+		for (Item item :acessarInventario()) {
 			if (item.getNome().equalsIgnoreCase(nome)) {
 				item.setQuantidade(-numero);
 			}
