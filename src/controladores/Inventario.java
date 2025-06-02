@@ -123,8 +123,8 @@ public void inventarioFuncional(Personagem jogador) {
 	do{
 		dadosJogador.StatsPersonagemSemDesgaste(jogador);
 		mostrarInventario();
-		System.out.println("\nDigite 'S', para sair do inventario, \n'U' para usar um item,\n 'R' para remover itens, \n"
-				+ " 'M' para a parte de cobinacação de materiais e,\n 'CF' para criar Ferramentas, 'CA' para criar armas. ");
+		System.out.println("\nDigite:\n [S] para sair do inventario, \n[U] para usar um item\n [R] para remover itens \n"
+				+ " [M] para a parte de cobinacação de materiais e,\n [CF] para criar Ferramentas, [CA] para criar armas. ");
 		String letra= leitor.nextLine();
 		switch(letra.toUpperCase()){
 		case "R": {
@@ -209,8 +209,7 @@ public void inventarioFuncional(Personagem jogador) {
 		public void  criarFerramentasInventario() {
 			System.out.println("Digite o nome do material que será usado: ");
 			String nomeMaterialA= leitor.nextLine();
-			leitor.nextLine();
-			
+			System.out.println("\n Vamos ver se você tem o molde correto");
 			
 			Material resultante = null;
 			Material a = null;
@@ -242,7 +241,7 @@ public void inventarioFuncional(Personagem jogador) {
 		public void criarArmasInventario() {
 			System.out.println("Digite o nome do material que será usado: ");
 			String nomeMaterialA= leitor.nextLine();
-			leitor.nextLine();
+			
 			
 			
 			Material resultante = null;

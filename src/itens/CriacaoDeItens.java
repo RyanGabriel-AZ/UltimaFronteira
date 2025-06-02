@@ -60,11 +60,11 @@ public class CriacaoDeItens {
 		case "Balde":
 			nome = "Balde";
 		case "Picareta":
-			nome = "Furadeira automática";
+			nome = "Furadeira automatica";
 		case "Foice":
-			nome = "Funcionários CLT";
+			nome = "Funcionarios CLT";
 		case "Machado":
-			nome= "Moto Serra Elétrica";
+			nome= "Moto Serra Eletrica";
 		}
 		return new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");}
 		return null;
@@ -91,7 +91,7 @@ public class CriacaoDeItens {
 				precisao= 0.8;
 			}
 			case "Longo": {
-				nome1= "Batons de Precisão";
+				nome1= "Batons de Precisao";
 				poder= (durabilidade/10)*1.1;
 				precisao= 1;
 			}	
