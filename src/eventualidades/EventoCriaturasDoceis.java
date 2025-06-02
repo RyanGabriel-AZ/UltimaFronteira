@@ -44,9 +44,10 @@ public void aparecerCriaturasDoceis(Personagem jogador) {
 	for (EventoCriaturasDoceis eventoCriaturasDoceis : criaturasDoceis) {
 		if(eventoCriaturasDoceis.getHabitat()==jogador.getLocalizacao()) {
 			System.out.println("Parece que você achou " +eventoCriaturasDoceis.getNome()+ "\n"+ "Ele quer te dar amor e alegria");
-			eventoCriaturasDoceis.getHabitat().espoliosAmbiente();
+			eventoCriaturasDoceis.getHabitat().espoliosAmbiente(jogador);
 			jogador.setVida(roleta.nextInt(50) );
 			jogador.setSanidade(roleta.nextInt(50) );
+			break;
 		}
 	
 	}}}

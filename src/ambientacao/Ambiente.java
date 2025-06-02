@@ -1,6 +1,7 @@
 package ambientacao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 import controladores.Inventario;
@@ -15,7 +16,7 @@ public abstract class Ambiente {
 	private String condicoesClimaticasPredominantes;
 	private Inventario inventario;
 	Random aleatorio = new Random();
-	private ArrayList<Item> itensDoAmbiente= new ArrayList<>();
+	private HashMap<Ambiente, ArrayList<Item>> itensAmbiente= new HashMap<>();
 
 	public Ambiente(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
 			String condicoesClimaticasPredominantes, Inventario inventario) {
@@ -74,16 +75,27 @@ public abstract class Ambiente {
 		this.descricao = descricao;
 	}
 
-	public void adicionarItensAbiente(Item Item) {
-		itensDoAmbiente.add(Item);
-	}
-public ArrayList<Item> itensDoAmbiente(){
-	return itensDoAmbiente;
+	public abstract void adicionarItensAbiente(Item Item); 
+public abstract ArrayList<Item> itensDoAmbiente();
+
+public void adcionarAmbientesAoHASH(Ambiente ambiente ) {
+itensAmbiente.put(ambiente, itensDoAmbiente());	
 }
+public ArrayList<Item>  acessarHash(Personagem jogador){
+	return itensAmbiente.get(jogador.getLocalizacao());
+	
+}
+
+
+
+
+
+	
 	// loucura total
-	public void espoliosAmbiente() {
+	public void espoliosAmbiente(Personagem jogador) {
 		double dificuldadeExploracao= getDificuldadeDeExploração();
-		for (Item item : itensDoAmbiente()) {
+		
+		for (Item item : acessarHash(jogador)) {
 			if (aleatorio.nextDouble(100) < dificuldadeExploracao) {
 				inventario.adcionarQuantidade(item, 1);
 			}

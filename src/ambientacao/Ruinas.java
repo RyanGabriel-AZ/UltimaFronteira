@@ -1,9 +1,13 @@
 package ambientacao;
 
+import java.util.ArrayList;
+
 import controladores.Inventario;
+import itens.Item;
 import personalidades.Personagem;
 
 public class Ruinas extends Ambiente {
+
 
 	public Ruinas(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
 			String condicoesClimaticasPredominantes, Inventario inventario, double estruturasInstaveis, double baixoRiscoClimatico, Boolean presencaDeOutros) {
@@ -16,6 +20,7 @@ public class Ruinas extends Ambiente {
 	private double estruturasInstaveis;
 	private Boolean presencaDeOutros;
 	private double baixoRiscoClimatico;
+	private ArrayList<Item> itensRuina= new ArrayList<>();
 	public double getEstruturasInstaveis() {
 		return estruturasInstaveis;
 	}
@@ -39,7 +44,7 @@ public class Ruinas extends Ambiente {
 		System.out.println("Essas ruinas são incriveis!\n Me embrei da minha amiga Lara, ela adorava caçar tesouros em tumbas \n"
 				+ "Acho que não vou me preocupar com o clima.");
 		naturezaAmbiente(jogador);
-		espoliosAmbiente();
+		espoliosAmbiente(jogador);
 		
 	}
 	@Override
@@ -52,6 +57,17 @@ public class Ruinas extends Ambiente {
 			System.out.println("pode ter pessoas por aqui");
 		}
 	}
+	@Override
+	public void adicionarItensAbiente(Item Item) {
+		itensRuina.add(Item);
+		
+	}
+	@Override
+	public ArrayList<Item> itensDoAmbiente() {
+		// TODO Auto-generated method stub
+		return itensRuina;
+	}
+	
 	
 	/*
 	 * sanidade cai muito rapido

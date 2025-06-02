@@ -1,6 +1,9 @@
 package ambientacao;
 
+import java.util.ArrayList;
+
 import controladores.Inventario;
+import itens.Item;
 import personalidades.Personagem;
 
 public class LagoRio extends Ambiente {
@@ -18,6 +21,7 @@ public class LagoRio extends Ambiente {
 	private double aguaAbundante;
 	private double possibilidadeDePesca;
 	private double terrenoLamacento;
+	private ArrayList<Item> itensLagoRio= new ArrayList<>();
 
 	@Override
 	public void Explorar(Personagem jogador) {
@@ -25,7 +29,7 @@ public class LagoRio extends Ambiente {
 				"Que lugar lindo, cheio de água e peixes.\n Esse lago me traz lembranças, de quando eu nadava com os jacarés, nos rios");
 		naturezaAmbiente(jogador);
 
-		espoliosAmbiente();
+		espoliosAmbiente(jogador);
 	}
 
 	@Override
@@ -61,6 +65,18 @@ public class LagoRio extends Ambiente {
 
 	public void setTerrenoLamacento(double terrenoLamacento) {
 		this.terrenoLamacento = terrenoLamacento;
+	}
+
+	@Override
+	public void adicionarItensAbiente(Item Item) {
+		itensLagoRio.add(Item);
+		
+	}
+
+	@Override
+	public ArrayList<Item> itensDoAmbiente() {
+		// TODO Auto-generated method stub
+		return itensLagoRio;
 	}
 
 	/*

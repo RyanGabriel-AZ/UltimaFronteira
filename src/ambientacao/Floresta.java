@@ -1,6 +1,9 @@
 package ambientacao;
 
+import java.util.ArrayList;
+
 import controladores.Inventario;
+import itens.Item;
 import personalidades.Personagem;
 
 public class Floresta extends Ambiente {
@@ -15,6 +18,8 @@ public class Floresta extends Ambiente {
 private double vegetacaoDensa;
  private double faunaAbundante;
  private double climaUmido;
+ private ArrayList<Item> itensFloresta= new ArrayList<>();
+ 
 public double getVegetacaoDensa() {
 	return vegetacaoDensa;
 }
@@ -37,7 +42,7 @@ public void setClimaUmido(double climaUmido) {
 public void Explorar(Personagem jogador) {
 	System.out.println("Florestas, florestas... As melhores peles de animais, vem daqui, ótimo para criar roupas. ");
 	naturezaAmbiente(jogador);
-	espoliosAmbiente();
+	espoliosAmbiente(jogador);
 }
 @Override
 public void naturezaAmbiente(Personagem jogador) {
@@ -49,6 +54,16 @@ public void naturezaAmbiente(Personagem jogador) {
 	jogador.setEnergia(lascarPersonagem);
 	jogador.setSanidade(lascarPersonagem);
 	
+}
+@Override
+public void adicionarItensAbiente(Item Item) {
+	itensFloresta.add(Item);
+	
+}
+@Override
+public ArrayList<Item> itensDoAmbiente() {
+	// TODO Auto-generated method stub
+	return itensFloresta;
 }
 
  

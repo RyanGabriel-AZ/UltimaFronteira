@@ -1,10 +1,16 @@
 package ambientacao;
 
+import java.util.ArrayList;
+
 import controladores.Inventario;
+import itens.Item;
 import personalidades.Personagem;
 
 public class Savana extends Ambiente  {
 
+	
+	
+	
 	public Savana(String nome, String descricao, double dificuldadeDeExploração, double probabilidadeDeEventos,
 			String condicoesClimaticasPredominantes, Inventario inventario, double solEscaldante, double faltaDeSuprimentos, double mormaco) {
 		super(nome, descricao, dificuldadeDeExploração, probabilidadeDeEventos, condicoesClimaticasPredominantes, inventario);
@@ -34,12 +40,13 @@ public class Savana extends Ambiente  {
 	private double solEscaldante; // chance de queimadura
 	private double faltaDeSuprimentos;
 	private double mormaco; // diminui a sanidade com o tempo
+	private ArrayList<Item> itensSavana= new ArrayList<>();
 	@Override
 	public void Explorar(Personagem jogador) {
 		System.out.println("Que calor infernal, saudades do meu cruzeiro com hidromassagem.");
 		naturezaAmbiente(jogador);
 		
-		espoliosAmbiente();
+		espoliosAmbiente(jogador);
 	}
 	@Override
 	public void naturezaAmbiente(Personagem jogador) {
@@ -49,6 +56,15 @@ public class Savana extends Ambiente  {
 		jogador.setSanidade(lascarPersonagem*2);
 		jogador.setSede(lascarPersonagem*2);
 		jogador.setVida(lascarPersonagem);
+	}
+	@Override
+	public void adicionarItensAbiente(Item Item) {
+		itensSavana.add(Item);
+		
+	}
+	@Override
+	public ArrayList<Item> itensDoAmbiente() {
+		return itensSavana;
 	}
 	
 	/* quero fazer a exploração diferente aqui.

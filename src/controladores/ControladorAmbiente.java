@@ -17,7 +17,13 @@ public class ControladorAmbiente {
 	public void adicionarAmbientes(Ambiente bioma) {
 		ambientes.add(bioma);
 	}
-
+public void adcionarAmbienteAoHashMap(Ambiente ambiente) {
+	ambiente.adcionarAmbientesAoHASH(ambiente);
+	
+}
+	
+	
+	
 	public void removerAmbiente(String nomeAmbiente) {
 		for (Ambiente ambiente : ambientes) {
 			if(ambiente.getNome().equalsIgnoreCase(nomeAmbiente)) {
@@ -55,6 +61,6 @@ public class ControladorAmbiente {
 		mudarAmbiente(jogador, novAmbiente);
 	}
 public void espolios(Personagem jogador) {
-	jogador.getLocalizacao().espoliosAmbiente();
+	jogador.getLocalizacao().espoliosAmbiente(jogador);
 }
 }

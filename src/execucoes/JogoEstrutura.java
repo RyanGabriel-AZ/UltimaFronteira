@@ -338,6 +338,15 @@ public void adcionarElementosJogo() {
 	controleEventos.adicionarCriaturasDoceis(lagartixa);
 	controleEventos.adicionarCriaturasDoceis(lebre);
 	controleEventos.adicionarCriaturasDoceis(sogra);
+	// hashMaps
+	
+	controleAmbiente.adcionarAmbienteAoHashMap(deserto);
+	controleAmbiente.adcionarAmbienteAoHashMap(floresta);
+	controleAmbiente.adcionarAmbienteAoHashMap(lago);
+	controleAmbiente.adcionarAmbienteAoHashMap(ruina);
+	controleAmbiente.adcionarAmbienteAoHashMap(savana);
+	
+	
 }
 //funcao teste
 public void testePersonagemInventario() {

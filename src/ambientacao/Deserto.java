@@ -1,6 +1,9 @@
 package ambientacao;
 
+import java.util.ArrayList;
+
 import controladores.Inventario;
+import itens.Item;
 import personalidades.Personagem;
 
 public class Deserto extends Savana{
@@ -13,6 +16,21 @@ public class Deserto extends Savana{
 	}
 
 	private double terrenoArenoso;
+	private ArrayList<Item> itensDeserto= new ArrayList<>();
+	
+	@Override
+	public void adicionarItensAbiente(Item Item) {
+		itensDeserto.add(Item);
+		
+	}
+	@Override
+	public ArrayList<Item> itensDoAmbiente() {
+		return itensDeserto;
+	}
+	
+	
+	
+	
 	@Override
 	public void naturezaAmbiente(Personagem jogador) {
 		double lascarPersonagem= -1*(getMormaco()*10+ getFaltaDeSuprimentos()*10+ getSolEscaldante()*10+ 15*getTerrenoArenoso())*jogador.getResistenciaAoAmbiente();
@@ -35,6 +53,6 @@ public class Deserto extends Savana{
 		System.out.println("Que deserto escaldante, a jornada aqui será difícil");
 		naturezaAmbiente(jogador);
 		
-		espoliosAmbiente();
+		espoliosAmbiente(jogador);
 	}
 }

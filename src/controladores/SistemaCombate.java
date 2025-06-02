@@ -66,7 +66,7 @@ System.out.println("Você colocou um alcance inexistente");
 		if(bolsa.verificarSeHaArmasFerramentas("Arma")) {
 		do {
 			System.out.println(
-					"Digite o tipo de arma, sendo: 'Curto', 'Medio', 'Longo', isso vai definir sua arma atual: ");
+					"\nParece que você entrou em um combate! \nDigite o tipo de arma, sendo: 'Curto', 'Medio', 'Longo', isso vai definir sua arma atual: ");
 			String tipoAlcance = leitor.nextLine();
 			arma = selecionaArma(bolsa, tipoAlcance);
 			
@@ -80,10 +80,10 @@ System.out.println("Você colocou um alcance inexistente");
 	// pode acessar inventario e usar itens, ou fugir, ou lutar;
 	public void fugir(Personagem jogador, Criatura criatura) {
 		if (aleatorio.nextDouble(1) < jogador.getFugirChance()) {
-			System.out.println("Parabéns você conseguiu fugir! A batalha acabou!");
+			System.out.println("\nParabéns você conseguiu fugir! A batalha acabou!");
 			criatura.setPodeLutar(false);
 		} else {
-			System.out.println("Você não conseguiu fugir! A batalha continua! ");
+			System.out.println("\nVocê não conseguiu fugir! A batalha continua! ");
 		}
 
 	}
@@ -94,7 +94,7 @@ System.out.println("Você colocou um alcance inexistente");
 
 		do {
 			System.out.println(
-					"Você tem 3 opcoes, mas pode escolher apenas 1: digite 'I', para acessar o inventario e usar itens \n Digite 'F' para tentar fugir \n digite 'L' para lutar com a criatura\n'M' para mudar de arma e atacar ");
+					"\nVocê tem 3 opcoes, mas pode escolher apenas 1:\n digite [I], para acessar o inventario e usar itens \n Digite [F] para tentar fugir \n digite [L] para lutar com a criatura\n[M] para mudar de arma e atacar ");
 			String letra = leitor.nextLine();
 			if (letra.equalsIgnoreCase("I")) {
 				bolsa.inventarioFuncional(jogador);
