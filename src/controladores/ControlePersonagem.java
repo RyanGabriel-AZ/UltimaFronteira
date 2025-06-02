@@ -8,7 +8,7 @@ import personalidades.Personagem;
 
 public class ControlePersonagem {
 	Inventario inventario = new Inventario();
-	DesgastePersonagem desgastePersonagem = new DesgastePersonagem();
+	DesgastePersonagem desgastePersonagem = new DesgastePersonagem("Desgaste personagem");
 	Scanner ler= new Scanner(System.in);
 	private ArrayList<Personagem> personagens= new ArrayList<>();
 	

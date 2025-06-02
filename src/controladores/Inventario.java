@@ -3,6 +3,7 @@ package controladores;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import eventualidades.DesgastePersonagem;
 import itens.CriacaoDeItens;
 import itens.Item;
 import itens.Material;
@@ -19,7 +20,9 @@ public class Inventario {
 	 */
 	CriacaoDeItens criador= new CriacaoDeItens();
 	private ArrayList<Item> inventario = new ArrayList<>();
-
+DesgastePersonagem dadosJogador = new DesgastePersonagem("dados");
+	
+	
 	public ArrayList<Item> acessarInventario() {
 		return inventario;
 	}
@@ -118,9 +121,9 @@ public void inventarioFuncional(Personagem jogador) {
 	
 	int sair=0;
 	do{
-		
+		dadosJogador.StatsPersonagemSemDesgaste(jogador);
 		mostrarInventario();
-		System.out.println("Digite 'S', para sair do inventario, \n'U' para usar um item,\n 'R' para remover itens, \n"
+		System.out.println("\nDigite 'S', para sair do inventario, \n'U' para usar um item,\n 'R' para remover itens, \n"
 				+ " 'M' para a parte de cobinacação de materiais e,\n 'CF' para criar Ferramentas, 'CA' para criar armas. ");
 		String letra= leitor.nextLine();
 		switch(letra.toUpperCase()){
@@ -148,7 +151,7 @@ public void inventarioFuncional(Personagem jogador) {
 				sair=1;
 				continue;
 		}
-		System.out.println("Ocorreu algum erro! verifique se colocou as informações corretas ");
+		System.out.println("\nOcorreu algum erro! verifique se colocou as informações corretas ");
 		}while(sair==0);
 		
 	

@@ -9,7 +9,6 @@ import criaturas.CriaturasHostis;
 import eventualidades.DesgastePersonagem;
 import itens.Arma;
 import itens.Item;
-import personalidades.Normal;
 import personalidades.Personagem;
 
 
@@ -18,7 +17,7 @@ public class SistemaCombate {
 	Random aleatorio = new Random();
 	Scanner leitor = new Scanner(System.in);
 	Arma arma;
-	DesgastePersonagem desgaste = new DesgastePersonagem();
+	DesgastePersonagem desgaste = new DesgastePersonagem(" Desgaste Personagem");
 Arma galho= new Arma("galho", 1, 100, 1, 10, 10, 0.1, "Raro", "Arma");
 	private ArrayList<Arma> armaAtual = new ArrayList<>();
 
@@ -93,6 +92,10 @@ System.out.println("Você colocou um alcance inexistente");
 		int fechar = 0;
 
 		do {
+			
+			
+			
+			
 			System.out.println(
 					"\nVocê tem 3 opcoes, mas pode escolher apenas 1:\n digite [I], para acessar o inventario e usar itens \n Digite [F] para tentar fugir \n digite [L] para lutar com a criatura\n[M] para mudar de arma e atacar ");
 			String letra = leitor.nextLine();
@@ -121,9 +124,9 @@ System.out.println("Você colocou um alcance inexistente");
 
 	public void combate(Personagem jogador, ControladorCriaturas criatura, Inventario inventario) {
 
-		Normal antes = new Normal("antes", 200, 0, 0, 0, 0, 0, "", null, null);
-		Normal atual = new Normal("Atual", 0, 0, 0, 0, 0, 0, "", null, null);
-		Normal resultado = new Normal("resultado", 0, 0, 0, 0, 0, 0, "", null, null);
+		DesgastePersonagem antes= new DesgastePersonagem("Antes");
+		DesgastePersonagem atual= new DesgastePersonagem("Atual");
+		DesgastePersonagem resultado= new DesgastePersonagem("resultado");
 
 		criatura.adicionarCriaturasDoAmbiente(jogador.getLocalizacao());
 		CriaturasHostis criaturaAtual = criatura.sortearCriatura();

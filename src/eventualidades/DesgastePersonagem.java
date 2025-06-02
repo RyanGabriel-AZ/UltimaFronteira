@@ -5,29 +5,54 @@ import java.util.ArrayList;
 import personalidades.Personagem;
 
 public class DesgastePersonagem {
+	private double vida;
+	private double energia;
+	private double sede; 
+	private double sanidade;
+	private double fome;
+	private String indentificador;
+	private int ProtecaoContraEfeitosSecundarios;
+	
+	public DesgastePersonagem(String indentificador) {
+		this.indentificador= indentificador;
+	}
+	
+	
+	
+	
 	/*
 	 * Aqui vamos colocar o sistema de desgaste: perda de vida, energia, sanidade,
 	 * etc. tambem deve ser feito a tabela turno por aqui
 	 */
-	private ArrayList<Personagem> estado = new ArrayList<>();
+	private ArrayList<DesgastePersonagem> estado = new ArrayList<>();
 	/*
-	 * Deve se criar 3 perssonagem nesse molde
-	Normal antes = new Normal("antes", 0, 0, 0, 0, 0, 0);
-	Normal atual = new Normal("Atual", 0, 0, 0, 0, 0, 0);
-	Normal resultado = new Normal("resultado", 0, 0, 0, 0, 0, 0);
+	Deve se criar 3 objetos para operar essa classe
 */
-	public void adicionarEstados(Personagem antes, Personagem depois, Personagem resultado) {
+	public void StatsPersonagemSemDesgaste(Personagem jogador) {
+		System.out.println("\n==Vida== ==Sanidade== ==fome== ==Energia== ==Sede== ==Proteção== ");
+		System.out.println(String.format("%-10.1f %-10.1f %-10.1f %-10.1f %-10.1f %-10d", jogador.getVida(), jogador.getSanidade(), jogador.getFome(), jogador.getEnergia(), jogador.getSede(), jogador.getProtecaoEfeitosSecundarios()));
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public void adicionarEstados(DesgastePersonagem antes, DesgastePersonagem depois, DesgastePersonagem resultado) {
 		estado.add(antes);
 		estado.add(depois);
 		estado.add(resultado);
 
 	}
-	public ArrayList<Personagem> getDesgates(){
+	public ArrayList<DesgastePersonagem> getDesgates(){
 		return estado;
 	}
-	public Personagem retornarEstado(Personagem  antesOUDepois) {
-		for (Personagem personagem : getDesgates()) {
-			if (personagem.getNome().equalsIgnoreCase(antesOUDepois.getNome())) {
+	public DesgastePersonagem retornarEstado(DesgastePersonagem  antesOUDepois) {
+		for (DesgastePersonagem personagem : getDesgates()) {
+			if (personagem.getIndentificador().equalsIgnoreCase(antesOUDepois.getIndentificador())) {
 				return personagem;
 			}
 		}
@@ -40,12 +65,12 @@ public class DesgastePersonagem {
 		estado.clear();
 	}
 
-	public void atualizarEstadoAntesDepois(Personagem jogador, Personagem AntesouAtual) {
-		for (Personagem personagem : getDesgates()) {
-			if (personagem.getNome().equalsIgnoreCase(AntesouAtual.getNome())) {
+	public void atualizarEstadoAntesDepois(Personagem jogador, DesgastePersonagem AntesouAtual) {
+		for (DesgastePersonagem personagem : getDesgates()) {
+			if (personagem.getIndentificador().equalsIgnoreCase(AntesouAtual.getIndentificador())) {
 				personagem.setEnergia(jogador.getEnergia());
 				personagem.setFome(jogador.getFome());
-				personagem.setProtecaoEfeitosSecundarios(jogador.getProtecaoEfeitosSecundarios());
+				personagem.setProtecaoContraEfeitosSecundarios(jogador.getProtecaoEfeitosSecundarios());
 				personagem.setSanidade(jogador.getSanidade());
 				personagem.setSede(jogador.getSede());
 				personagem.setVida(jogador.getVida());
@@ -54,13 +79,12 @@ public class DesgastePersonagem {
 		}
 	}
 
-	public void atualizarResultado(Personagem antes, Personagem atual, Personagem resultado) {
-		for (Personagem personagem :getDesgates()) {
-			if (personagem.getNome().equalsIgnoreCase(resultado.getNome())) {
+	public void atualizarResultado(DesgastePersonagem antes, DesgastePersonagem atual, DesgastePersonagem resultado) {
+		for (DesgastePersonagem personagem :getDesgates()) {
+			if (personagem.getIndentificador().equalsIgnoreCase(resultado.getIndentificador())) {
 				personagem.setEnergia(retornarEstado(atual).getEnergia() - retornarEstado(antes).getEnergia());
 				personagem.setFome(retornarEstado(atual).getFome() - retornarEstado(antes).getFome());
-				personagem.setProtecaoEfeitosSecundarios(
-						retornarEstado(atual).getProtecaoEfeitosSecundarios() - retornarEstado(antes).getProtecaoEfeitosSecundarios());
+				personagem.setProtecaoContraEfeitosSecundarios(retornarEstado(atual).getProtecaoContraEfeitosSecundarios() - retornarEstado(antes).getProtecaoContraEfeitosSecundarios());
 				personagem.setSanidade(retornarEstado(atual).getSanidade() - retornarEstado(antes).getSanidade());
 				personagem.setSede(retornarEstado(atual).getSede() - retornarEstado(antes).getSede());
 				personagem.setVida(retornarEstado(atual).getVida() - retornarEstado(antes).getVida());
@@ -97,34 +121,40 @@ public class DesgastePersonagem {
 
 	}
 
-	public void mostrarResultado(Personagem resultado) {
-		for (Personagem personagem : getDesgates()) {
-			if (personagem.getNome().equalsIgnoreCase(resultado.getNome())) {
+	public void mostrarResultado(DesgastePersonagem resultado) {
+		for (DesgastePersonagem personagem : getDesgates()) {
+			if (personagem.getIndentificador().equalsIgnoreCase(resultado.getIndentificador())) {
 				System.out.println("Sua vida " + aumentouDiminuiu(personagem.getVida()));
 				System.out.println("Sua energia " + aumentouDiminuiu(personagem.getEnergia()));
 				System.out.println("Sua sanidade " + aumentouDiminuiu(personagem.getSanidade()));
 				System.out.println("Sua fome " + aumentouDiminuiu(personagem.getFome()));
 				System.out.println("Sua sede " + aumentouDiminuiu(personagem.getSede()));
 				System.out.println("Sua proteção contra  efeitos secundarios "
-						+ aumentouDiminuiu(personagem.getProtecaoEfeitosSecundarios()));
+						+ aumentouDiminuiu(personagem.getProtecaoContraEfeitosSecundarios()));
 				
 			}
 		}
 	}
 
-	public void resultadosAntesDepois(Personagem estadoMostrarAntesOuAtual) {
-		for (Personagem personagem : getDesgates()) {
-			if (personagem.getNome().equalsIgnoreCase(estadoMostrarAntesOuAtual.getNome())) {
-				System.out.println("Estado: " + personagem.getNome() + "\n" + "vida: " + personagem.getVida()
+	public void resultadosAntesDepois(DesgastePersonagem estadoMostrarAntesOuAtual) {
+		for (DesgastePersonagem personagem : getDesgates()) {
+			if (personagem.getIndentificador().equalsIgnoreCase(estadoMostrarAntesOuAtual.getIndentificador())) {
+				
+				System.out.println("\n==Estado== ==Vida== ==Sanidade== ==fome== ==Energia== ==Sede== ==Proteção== ");
+				System.out.println(String.format("%-10s %-10.1f %-10.1f %-10.1f %-10.1f %-10.1f %-10d",personagem.getIndentificador(), personagem.getVida(), personagem.getSanidade(), personagem.getFome(), personagem.getEnergia(), personagem.getSede(), personagem.getProtecaoContraEfeitosSecundarios()));
+				
+				
+				
+				System.out.println("Estado: " + personagem.getIndentificador() + "\n" + "vida: " + personagem.getVida()
 						+ " Energia: " + personagem.getEnergia() + " Sanidade: " + personagem.getSanidade() + " Fome: "
 						+ personagem.getFome() + " Sede: " + personagem.getSede()
-						+ " proteção contra efeitos secundarios: " + personagem.getProtecaoEfeitosSecundarios());
+						+ " proteção contra efeitos secundarios: " + personagem.getProtecaoContraEfeitosSecundarios());
 				break;
 			}
 		}
 	}
 
-	public void cicloEstados(Personagem jogador, Personagem antes, Personagem atual, Personagem resultado) {
+	public void cicloEstados(Personagem jogador, DesgastePersonagem antes,DesgastePersonagem atual, DesgastePersonagem resultado) {
 		adicionarEstados(antes, atual, resultado);
 		atualizarEstadoAntesDepois(jogador, antes);
 		// batalhas
@@ -150,5 +180,47 @@ public class DesgastePersonagem {
 	 * ex: no inicio do turno tinha 10 de vida. no final tinha 15. a mudança foi de
 	 * 5 de vida. estamos usando array, porque é mais facil guardar dados com ele.
 	 */
+	public int getProtecaoContraEfeitosSecundarios() {
+		return ProtecaoContraEfeitosSecundarios;
+	}
+	public void setProtecaoContraEfeitosSecundarios(int protecaoContraEfeitosSecundarios) {
+		ProtecaoContraEfeitosSecundarios = protecaoContraEfeitosSecundarios;
+	}
+	public String getIndentificador() {
+		return indentificador;
+	}
+	public void setIndentificador(String indentificador) {
+		this.indentificador = indentificador;
+	}
+	public double getFome() {
+		return fome;
+	}
+	public void setFome(double fome) {
+		this.fome = fome;
+	}
+	public double getSanidade() {
+		return sanidade;
+	}
+	public void setSanidade(double sanidade) {
+		this.sanidade = sanidade;
+	}
+	public double getSede() {
+		return sede;
+	}
+	public void setSede(double sede) {
+		this.sede = sede;
+	}
+	public double getEnergia() {
+		return energia;
+	}
+	public void setEnergia(double energia) {
+		this.energia = energia;
+	}
+	public double getVida() {
+		return vida;
+	}
+	public void setVida(double vida) {
+		this.vida = vida;
+	}
 
 }
