@@ -97,13 +97,13 @@ public class DesgastePersonagem {
 	public String aumentouDiminuiu(int valor) {
 
 		if (valor > 0) {
-			return "aumentou em " + String.valueOf(valor);
+			return "aumentou em " + (valor);
 		} else if (valor == 0) {
 			return "não alterou ";
 		}
 
 		else {
-			return "diminuiu em " + String.valueOf(valor);
+			return "diminuiu em " + (valor);
 		}
 
 	}
@@ -145,10 +145,7 @@ public class DesgastePersonagem {
 				
 				
 				
-				System.out.println("Estado: " + personagem.getIndentificador() + "\n" + "vida: " + personagem.getVida()
-						+ " Energia: " + personagem.getEnergia() + " Sanidade: " + personagem.getSanidade() + " Fome: "
-						+ personagem.getFome() + " Sede: " + personagem.getSede()
-						+ " proteção contra efeitos secundarios: " + personagem.getProtecaoContraEfeitosSecundarios());
+				
 				break;
 			}
 		}

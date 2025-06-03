@@ -394,7 +394,7 @@ public class JogoEstrutura {
 	}
 
 	public boolean podeExplorar(Inventario inventario) {
-		if (inventario.verificarSeHaArmasFerramentas("Ferramenta")) {
+		if (inventario.verificarSeHaArmasFerramentas("Ferramenta") ) {
 
 			return true;
 		}
@@ -458,10 +458,10 @@ public class JogoEstrutura {
 	}
 
 	public void loopJogo(Personagem jogador) {
-		int bloquearLoop = 0;
-		int loopMaximo = 15;
+		int bloquearLoop = 1;
+		int loopMaximo = 16;
 		while (bloquearLoop < loopMaximo) {
-			System.out.println("\nVocê está na rodada: " + toString().indexOf(bloquearLoop));
+			System.out.println("\nVocê está na rodada: " + bloquearLoop);
 			inventario.inventarioFuncional(jogador);
 			caminhoDoTurno(jogador);
 			if (bloquearLoop(jogador)) {
@@ -472,7 +472,7 @@ public class JogoEstrutura {
 				break;
 			}
 			deveriamosMudarOAmbiente(jogador);
-			bloquearLoop++;
+			bloquearLoop= 1+ bloquearLoop;
 
 		}
 		controleEventos.todosFinais(jogador, loopMaximo, bloquearLoop);

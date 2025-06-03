@@ -51,20 +51,20 @@ public class CriaturasHostis extends Criatura {
 
 //aplicar a probabilidade posteriormente
 	public void EfeitosSecundarios(Personagem jogador) {
-		switch (getEfeitoSecundario()) {
-		case "Sangramento":
-			System.out.println("Você está sangrando!");
+		switch (getEfeitoSecundario().toUpperCase()) {
+		case "SANGRAMENTO":
+			System.out.println("\n =====Efeitos secundários=====\nVocê está sangrando!");
 			jogador.setVida(-10);
 			break;
-		case "Hemorragia":
-			System.out.println("Você está tendo um hemorragia!");
+		case "HEMORRAGIA":
+			System.out.println("\n =====Efeitos secundários=====\nVocê está tendo um hemorragia!");
 			jogador.setVida(-20);
 			jogador.setEnergia(-20);
 			jogador.setSanidade(-20);
 			jogador.setForca(-10);
 			break;
-		case "Veneno":
-			System.out.println("Você está envenenado!");
+		case "VENENO":
+			System.out.println("\n =====Efeitos secundários=====\nVocê está envenenado!");
 			jogador.setVida(-10);
 			jogador.setSanidade(-30);
 			break;

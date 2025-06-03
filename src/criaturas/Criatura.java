@@ -42,6 +42,11 @@ public abstract class Criatura {
 	public void setVida(double dano) {
 		dano = dano + getVida();
 		this.vida = dano;
+		if(dano<=0) {
+			this.vida=0;
+		}
+		
+		
 	}
 
 	public double getVida() {
