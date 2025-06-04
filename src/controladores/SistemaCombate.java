@@ -147,6 +147,7 @@ System.out.println("Você colocou um alcance inexistente");
 			desgaste.limparEstados();
 
 		}
+		System.out.println("\n=====Vitória======");
       System.out.println("\n Você venceu a batalha contra " + criaturaAtual.getNome());
 	}
 

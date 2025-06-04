@@ -117,7 +117,7 @@ public void statusCriatura() {
 	/* Melhorar classes abaixo */
 	@Override
 	public void interagir(Personagem jogador) {
-System.out.println("\n =====Criatura======\nOBS: elas não são de pelúcia.");
+
 		System.out.println(getNome() + " vai atacar!");
 		System.out.println("Vida criatura");
 		statusCriatura();
@@ -133,7 +133,9 @@ System.out.println("\n =====Criatura======\nOBS: elas não são de pelúcia.");
 		
 	}
 	public void aparecerCriatura() {
+		System.out.println("\n =====Criatura======\nOBS: elas não são de pelúcia.");
 		System.out.println( getNome()+" está na sua frente!");
+		System.out.println("====Descrição====");
 		System.out.println("Descrição: " + getDescricao());
 		System.out.println(" A vida dele é: " );
 		statusCriatura();
