@@ -373,6 +373,7 @@ public void itemNome(Item item1) {
 	for (Item item : inventario) {
 		if(item.getNome().equalsIgnoreCase(item1.getNome())) {
 			System.out.println(item.getNome());
+			System.out.println(item.getQuantidade());
 		}
 	}
 }

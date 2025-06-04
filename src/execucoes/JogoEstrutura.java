@@ -352,7 +352,8 @@ public class JogoEstrutura {
 		controladorPersonagem.adcionarClassesPersonagem(vampira);
 		//
 		controleEventos.adcionarFalas("Onde está meu repelente? Os msoquitos estão me comendo viva ");
-		controleEventos.adicionarFalas("Minha bolsa de grife é linda, não é?", null, null);
+		controleEventos.adicionarFalas("TÔ FICANDO DOIDONA!", "Você está realmente lendo minhas mensagens?", "Meus desenhos são divinos!");
+		controleEventos.adicionarFalas("Minha bolsa de grife é linda, não é?", "Sou só eu, ou alguém mais acha esse jogo desbalanceado?", "Animais são ótimos para fazer roupas, elas ficam quantinhas!");
 		//
 		controleEventos.adicionarCriaturasDoceis(pardal);
 		controleEventos.adicionarCriaturasDoceis(tatu);
