@@ -25,6 +25,8 @@ SistemaCombate combate= new SistemaCombate();
 public void introducaoJogoTexto() {
 	introducaoJogo.menuStart();
 	introducaoJogo.interacaoFalaUsuario();	
+	introducaoJogo.comoJogoFunciona();
+	introducaoJogo.interacaoFalaUsuario();
 	introducaoJogo.historiaInicial();
 	introducaoJogo.interacaoFalaUsuario();
 }
@@ -42,12 +44,14 @@ public void adicionarFalas(String fala1, String fala2, String fala3) {
 
 //Implementaçoes iniciais e finais
 	public void adicionarCriaturasDoceis(EventoCriaturasDoceis criatura) {
+		
 		manipular.adicionarCriaturasDoceis(criatura);
 				
 	}
 	
 	//Condiçoes de vitoria derrota
 	public void todosFinais(Personagem jogador, int numeroMaxCiclos, int numeroCiclos ) {
+		System.out.println("\n======Final=======");
 		finaisPersonagem.finalDosFinais(jogador, numeroMaxCiclos, numeroCiclos);
 	}
 	public boolean derrota(Personagem jogador) {
@@ -68,10 +72,12 @@ public void adicionarFalas(String fala1, String fala2, String fala3) {
 		
 		if(aleatorio.nextInt(100)<85) {
 			falas();
+			System.out.println("\n=======Letal Kombat======\ndireitos autorais, né?");
 			combate.combate( jogador, controlador, inventario);	
 			return 0;
 		}
 		else if(aleatorio.nextInt(100)<95) {
+			System.out.println("\n======Criaturas Dóceis=======\nElas são tão fofinhas!");
 			manipular.aparecerCriaturasDoceis(jogador);
 			return 0;
 		}

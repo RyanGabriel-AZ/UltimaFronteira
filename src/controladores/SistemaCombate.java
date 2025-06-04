@@ -143,7 +143,7 @@ System.out.println("Você colocou um alcance inexistente");
 			desgaste.atualizarEstadoAntesDepois(jogador, atual);
 			desgaste.resultadosAntesDepois(antes);
 			desgaste.resultadosAntesDepois(atual);
-			desgaste.mostrarResultado(resultado);
+			
 			desgaste.limparEstados();
 
 		}

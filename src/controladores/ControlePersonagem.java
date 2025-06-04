@@ -45,6 +45,7 @@ public class ControlePersonagem {
 	//Uma das classes principais do jogo. Aqui definimos nosso personagem do jogo.
 	public Personagem escolherclassejogador() {
 		Personagem funcao;
+		System.out.println("\n=======Profissões dos meus sonhos========");
 		System.out.println("Quando eu era criança, o que eu sonhava em ser? ");
 		for (Personagem personagem : personagens) {
 			System.out.println("\n");

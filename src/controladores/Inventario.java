@@ -113,7 +113,7 @@ public class Inventario {
 
 	public void mostrarInventario() {
 
-		System.out.println("==========Inventário=========");
+		System.out.println("==========Meu shopping de bolsa=========");
 		System.out.println(
 				"|     Nome     |     Quantidade    |     tipo     |     peso     |              específicos            | ");
 		listarInventario("Material");
@@ -168,6 +168,7 @@ public class Inventario {
 	}
 
 	public void usarItemGeral(Personagem jogador) {
+		System.out.println("\n========Usar itens=======");
 		System.out.println("Digite o nome do item que voce deseja usar: ");
 		String nomeItem = leitor.nextLine();
 		usarItem(nomeItem, jogador);
@@ -175,7 +176,7 @@ public class Inventario {
 	}
 
 	public void trabalharComMateriais() {
-
+System.out.println("\n======Forja======");
 		System.out.println("Digite o nome do material 1: ");
 		String nomeMaterialA = leitor.nextLine();
 
@@ -215,6 +216,7 @@ public class Inventario {
 	}
 
 	public void criarFerramentasInventario() {
+		System.out.println("\n======Forja======");
 		System.out.println("Digite o nome do material que será usado: ");
 		String nomeMaterialA = leitor.nextLine();
 		System.out.println("\n Vamos ver se você tem o molde correto");
@@ -317,7 +319,7 @@ public class Inventario {
 					f.setEficiencia(ferramenta.getEficiencia());
 					f.setResistencia(ferramenta.getResistencia());
 					f.setQuantidade(1);
-					f.setClasse(ferramenta.getClasse());
+					f.setClasse("Ferramenta");
 					f.setPeso(ferramenta.getPeso());
 					return;
 

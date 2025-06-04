@@ -24,6 +24,7 @@ public class FalasPensamentos {
 		falasAleatoria.add(fala3);
 	}
 	public void falar() {
+		System.out.println("=====Liriel======");
 		int tamanho= falasAleatoria.size();
 		System.out.println(falasAleatoria.get(aleatorio.nextInt(tamanho)));
 		

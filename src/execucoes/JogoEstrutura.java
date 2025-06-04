@@ -193,17 +193,17 @@ public class JogoEstrutura {
 //Materiais raros e necessario para fazer armas e espada;
 	Material moldeArma = new Material("Molde de armas", 10, 1, 1, 500, "Raro", "Material");
 	Material moldeFerramenta = new Material("Molde de ferramentas", 10, 1, 1, 500, "Raro", "Material");
-	Material combinado= new Material("Material combinado", 0, 0, 0, 0, "Criado", "Material");
+	Material combinado= new Material("Material combinado", 0, 1, 1, 0, "Criado", "Material");
 // Armas
 	Arma arma1 = new Arma("Saltos Altos", 5, 200, 1, 75, 100, 0.75, "Curto", "Arma");
 	Arma arma2 = new Arma("Chicote", 5, 200, 1, 200, 50, 0.8, "Medio", "Arma");
 	Arma arma3 = new Arma("Batons de precisao", 2, 200, 1, 200, 25, 1, "Longo", "Arma");
 
 // Ferramentas
-	Ferramenta balde = new Ferramenta("Balde", 20, 100, 0, 100, 0, "Balde", "Ferramenta");
-	Ferramenta picareta = new Ferramenta("Furadeira automatica", 30, 50, 0, 200, 0, "Picareta", "Ferramenta");
-	Ferramenta foice = new Ferramenta("Funcionarios CLT", 100, 50, 0, 200, 0, "Foice", "Ferramenta");
-	Ferramenta machado = new Ferramenta("Moto Serra Eletrica", 200, 200, 0, 100, 0, "Machado", "Ferramenta");
+	Ferramenta balde = new Ferramenta("Balde", 20, 100, 1, 100, 1, "Balde", "Ferramenta");
+	Ferramenta picareta = new Ferramenta("Furadeira automatica", 30, 50, 1, 200, 1, "Picareta", "Ferramenta");
+	Ferramenta foice = new Ferramenta("Funcionarios CLT", 100, 50, 1, 200, 1, "Foice", "Ferramenta");
+	Ferramenta machado = new Ferramenta("Moto Serra Eletrica", 200, 200, 1, 100, 1, "Machado", "Ferramenta");
 
 	public void adcionarElementosJogo() {
 		//
@@ -353,6 +353,8 @@ public class JogoEstrutura {
 		//
 		controleEventos.adcionarFalas("Onde está meu repelente? Os msoquitos estão me comendo viva ");
 		controleEventos.adicionarFalas("TÔ FICANDO DOIDONA!", "Você está realmente lendo minhas mensagens?", "Meus desenhos são divinos!");
+		controleEventos.adicionarFalas("Quer falar comigo? beije meus pés", "Você vai me deixar viva?", "Gosto de beber água importada, ela tem gosto de água!");
+		controleEventos.adicionarFalas("Você tem senso de moda?", "Isso é moda?!", "Papai me ensinou a tirar carne nobre dos animais silvestres!");
 		controleEventos.adicionarFalas("Minha bolsa de grife é linda, não é?", "Sou só eu, ou alguém mais acha esse jogo desbalanceado?", "Animais são ótimos para fazer roupas, elas ficam quantinhas!");
 		//
 		controleEventos.adicionarCriaturasDoceis(pardal);

@@ -8,6 +8,7 @@ public class IntroducaoJogo {
 	 */
 	Scanner leitor= new Scanner(System.in);
 	public void historiaInicial() {
+		System.out.println("======Biografia da Liriel======");
 		System.out.println(" Em um lugar distante, havia uma moça chamada Liriel.\n"
 				+ "Ela era filha de uma mundialmente famosa modelo , e de um explorador muito habilidoso\n"
 				+ "Certo dia Liriel resolvel explorar o melhor do dois mundos distintos dos seus pais\n"
@@ -48,5 +49,7 @@ else {
 				+ "=                                                                            =\n"
 			);
 	}
-
+public void comoJogoFunciona() {
+	System.out.println("\n=======MANUAL=======\nEste é o última fronteira, um jogo de sobrevivência em turnos. Você tem que exploar o ambiente, criar novas armas e ferramentas, para melhorar a exploração, e sobreviver ao maximo d eturnos que der. Use seus itens com sabedoria, qual quer deslize, e sua moret estará garantida");
+}
 }
