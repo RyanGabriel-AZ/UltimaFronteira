@@ -15,7 +15,7 @@ public class Maromba extends Personagem {
 
 	@Override
 	public void statsPersonagem() {
-		configurarLimites(125,100,250,80,80,80);
+		configurarLimites(125,100,150,80,80,80);
 		setEnergia(getLimiteEnergia());
 			setFome(getLimiteFome());
 			setForca(getLimiteForca());
@@ -41,7 +41,8 @@ public class Maromba extends Personagem {
 
 	@Override
 	public void descricaoClasse() {
-		System.out.println("Classe Maromba: Após injetar vários anabolizantes no seu corpo\n Ela ganhou uma força incrível, mas sua saúde foi para o ralo");
+		System.out.println("***Classe Maromba***");
+		System.out.println(" Após injetar vários anabolizantes no seu corpo\n Ela ganhou uma força incrível, mas sua saúde foi para o ralo");
 		
 	}
 }

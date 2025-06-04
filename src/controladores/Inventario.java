@@ -122,6 +122,7 @@ public class Inventario {
 		listarInventario("Medicamentos");
 		listarInventario("Arma");
 		listarInventario("Ferramenta");
+		System.out.println("O peso do inventário é: "+ pesoInventario());
 
 	}
 
@@ -258,6 +259,7 @@ System.out.println("\n======Forja======");
 	}
 
 	public void criarArmasInventario() {
+		System.out.println("=====Forja=====");
 		System.out.println("Digite o nome do material que será usado: ");
 		String nomeMaterialA = null;
 		nomeMaterialA = leitor.nextLine();
@@ -265,6 +267,7 @@ System.out.println("\n======Forja======");
 		Arma resultante = null;
 		Material a = null;
 		Material b = null;
+		System.out.println("Procurando moldes de armas");
 		for (Item item : acessarInventario()) {
 			if (item instanceof Material && item.getNome().equalsIgnoreCase(nomeMaterialA)
 					&& item.getClasse().equalsIgnoreCase("Material")) {
@@ -283,6 +286,8 @@ System.out.println("\n======Forja======");
 		if (a != null && b != null) {
 			resultante = criador.criarArma(a, b);
 			if (resultante != null) {
+				System.out.println("Você criou uma arma: " +resultante.getNome());
+				System.out.println("Ele tem poder: " + String.valueOf(resultante.getPoder()));
 				clonarArmas(resultante);
 				retirarQuantidade(b, 1);
 				retirarQuantidade(a, 1);
@@ -311,14 +316,14 @@ System.out.println("\n======Forja======");
 	}
 
 	public void clonarFerramenta(Ferramenta ferramenta) {
-		for (Item iteragir : inventario) {
+		for (Item iteragir : acessarInventario()) {
 			if (iteragir.getNome().equalsIgnoreCase(ferramenta.getNome())) {
 				if (iteragir instanceof Ferramenta) {
 					Ferramenta f = (Ferramenta) iteragir;
 					f.setDurabilidade(ferramenta.getDurabilidade());
 					f.setEficiencia(ferramenta.getEficiencia());
 					f.setResistencia(ferramenta.getResistencia());
-					f.setQuantidade(1);
+					f.setQuantidade(1);				
 					f.setClasse("Ferramenta");
 					f.setPeso(ferramenta.getPeso());
 					return;
@@ -331,7 +336,7 @@ System.out.println("\n======Forja======");
 	}
 public void clonarArmas(Arma arma) {
 	for (Item item : inventario) {
-		if(item.getTipo().equalsIgnoreCase(arma.getNome())) {
+		if(item.getTipo().equalsIgnoreCase(arma.getTipo())) {
 			if(item instanceof Arma) {
 				Arma a= (Arma) item;
 				a.setDurabilidade(arma.getDurabilidade());

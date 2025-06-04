@@ -50,6 +50,6 @@ else {
 			);
 	}
 public void comoJogoFunciona() {
-	System.out.println("\n=======MANUAL=======\nEste é o última fronteira, um jogo de sobrevivência em turnos. Você tem que exploar o ambiente, criar novas armas e ferramentas, para melhorar a exploração, e sobreviver ao maximo d eturnos que der. Use seus itens com sabedoria, qual quer deslize, e sua moret estará garantida");
+	System.out.println("\n=======MANUAL=======\nEste é o última fronteira, um jogo de sobrevivência em turnos.\n Você tem que exploar o ambiente, criar novas armas e ferramentas, para melhorar a exploração, e sobreviver ao maximo d eturnos que der. Use seus itens com sabedoria,\n qualquer deslize, e sua moret estará garantida");
 }
 }

@@ -15,7 +15,7 @@ public class FilhinhaDoPapai extends Personagem{
 
 	@Override
 	public void statsPersonagem() {
-		configurarLimites(400, 400, 400, 400, 400, 400);
+		configurarLimites(400, 400, 125, 400, 400, 400);
 		setEnergia(getLimiteEnergia());
 		setFome(getLimiteFome());
 		setForca(getLimiteForca());
@@ -40,7 +40,8 @@ public class FilhinhaDoPapai extends Personagem{
 
 	@Override
 	public void descricaoClasse() {
-		System.out.println("Classe FDP ou Filhinha do papai: \"Papai realmente facilitou tudo para mim\"");
+		System.out.println("***Classe FDP (ou Filhinha do papai)***");
+		System.out.println("\"Papai realmente facilitou tudo para mim\"");
 		
 	}
 }

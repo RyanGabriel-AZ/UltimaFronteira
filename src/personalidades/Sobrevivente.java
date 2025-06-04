@@ -36,7 +36,8 @@ public class Sobrevivente extends Personagem{
 
 	@Override
 	public void descricaoClasse() {
-		System.out.println("Classe sobrevivente: Após se formar em Engenharia da computação, nada te abala, nem a natureza. ");
+		System.out.println("***Classe sobrevivente***");
+		System.out.println(" Após se formar em Engenharia da computação, nada te abala, nem a natureza. ");
 	}
 
 }

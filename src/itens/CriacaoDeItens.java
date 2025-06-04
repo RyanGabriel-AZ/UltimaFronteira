@@ -113,21 +113,21 @@ public class CriacaoDeItens {
 			{ nome1= "Saltos Altos";
 			poder= (durabilidade/10)*1.7;
 			precisao=0.6;
-			Arma curto= new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Armas");
+			Arma curto= new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Arma");
 			return curto;
 			}
 			case "medio": {
 				nome1= "Chicote";
 				poder= (durabilidade/10)*1.4;
 				precisao= 0.8;
-				Arma medio= new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Armas");
+				Arma medio= new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Arma");
 				return medio;
 			}
 			case "longo": {
 				nome1= "Batons de Precisao";
 				poder= (durabilidade/10)*1.1;
 				precisao= 1;
-				Arma longo= new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Armas");
+				Arma longo= new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Arma");
 				return longo;
 			}	
 			}

@@ -18,7 +18,8 @@ public class Ferramenta extends Material {
 	
 @Override
 public String getEspecifico() {
-	return "Eficiência "+ String.valueOf(getEficiencia());
+	return "Eficiência "+ String.valueOf(getEficiencia()) + " Durabilidade " +String.valueOf(getDurabilidade());
+	
 }
 
 	}

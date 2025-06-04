@@ -48,7 +48,8 @@ public int statusAleatorio() {
 	}
 	@Override
 	public void descricaoClasse() {
-		System.out.println("Classe coringa: é ótima para quem ama viver à base da sorte");
+		System.out.println("***Classe coringa***");
+		System.out.println("Se você ama loucuras, então vai amar ser Coringa. É ótima para quem ama viver à base da sorte");
 	}
 
 	

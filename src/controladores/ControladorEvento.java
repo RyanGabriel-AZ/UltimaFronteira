@@ -2,6 +2,7 @@ package controladores;
 
 import java.util.Random;
 
+import eventualidades.DesgastePersonagem;
 import eventualidades.EventoCriaturasDoceis;
 import eventualidades.EventosComAmbientes;
 import eventualidades.EventosComCraituras;
@@ -21,6 +22,7 @@ FalasPensamentos falasPensamentos= new FalasPensamentos();
 FinaisPersonagem finaisPersonagem= new FinaisPersonagem();
 IntroducaoJogo introducaoJogo= new IntroducaoJogo();
 SistemaCombate combate= new SistemaCombate();
+DesgastePersonagem desgastado= new DesgastePersonagem("");
 // Relaçoes  de falas personagens
 public void introducaoJogoTexto() {
 	introducaoJogo.menuStart();
@@ -86,8 +88,14 @@ public void adicionarFalas(String fala1, String fala2, String fala3) {
 	}
 	
 	
-	
-	
+	/// botar no final do loop
+	public void aplicarEfeitorPorTurno(Personagem jogador) {
+		desgastado.StatsPersonagemSemDesgaste(jogador);
+		desgastado.aplicarStatusTurno(jogador);
+		desgastado.StatsPersonagemSemDesgaste(jogador);
+		
+		
+	}
 	//Eventos aleatórios
 
 
@@ -95,9 +103,9 @@ public void criaturasDoceis(Personagem jogador) {
 	manipular.aparecerCriaturasDoceis(jogador);
 }
 
-public void podeExplorar() {
+public void podeExplorar(Inventario inventario) {
 	
-	exploracao.explorar();
+	exploracao.explorar(inventario);
 	
 }
 

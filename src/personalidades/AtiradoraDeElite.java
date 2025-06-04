@@ -26,7 +26,7 @@ public class AtiradoraDeElite extends Personagem{
 
 	@Override
 	public void statsPersonagem() {
-		configurarLimites(150, 100, 100, 100, 100, 100);
+		configurarLimites(150, 100, 75, 100, 100, 100);
 		setEnergia(getLimiteEnergia());
 		setFome(getLimiteFome());
 		setForca(getLimiteForca());
@@ -39,7 +39,8 @@ public class AtiradoraDeElite extends Personagem{
 
 	@Override
 	public void descricaoClasse() {
-		System.out.println("Classe ATE ou atiradora de elite: Com ela todos os seus ataques serão certeiros\n "
+		System.out.println("***Classe ATE ou atiradora de elite***");
+		System.out.println("Após anos jogando COD (Criando Objetos Dinâmicos), ela ficou craque em usar armas de longo alcance.\n Com ela todos os seus ataques serão certeiros\n "
 				+ "Ataques de alcance longo, terá dano triplicado no inimigo");
 		
 		

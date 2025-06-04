@@ -43,6 +43,9 @@ public abstract class Item {
 
 	public void setDurabilidade(double durabilidade) {
 		this.durabilidade = durabilidade + getDurabilidade();
+		if(getDurabilidade()<= 0) {
+			this.durabilidade=0;
+		}
 	}
 
 	public int getQuantidade() {

@@ -33,8 +33,21 @@ public class DesgastePersonagem {
 		System.out.println(String.format("%-10.1f %-10.1f %-10.1f %-10.1f %-10.1f %-10d", jogador.getVida(), jogador.getSanidade(), jogador.getFome(), jogador.getEnergia(), jogador.getSede(), jogador.getProtecaoEfeitosSecundarios()));
 		
 	}
-	
-	
+	//ele diminui tudo do personagem um pouco
+	public void aplicarStatusTurno(Personagem jogador) {
+		double lascarVida= jogador.getEnergia()+jogador.getFome()+jogador.getVida()+jogador.getFome()+jogador.getSanidade();
+		System.out.println("======Imposto de Renda=======");
+		System.out.println("A natureza decidiu tirar um pouco de tudo de você! Para deixar o jogo balanceado");
+		double debuff= -(lascarVida/5)*0.2;
+		jogador.setEnergia(debuff);
+		jogador.setFome(debuff);
+		jogador.setSede(debuff);
+		jogador.setVida(debuff*0.5);
+		jogador.setSanidade(debuff);
+		
+		
+		
+	}
 	
 	
 	

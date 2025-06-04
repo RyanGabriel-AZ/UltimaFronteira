@@ -63,4 +63,9 @@ public void adcionarAmbienteAoHashMap(Ambiente ambiente) {
 public void espolios(Personagem jogador) {
 	jogador.getLocalizacao().espoliosAmbiente(jogador);
 }
+public void forcasDaNaturezaAmbiente(Personagem jogador ) {
+	System.out.println("=====Forças da natureza====");
+	System.out.println("As forças da natureza estão agindo sobre mim!");
+	jogador.getLocalizacao().naturezaAmbiente(jogador);
+}
 }

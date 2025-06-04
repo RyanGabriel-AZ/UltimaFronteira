@@ -15,7 +15,7 @@ public class Vampira  extends Personagem {
 
 	@Override
 	public void statsPersonagem() {
-		configurarLimites(200,80,90,120,100,125);
+		configurarLimites(200,80,60,120,100,125);
 		setEnergia(getLimiteEnergia());
 			setFome(getLimiteFome());
 			setForca(getLimiteForca());
@@ -40,7 +40,8 @@ public class Vampira  extends Personagem {
 
 	@Override
 	public void descricaoClasse() {
-		System.out.println("Classe Vampira: Após vários anos convinvendo com vampiros, ela se tornou uma humano-vampira.\n Sua alegria, vem da dor alheia. ");
+		System.out.println("***Classe Vampira:***");
+		System.out.println(" Após vários anos convinvendo com vampiros, ela se tornou uma humano-vampira.\n Sua alegria, vem da dor alheia. ");
 	}
 	
 

@@ -33,6 +33,7 @@ public class Deserto extends Savana{
 	
 	@Override
 	public void naturezaAmbiente(Personagem jogador) {
+		System.out.println("");
 		double lascarPersonagem= -1*(getMormaco()*10+ getFaltaDeSuprimentos()*10+ getSolEscaldante()*10+ 15*getTerrenoArenoso())*jogador.getResistenciaAoAmbiente();
 		jogador.setEnergia(lascarPersonagem*3);
 		jogador.setFome(lascarPersonagem*3);

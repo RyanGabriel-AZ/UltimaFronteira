@@ -47,15 +47,15 @@ public class JogoEstrutura {
 	 * Objetos Ambiente
 	 */
 
-	Deserto deserto = new Deserto("Deserto", "Um lugar árido e perigoso, a morte está à espreita", 20, 70, "sol",
+	Deserto deserto = new Deserto("Deserto", "Um lugar árido e perigoso, a morte está à espreita!\nAqui podemos encontrar diversas ciraturas perigosas. ", 20, 70, "sol",
 			inventario, 0.9, 0.9, 0.9, 0.9);
-	Savana savana = new Savana("Savana", "Cheio de animais perigosos, quente, poucos suprimentos", 50, 70, "Sol",
+	Savana savana = new Savana("Savana", "Um lugar seco, vegetação pequena, mas fauna vasta. Leões, Hipopótamos entre outros animais mansos, que lugar TRANQUILO, SEGURO e AGRDÁVEL. O sol está me torrando!", 50, 70, "Sol",
 			inventario, 0.7, 0.7, 0.7);
-	LagoRio lago = new LagoRio("Lago", "Um lugar lindo, cheio de água, e lama.", 80, 70, "Sol", inventario, 0.9, 0.8,
+	LagoRio lago = new LagoRio("Lago", "Um lugar lindo, cheio de água, e lama. Ótimo para nadar com jacarés, eles são DÓCEIS", 80, 70, "Sol", inventario, 0.9, 0.8,
 			1);
-	Floresta floresta = new Floresta("Floresta", "Matos sem fim, um ótimo lugar para fazer chá.", 90, 90, "Sol",
+	Floresta floresta = new Floresta("Floresta", "Matos sem fim, um ótimo lugar para fazer chá. Uma madereira, seria ótima para negócios.", 90, 90, "Sol",
 			inventario, 0.9, 0.9, 0.8);
-	Ruinas ruina = new Ruinas("Ruinas", "Estruturas antigas, alguém já viveu aqui", 70, 80, "Nenhuma", inventario, 0.8,
+	Ruinas ruina = new Ruinas("Ruinas", "Estruturas antigas, alguém já viveu aqui. \"Olha um mendigo \" ", 70, 80, "Nenhuma", inventario, 0.8,
 			0.6, true);
 
 	/*
@@ -88,7 +88,7 @@ public class JogoEstrutura {
 	 * criaturas
 	 */
 	// deserto
-	CriaturasHostis cascavel = new CriaturasHostis("Cascavél", 50, 1, "Venenosa!", deserto, 40, "Veneno", 1, "Letal");
+	CriaturasHostis cascavel = new CriaturasHostis("Cascavél", 50, 1, "Venenosa! Parece minha prima", deserto, 40, "Veneno", 1, "Letal");
 	CriaturasHostis escorpião = new CriaturasHostis("Escorpião", 25, 1, "Pequeno, mas letal", deserto, 30, "Veneno",
 			0.9, "Normal");
 	CriaturasHostis carcara = new CriaturasHostis("Carcará", 60, 1, "Uma ave de rapina, de respeito", deserto, 70,
@@ -430,21 +430,26 @@ public class JogoEstrutura {
 			switch (letra.toUpperCase()) {
 			case "E": {
 				System.out.println("\n Eu vou eu vou, lascar as juntas eu vou...");
-				controleEventos.podeExplorar();
+				controleEventos.podeExplorar(inventario);
+				controleAmbiente.forcasDaNaturezaAmbiente(jogador);
 				break;
 			}
 			case "C":
 				System.out.println("Ai! meu Deus do céu, úrtigas!");
 				controleAmbiente.espolios(jogador);
+				controleAmbiente.forcasDaNaturezaAmbiente(jogador);
 			}
 		} else {
 
 			System.out.println("\nVamos procurar tesouros no ambiente");
 			controleAmbiente.espolios(jogador);
+			controleAmbiente.forcasDaNaturezaAmbiente(jogador);
 		}
 	}
 
 	public void deveriamosMudarOAmbiente(Personagem jogador) {
+		
+		System.out.println("=====Mudando de Ambiente=====");
 		System.out.println("\n Estou ficando Enjoada desse ambiente! Vamos mudar de ambiente!");
 		String direcao = null;
 		System.out.println(
@@ -453,11 +458,13 @@ public class JogoEstrutura {
 		if (direcao.equalsIgnoreCase("N") || direcao.equalsIgnoreCase("S") || direcao.equalsIgnoreCase("L")
 				|| direcao.equalsIgnoreCase("O")) {
 			controleAmbiente.controlarAmbiente(jogador);
+			System.out.println("======"+ jogador.getLocalizacao().getNome()+ "======");
 			System.out.println("\n Oba! um novo ambiente, estamos no(a): " + jogador.getLocalizacao().getNome()
 					+ " \n Deixe-me ver o que papai anotou para mim sobre este ambiente. " + "Bom aqui diz: "
 					+ jogador.getLocalizacao().getDescricao());
 
 		} else {
+			System.out.println("======"+ jogador.getLocalizacao().getNome()+ "======");
 			System.out.println("\nQue pena, queria tanto mudar de ambiente :( . Vamos continuar então!");
 		}
 
@@ -466,6 +473,8 @@ public class JogoEstrutura {
 	public void loopJogo(Personagem jogador) {
 		int bloquearLoop = 1;
 		int loopMaximo = 16;
+		System.out.println("======"+jogador.getLocalizacao().getNome()+"======");
+		System.out.println("Melhor tomar cuidado, minha jornada será difícil.");
 		while (bloquearLoop < loopMaximo) {
 			System.out.println("\nVocê está na rodada: " + bloquearLoop);
 			inventario.inventarioFuncional(jogador);
@@ -474,6 +483,10 @@ public class JogoEstrutura {
 				break;
 			}
 			controleEventos.eventosAleatoriosJogo(jogador, controleCriaturas, inventario);
+			if (bloquearLoop(jogador)) {
+				break;
+			}
+			controleEventos.aplicarEfeitorPorTurno(jogador);
 			if (bloquearLoop(jogador)) {
 				break;
 			}

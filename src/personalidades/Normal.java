@@ -26,7 +26,7 @@ public class Normal extends Personagem {
 
 	@Override
 	public void statsPersonagem() {
-		configurarLimites(200,100,100,100,100,100);
+		configurarLimites(200,100,75,100,100,100);
 		setEnergia(getLimiteEnergia());
 			setFome(getLimiteFome());
 			setForca(getLimiteForca());
@@ -39,7 +39,8 @@ public class Normal extends Personagem {
 
 	@Override
 	public void descricaoClasse() {
-	System.out.println("Classe Normal: \nUma pessoa normal, com equilíbrio na vida,");
+		System.out.println("***Classe Normal***");
+	System.out.println(" \nUma pessoa normal, com equilíbrio na vida,");
 		
 	}
 }
