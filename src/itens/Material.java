@@ -20,7 +20,7 @@ public class Material extends Item {
 			double durabilidade = a.getDurabilidade() + b.getDurabilidade();
 			a.setQuantidade(-1);
 			b.setQuantidade(-1);
-			String tipo= a.getTipo();
+			String tipo= "Criado";
 			Material c = new Material("material criado", peso, durabilidade, 1, resistencia, tipo, "Material");
 			return c;
 		}

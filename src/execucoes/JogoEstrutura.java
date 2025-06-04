@@ -172,7 +172,7 @@ public class JogoEstrutura {
 	// Material
 	// Minerais
 	Material pedra = new Material("Pedra", 2, 1, 0, 200, "Minerais", "Material");
-	Material ferro = new Material("Ferro", 5, 1, 0, 500, "Minerais", "Material");
+	Material ferro = new Material("Ferro", 5, 1, 1, 500, "Minerais", "Material");
 	Material carvao = new Material("Carvão", 3, 1, 0, 300, "Minerais", "Material");
 	Material chumbo = new Material("Chumbo", 6, 1, 0, 400, "Minerais", "Material");
 	// Madeiras
@@ -193,6 +193,7 @@ public class JogoEstrutura {
 //Materiais raros e necessario para fazer armas e espada;
 	Material moldeArma = new Material("Molde de armas", 10, 1, 1, 500, "Raro", "Material");
 	Material moldeFerramenta = new Material("Molde de ferramentas", 10, 1, 1, 500, "Raro", "Material");
+	Material combinado= new Material("Material combinado", 0, 0, 0, 0, "Criado", "Material");
 // Armas
 	Arma arma1 = new Arma("Saltos Altos", 5, 200, 1, 75, 100, 0.75, "Curto", "Arma");
 	Arma arma2 = new Arma("Chicote", 5, 200, 1, 200, 50, 0.8, "Medio", "Arma");
@@ -340,6 +341,7 @@ public class JogoEstrutura {
 		inventario.adicionarItem(machado);
 		inventario.adicionarItem(picareta);
 		inventario.adicionarItem(foice);
+		inventario.adicionarItem(combinado);
 
 		controladorPersonagem.adcionarClassesPersonagem(atiradoraDeElite);
 		controladorPersonagem.adcionarClassesPersonagem(coringa);
@@ -349,7 +351,8 @@ public class JogoEstrutura {
 		controladorPersonagem.adcionarClassesPersonagem(sobrevivente);
 		controladorPersonagem.adcionarClassesPersonagem(vampira);
 		//
-		controleEventos.adcionarFalas("Fala qualquer");
+		controleEventos.adcionarFalas("Onde está meu repelente? Os msoquitos estão me comendo viva ");
+		controleEventos.adicionarFalas("Minha bolsa de grife é linda, não é?", null, null);
 		//
 		controleEventos.adicionarCriaturasDoceis(pardal);
 		controleEventos.adicionarCriaturasDoceis(tatu);
@@ -478,5 +481,9 @@ public class JogoEstrutura {
 		controleEventos.todosFinais(jogador, loopMaximo, bloquearLoop);
 
 	}
+	
+	
+	
+	
 
 }

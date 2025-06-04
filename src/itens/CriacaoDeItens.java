@@ -2,6 +2,8 @@ package itens;
 
 import java.util.Scanner;
 
+import controladores.Inventario;
+
 public class CriacaoDeItens {
 	
 	Scanner ler= new Scanner(System.in);
@@ -48,7 +50,9 @@ public class CriacaoDeItens {
 	
 	
 	public Ferramenta criarFerramenta( Material a, Material b) {
-		if(a.getNome().equalsIgnoreCase("Molde de Ferramentas") || b.getNome().equalsIgnoreCase("Molde de Ferramentas") ) {
+		if(a.getNome().equalsIgnoreCase("Molde de ferramentas") || b.getNome().equalsIgnoreCase("Molde de ferramentas") ) {
+			System.out.println("Material A: '" + a.getNome() + "'");
+		System.out.println("Material B: '" + b.getNome() + "'");
 		String tipo= pedirTipoFerramenta();
 			double resistencia= a.getResistencia() + b.getResistencia();
 		double durabilidade= resistencia*2;
@@ -56,47 +60,83 @@ public class CriacaoDeItens {
 		int quantidade= 1;
 		String nome = null;
 		double peso = (a.getPeso() + b.getPeso()) * 0.75;
+		System.out.println("Criando ferramenta do tipo: " + tipo);
+		System.out.println("Material usado: " + a.getNome());
+		tipo = tipo.trim().toLowerCase();
 		switch(tipo) {
-		case "Balde":
+		case "balde":{
 			nome = "Balde";
-		case "Picareta":
-			nome = "Furadeira automatica";
-		case "Foice":
-			nome = "Funcionarios CLT";
-		case "Machado":
-			nome= "Moto Serra Eletrica";
+			Ferramenta balde=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");
+			return balde;
+			
 		}
-		return new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");}
-		return null;
-	}
+		case "picareta":{
+			nome = "Furadeira automatica";
+			Ferramenta picareta=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");
+			return picareta;
+			}
+		case "foice":{
+			nome = "Funcionarios CLT";
+			Ferramenta foice=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");
+			return foice;
+			}
+		case "machado":{
+			nome= "Moto Serra Eletrica";
+			Ferramenta machado=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");
+			return machado;
+			}
+			}}else {
+					System.out.println("Não foi possível criar o item");
+					return null;
+				}
+		System.out.println("Não deu para criar a ferramenta");
+		return null;}
+		
+		
+	
 	public Arma  criarArma(Material a, Material b) {
-		if(a.getNome().equalsIgnoreCase("Molde de Armas") || b.getNome().equalsIgnoreCase("Molde de Armas")) {
+		if(a.getNome().equalsIgnoreCase("Molde de armas") || b.getNome().equalsIgnoreCase("Molde de armas")) {
 		String tipo= pedirTipoArma();
-			double resistencia= a.getResistencia() + b.getResistencia();
+			
+		
+		double resistencia= a.getResistencia() + b.getResistencia();
 			double durabilidade= resistencia*2;
 			double poder= 0;
 			int quantidade= 1;
 			double precisao=0;
 			double peso = (a.getPeso() + b.getPeso()) * 0.75;
 			String nome1= null;
+			tipo = tipo.trim().toLowerCase();
+			
 			switch(tipo) {
-			case "Curto":
+			case "curto":
 			{ nome1= "Saltos Altos";
 			poder= (durabilidade/10)*1.7;
 			precisao=0.6;
+			Arma curto= new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Armas");
+			return curto;
 			}
-			case "Medio": {
+			case "medio": {
 				nome1= "Chicote";
 				poder= (durabilidade/10)*1.4;
 				precisao= 0.8;
+				Arma medio= new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Armas");
+				return medio;
 			}
-			case "Longo": {
+			case "longo": {
 				nome1= "Batons de Precisao";
 				poder= (durabilidade/10)*1.1;
 				precisao= 1;
+				Arma longo= new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Armas");
+				return longo;
 			}	
 			}
-			return new Arma(nome1, peso, durabilidade, quantidade, resistencia, poder, precisao,  tipo, "Armas");}
+		}else {
+		System.out.println("Não deu para criar a arma");
+		return null;
+		
+		}
+		System.out.println("Não deu para criar a arma");
 		return null;
 		}
 		

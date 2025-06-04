@@ -121,8 +121,15 @@ public void statusCriatura() {
 		System.out.println(getNome() + " vai atacar!");
 		System.out.println("Vida criatura");
 		statusCriatura();
-		ataque(jogador);
-		aplicarEfeitosSecundarios(jogador);
+		if(getVida()>0) {
+			ataque(jogador);
+			aplicarEfeitosSecundarios(jogador);
+		}
+		else {
+			System.out.println("Voce acabou com a criatura!");
+		}
+		
+		
 		
 	}
 	public void aparecerCriatura() {
