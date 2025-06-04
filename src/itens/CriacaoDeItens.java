@@ -66,23 +66,23 @@ public class CriacaoDeItens {
 		switch(tipo) {
 		case "balde":{
 			nome = "Balde";
-			Ferramenta balde=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");
+			Ferramenta balde=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramenta");
 			return balde;
 			
 		}
 		case "picareta":{
 			nome = "Furadeira automatica";
-			Ferramenta picareta=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");
+			Ferramenta picareta=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramenta");
 			return picareta;
 			}
 		case "foice":{
 			nome = "Funcionarios CLT";
-			Ferramenta foice=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");
+			Ferramenta foice=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramenta");
 			return foice;
 			}
 		case "machado":{
 			nome= "Moto Serra Eletrica";
-			Ferramenta machado=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramentas");
+			Ferramenta machado=  new Ferramenta(nome, peso, durabilidade, quantidade, resistencia, eficiencia, tipo , "Ferramenta");
 			return machado;
 			}
 			}}else {
